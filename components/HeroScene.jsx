@@ -23,6 +23,8 @@ export default function HeroScene() {
       <Motion.div className="hero-sun" style={{ x: driftX, y: driftY }} />
       <Motion.div className="hero-atmosphere left" style={{ x: counterX }} />
       <Motion.div className="hero-atmosphere right" style={{ x: driftX }} />
+      <Motion.div className="hero-ray ray-one" style={{ x: driftX }} />
+      <Motion.div className="hero-ray ray-two" style={{ x: counterX }} />
       <Motion.div className="hero-landscape far" style={{ x: counterX }} />
       <Motion.div className="hero-landscape near" style={{ x: driftX }} />
       <Motion.div className="hero-figure" style={{ x: counterX }} animate={{ y: [0, -8, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
@@ -36,29 +38,29 @@ export default function HeroScene() {
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          Futuristic AI operating systems
+          Ambient AI operating systems
         </Motion.p>
         <Motion.h1
           initial={{ opacity: 0, y: 28, filter: "blur(16px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.05, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
-          Build the calm system behind the chaos.
+          The calm operating layer behind modern business.
         </Motion.h1>
         <Motion.p
           initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
         >
-          Cyber Ethos creates AI automation, cybersecurity, web systems, integrations,
-          monitoring, and community as one cinematic business environment.
+          Cyber Ethos turns automation, cybersecurity, web presence, integrations,
+          monitoring, and community into one elegant business ecosystem.
         </Motion.p>
       </div>
 
       <Motion.div className="hero-glass-console" style={{ x: driftX, y: driftY }} animate={{ opacity: [0.88, 1, 0.9] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}>
-        <span>Live ecosystem</span>
-        <strong>6 active layers</strong>
-        <small>Human command enabled</small>
+        <span>Operating Atmosphere</span>
+        <strong>6 quiet layers</strong>
+        <small>Human command intact</small>
       </Motion.div>
     </section>
   );

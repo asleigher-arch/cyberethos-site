@@ -4,12 +4,12 @@ import HeroScene from "@/components/HeroScene";
 import { FadeIn, Motion, Stagger, StaggerItem } from "@/components/MotionPrimitives";
 
 const systemCards = [
-  ["AI Automation", "Autonomous work loops with human command."],
+  ["AI Automation", "Quiet work loops with judgment preserved."],
   ["Cybersecurity", "Trust boundaries before deeper access."],
-  ["Web Systems", "Premium digital presence and conversion."],
-  ["Integrations", "Tools connected into one operating layer."],
-  ["Monitoring", "Signals, alerts, and workflow visibility."],
-  ["Community", "The human layer around the ecosystem."]
+  ["Web Systems", "A premium presence that feels inevitable."],
+  ["Integrations", "Tools composed into one environment."],
+  ["Monitoring", "Signals without noise."],
+  ["Community", "The human layer around the machine."]
 ];
 
 const founderSignals = [
@@ -30,7 +30,7 @@ export default function HomePage() {
       <section id="cards" className="interface-orbit">
         <FadeIn className="orbit-copy">
           <p className="micro-label">Interactive Command Surfaces</p>
-          <h2>Choose a system. Enter the layer.</h2>
+          <h2>Six surfaces. One atmosphere.</h2>
         </FadeIn>
         <Stagger className="orbit-grid">
           {systemCards.map(([title, body], index) => (
@@ -54,7 +54,7 @@ export default function HomePage() {
         <div className="section-frame">
           <FadeIn className="section-statement">
             <p className="micro-label">Dynamic AI Systems</p>
-            <h2>Automation that feels less like software and more like a quiet operating crew.</h2>
+          <h2>Automation that disappears into the rhythm of the business.</h2>
           </FadeIn>
           <div className="constellation">
             {["Intake", "Research", "Drafting", "Review", "Follow-up"].map((item, index) => (
@@ -77,11 +77,11 @@ export default function HomePage() {
       <section className="founder-section">
         <FadeIn className="founder-card">
           <p className="micro-label">Founder Mission</p>
-          <h2>Built from service, pressure, security, and the need for systems that actually hold.</h2>
+          <h2>Built from service, pressure, and the discipline to keep systems human.</h2>
           <p>
-            Cyber Ethos is founder-led by a Marine veteran with roots in Iraq, cybersecurity,
-            and AI workflows. The mission is not to make businesses look technical. It is to
-            help them operate with calm, disciplined intelligence.
+          Cyber Ethos is founder-led by a Marine veteran with roots in Iraq,
+          cybersecurity, and AI workflows. The mission is simple: make the
+          business feel clearer, lighter, and more controlled.
           </p>
         </FadeIn>
         <Stagger className="signal-list">
@@ -97,7 +97,7 @@ export default function HomePage() {
       <section className="workflow-section">
         <FadeIn className="workflow-heading">
           <p className="micro-label">Workflow Visualization</p>
-          <h2>Every action moves through context, judgment, and memory.</h2>
+          <h2>Every action should move through context, judgment, and memory.</h2>
         </FadeIn>
         <div className="flow-ribbon">
           {flow.map((item, index) => (
@@ -127,11 +127,11 @@ export default function HomePage() {
         </div>
         <FadeIn className="ecosystem-copy">
           <p className="micro-label">Integrated Systems Ecosystem</p>
-          <h2>Web, AI, security, community, and monitoring as one living environment.</h2>
+          <h2>Web, AI, security, community, and monitoring as one living atmosphere.</h2>
           <p>
-            The result is not a pile of tools. It is a connected business layer where the
-            website creates trust, agents move work, security defines boundaries, and
-            monitoring keeps the operator aware.
+          The result is not a pile of tools. It is a connected atmosphere where
+          the website creates trust, agents move work, security defines boundaries,
+          and monitoring keeps the operator aware.
           </p>
         </FadeIn>
       </section>
@@ -139,7 +139,7 @@ export default function HomePage() {
       <section id="contact" className="cinematic-cta">
         <FadeIn>
           <p className="micro-label">Begin the Build</p>
-          <h2>This should not feel like a normal business website.</h2>
+          <h2>Make the business feel like it already arrived.</h2>
           <p>
             Send the messy version of what you want Cyber Ethos to become. We will keep
             shaping it into a premium AI operating environment.
