@@ -1,154 +1,172 @@
 "use client";
 
-import GlassCard from "@/components/GlassCard";
 import HeroScene from "@/components/HeroScene";
 import { FadeIn, Motion, Stagger, StaggerItem } from "@/components/MotionPrimitives";
 
-const systems = [
-  {
-    id: "ai-automation",
-    eyebrow: "AI Automation",
-    title: "Agents that quietly move work forward.",
-    body: "Inbox triage, research, client intake, reporting, and content workflows designed as calm operational systems with approval points."
-  },
-  {
-    id: "cybersecurity",
-    eyebrow: "Cybersecurity",
-    title: "Security woven into the operating layer.",
-    body: "Permissions, access, data flow, vendor risk, and practical safeguards before automation gets deeper into the business."
-  },
-  {
-    id: "web-systems",
-    eyebrow: "Web Systems",
-    title: "Websites that feel like living business infrastructure.",
-    body: "Premium positioning, responsive design, conversion paths, and brand presence that feels intentional instead of assembled."
-  },
-  {
-    id: "integrations",
-    eyebrow: "Integrations",
-    title: "Your tools connected without turning into chaos.",
-    body: "Email, calendars, CRMs, Whop, Telegram, docs, and internal workflows connected with scope, logs, and clear ownership."
-  },
-  {
-    id: "monitoring",
-    eyebrow: "Monitoring",
-    title: "Visibility across the machine.",
-    body: "Dashboards, alerts, workflow status, task summaries, and review trails that make the business easier to understand."
-  },
-  {
-    id: "community",
-    eyebrow: "Community",
-    title: "A human ecosystem around the systems.",
-    body: "Member content, resources, operator updates, and community spaces that support the brand beyond the main website."
-  }
+const systemCards = [
+  ["AI Automation", "Autonomous work loops with human command."],
+  ["Cybersecurity", "Trust boundaries before deeper access."],
+  ["Web Systems", "Premium digital presence and conversion."],
+  ["Integrations", "Tools connected into one operating layer."],
+  ["Monitoring", "Signals, alerts, and workflow visibility."],
+  ["Community", "The human layer around the ecosystem."]
 ];
 
-const phases = ["Observe", "Design", "Automate", "Secure", "Monitor", "Evolve"];
+const founderSignals = [
+  "Marine veteran founded",
+  "Iraq-shaped operating discipline",
+  "Cybersecurity background",
+  "AI workflow builder"
+];
+
+const flow = ["Signal", "Context", "Decision", "Approval", "Action", "Memory"];
 
 export default function HomePage() {
   return (
-    <main className="site-canvas">
-      <SiteHeader />
+    <main className="experience-shell">
+      <CinematicNavbar />
       <HeroScene />
 
-      <section className="story-band">
-        <FadeIn className="story-copy">
-          <p className="eyebrow">New Architecture</p>
-          <h2>Cyber Ethos is an operating environment, not an agency template.</h2>
-          <p>
-            The brand is built around a founder-led mission: turn pressure, scattered
-            tools, and manual work into calm AI-enabled systems businesses can trust.
-          </p>
+      <section id="cards" className="interface-orbit">
+        <FadeIn className="orbit-copy">
+          <p className="micro-label">Interactive Command Surfaces</p>
+          <h2>Choose a system. Enter the layer.</h2>
         </FadeIn>
-        <FadeIn delay={0.1}>
-          <GlassCard className="mission-card">
-            <span>Mission Signal</span>
-            <strong>Human command over intelligent systems.</strong>
-            <p>
-              Marine veteran perspective, cybersecurity discipline, and practical AI
-              workflows shaped into one premium business ecosystem.
-            </p>
-          </GlassCard>
-        </FadeIn>
-      </section>
-
-      <section className="immersive-strip">
-        <Stagger className="phase-track">
-          {phases.map((phase) => (
-            <StaggerItem key={phase} className="phase-node">
-              <span />
-              <strong>{phase}</strong>
+        <Stagger className="orbit-grid">
+          {systemCards.map(([title, body], index) => (
+            <StaggerItem key={title}>
+              <Motion.a
+                href={`#${title.toLowerCase().replaceAll(" ", "-")}`}
+                className="orbit-card"
+                whileHover={{ y: -10, rotate: index % 2 === 0 ? -1.2 : 1.2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{title}</strong>
+                <p>{body}</p>
+              </Motion.a>
             </StaggerItem>
           ))}
         </Stagger>
       </section>
 
-      <section className="system-sections">
-        {systems.map((system, index) => (
-          <article id={system.id} className="system-chapter" key={system.id}>
-            <FadeIn className="chapter-text">
-              <p className="eyebrow">{system.eyebrow}</p>
-              <h2>{system.title}</h2>
-              <p>{system.body}</p>
-            </FadeIn>
-            <FadeIn delay={0.08}>
+      <section id="ai-automation" className="ai-systems-section">
+        <div className="section-frame">
+          <FadeIn className="section-statement">
+            <p className="micro-label">Dynamic AI Systems</p>
+            <h2>Automation that feels less like software and more like a quiet operating crew.</h2>
+          </FadeIn>
+          <div className="constellation">
+            {["Intake", "Research", "Drafting", "Review", "Follow-up"].map((item, index) => (
               <Motion.div
-                className="chapter-visual"
-                whileHover={{ y: -8, rotateX: 2, rotateY: index % 2 === 0 ? -3 : 3 }}
-                transition={{ type: "spring", stiffness: 180, damping: 18 }}
+                key={item}
+                className="constellation-node"
+                initial={{ opacity: 0, scale: 0.86 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: index * 0.08 }}
               >
-                <div className="visual-orb" />
-                <div className="visual-lines">
-                  <span />
-                  <span />
-                  <span />
-                </div>
-                <div className="visual-meta">
-                  <small>{String(index + 1).padStart(2, "0")}</small>
-                  <strong>{system.eyebrow}</strong>
-                </div>
+                <span />
+                {item}
               </Motion.div>
-            </FadeIn>
-          </article>
-        ))}
+            ))}
+          </div>
+        </div>
       </section>
 
-      <section className="final-world" id="contact">
-        <FadeIn>
-          <p className="eyebrow">Begin</p>
-          <h2>Build the operating system behind the business.</h2>
+      <section className="founder-section">
+        <FadeIn className="founder-card">
+          <p className="micro-label">Founder Mission</p>
+          <h2>Built from service, pressure, security, and the need for systems that actually hold.</h2>
           <p>
-            Start with one workflow, one website, one security foundation, or the whole
-            ecosystem. The point is to make the business feel lighter, clearer, and alive.
+            Cyber Ethos is founder-led by a Marine veteran with roots in Iraq, cybersecurity,
+            and AI workflows. The mission is not to make businesses look technical. It is to
+            help them operate with calm, disciplined intelligence.
           </p>
-          <div className="cta-row">
-            <a className="primary-cta" href="mailto:contact@cyberethos.org">Start the conversation</a>
-            <a className="secondary-cta" href="#top">Return to environment</a>
-          </div>
+        </FadeIn>
+        <Stagger className="signal-list">
+          {founderSignals.map((signal) => (
+            <StaggerItem key={signal} className="signal-item">
+              <span />
+              {signal}
+            </StaggerItem>
+          ))}
+        </Stagger>
+      </section>
+
+      <section className="workflow-section">
+        <FadeIn className="workflow-heading">
+          <p className="micro-label">Workflow Visualization</p>
+          <h2>Every action moves through context, judgment, and memory.</h2>
+        </FadeIn>
+        <div className="flow-ribbon">
+          {flow.map((item, index) => (
+            <Motion.div
+              key={item}
+              className="flow-step"
+              initial={{ opacity: 0, y: 24, filter: "blur(12px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.75, delay: index * 0.06 }}
+            >
+              <small>{String(index + 1).padStart(2, "0")}</small>
+              <strong>{item}</strong>
+            </Motion.div>
+          ))}
+        </div>
+      </section>
+
+      <section id="integrations" className="ecosystem-section">
+        <div className="ecosystem-visual" aria-hidden="true">
+          <span className="eco-core">CE</span>
+          <span className="eco-ring one" />
+          <span className="eco-ring two" />
+          <span className="eco-dot dot-a" />
+          <span className="eco-dot dot-b" />
+          <span className="eco-dot dot-c" />
+        </div>
+        <FadeIn className="ecosystem-copy">
+          <p className="micro-label">Integrated Systems Ecosystem</p>
+          <h2>Web, AI, security, community, and monitoring as one living environment.</h2>
+          <p>
+            The result is not a pile of tools. It is a connected business layer where the
+            website creates trust, agents move work, security defines boundaries, and
+            monitoring keeps the operator aware.
+          </p>
         </FadeIn>
       </section>
 
-      <footer className="site-footer">
-        <a href="#top">Cyber Ethos</a>
-        <span>AI automation, cybersecurity, web systems, integrations, monitoring, and community.</span>
-      </footer>
+      <section id="contact" className="cinematic-cta">
+        <FadeIn>
+          <p className="micro-label">Begin the Build</p>
+          <h2>This should not feel like a normal business website.</h2>
+          <p>
+            Send the messy version of what you want Cyber Ethos to become. We will keep
+            shaping it into a premium AI operating environment.
+          </p>
+          <div className="cta-actions">
+            <a href="mailto:contact@cyberethos.org">Start the conversation</a>
+            <a href="#top">Return to top</a>
+          </div>
+        </FadeIn>
+      </section>
     </main>
   );
 }
 
-function SiteHeader() {
+function CinematicNavbar() {
   return (
-    <header className="site-nav">
-      <a className="nav-brand" href="#top">
+    <header className="cinematic-nav">
+      <a className="nav-identity" href="#top">
         <span>CE</span>
-        Cyber Ethos
+        <strong>Cyber Ethos</strong>
       </a>
       <nav>
-        <a href="#ai-automation">Automation</a>
-        <a href="#cybersecurity">Security</a>
-        <a href="#web-systems">Web</a>
+        <a href="#cards">Systems</a>
+        <a href="#ai-automation">AI</a>
+        <a href="#integrations">Ecosystem</a>
       </nav>
-      <a className="nav-action" href="#contact">Begin</a>
+      <a className="nav-pill" href="#contact">Begin</a>
     </header>
   );
 }

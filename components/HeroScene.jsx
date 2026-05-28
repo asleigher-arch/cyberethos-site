@@ -3,102 +3,63 @@
 import { useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Motion } from "./MotionPrimitives";
 
-const cards = [
-  { label: "AI Automation", href: "#ai-automation", detail: "Workflow intelligence" },
-  { label: "Cybersecurity", href: "#cybersecurity", detail: "Trust architecture" },
-  { label: "Web Systems", href: "#web-systems", detail: "Premium presence" },
-  { label: "Integrations", href: "#integrations", detail: "Tool orchestration" },
-  { label: "Monitoring", href: "#monitoring", detail: "Operational visibility" },
-  { label: "Community", href: "#community", detail: "Human ecosystem" }
-];
-
 export default function HeroScene() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springX = useSpring(mouseX, { stiffness: 72, damping: 24 });
-  const springY = useSpring(mouseY, { stiffness: 72, damping: 24 });
-  const skyX = useTransform(springX, [-0.5, 0.5], [-16, 16]);
-  const skyY = useTransform(springY, [-0.5, 0.5], [-10, 10]);
-  const cardX = useTransform(springX, [-0.5, 0.5], [20, -20]);
-  const cardY = useTransform(springY, [-0.5, 0.5], [14, -14]);
-  const figureX = useTransform(springX, [-0.5, 0.5], [-8, 8]);
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const sx = useSpring(mx, { stiffness: 70, damping: 24 });
+  const sy = useSpring(my, { stiffness: 70, damping: 24 });
+  const driftX = useTransform(sx, [-0.5, 0.5], [-18, 18]);
+  const driftY = useTransform(sy, [-0.5, 0.5], [-10, 10]);
+  const counterX = useTransform(sx, [-0.5, 0.5], [12, -12]);
 
-  function handleMove(event) {
+  function onMove(event) {
     const rect = event.currentTarget.getBoundingClientRect();
-    mouseX.set((event.clientX - rect.left) / rect.width - 0.5);
-    mouseY.set((event.clientY - rect.top) / rect.height - 0.5);
+    mx.set((event.clientX - rect.left) / rect.width - 0.5);
+    my.set((event.clientY - rect.top) / rect.height - 0.5);
   }
 
   return (
-    <section
-      className="hero-environment"
-      onMouseMove={handleMove}
-      onMouseLeave={() => {
-        mouseX.set(0);
-        mouseY.set(0);
-      }}
-    >
-      <Motion.div className="sun-bloom" style={{ x: skyX, y: skyY }} />
-      <Motion.div className="cloud cloud-one" style={{ x: skyX }} />
-      <Motion.div className="cloud cloud-two" style={{ x: skyX }} />
-      <Motion.div className="ridge ridge-back" style={{ x: skyX }} />
-      <Motion.div className="ridge ridge-front" style={{ x: figureX }} />
+    <section id="top" className="immersive-hero" onMouseMove={onMove} onMouseLeave={() => { mx.set(0); my.set(0); }}>
+      <Motion.div className="hero-sun" style={{ x: driftX, y: driftY }} />
+      <Motion.div className="hero-atmosphere left" style={{ x: counterX }} />
+      <Motion.div className="hero-atmosphere right" style={{ x: driftX }} />
+      <Motion.div className="hero-landscape far" style={{ x: counterX }} />
+      <Motion.div className="hero-landscape near" style={{ x: driftX }} />
+      <Motion.div className="hero-figure" style={{ x: counterX }} animate={{ y: [0, -8, 0] }} transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}>
+        <span />
+      </Motion.div>
 
-      <div className="hero-copy">
+      <div className="hero-center">
         <Motion.p
-          initial={{ opacity: 0, y: 16, filter: "blur(12px)" }}
+          className="micro-label"
+          initial={{ opacity: 0, y: 18, filter: "blur(12px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="hero-kicker"
         >
-          Cyber Ethos Operating Environment
+          Futuristic AI operating systems
         </Motion.p>
         <Motion.h1
-          initial={{ opacity: 0, y: 24, filter: "blur(16px)" }}
+          initial={{ opacity: 0, y: 28, filter: "blur(16px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.05, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
-          Mission-driven AI systems for modern businesses.
+          Build the calm system behind the chaos.
         </Motion.h1>
         <Motion.p
           initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-          className="hero-subcopy"
         >
-          AI automation, cybersecurity, web systems, and operating visibility designed
-          as one calm ecosystem.
+          Cyber Ethos creates AI automation, cybersecurity, web systems, integrations,
+          monitoring, and community as one cinematic business environment.
         </Motion.p>
       </div>
 
-      <Motion.div
-        className="human-signal"
-        style={{ x: figureX }}
-        animate={{ y: [0, -7, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <span />
+      <Motion.div className="hero-glass-console" style={{ x: driftX, y: driftY }} animate={{ opacity: [0.88, 1, 0.9] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}>
+        <span>Live ecosystem</span>
+        <strong>6 active layers</strong>
+        <small>Human command enabled</small>
       </Motion.div>
-
-      <Motion.nav className="floating-card-stack" style={{ x: cardX, y: cardY }} aria-label="Cyber Ethos systems">
-        {cards.map((card, index) => (
-          <Motion.a
-            key={card.href}
-            href={card.href}
-            className="system-card"
-            initial={{ opacity: 0, x: 34, filter: "blur(14px)" }}
-            animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.75, delay: 0.28 + index * 0.07, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={{ y: -6, scale: 1.025 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <strong>{card.label}</strong>
-            <small>{card.detail}</small>
-          </Motion.a>
-        ))}
-      </Motion.nav>
-
     </section>
   );
 }
