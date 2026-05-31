@@ -2,6 +2,8 @@
 
 import { FadeIn, Motion, Stagger, StaggerItem } from "@/components/MotionPrimitives";
 
+const whopUrl = "https://whop.com/cyber-ethos/";
+
 const services = [
   {
     title: "AI Automation",
@@ -68,7 +70,7 @@ function Nav() {
         <a href="/">Home</a>
         <a href="/work-with-us">Work With Us</a>
       </nav>
-      <a className="nav-cta" href="mailto:contact@cyberethos.org">
+      <a className="nav-cta" href="mailto:info@cyberethos.org">
         Contact
       </a>
     </header>
@@ -124,7 +126,12 @@ function FinalCTA() {
           Send the workflow, website problem, or security concern you want fixed.
           We will turn it into a practical system.
         </p>
-        <a href="mailto:contact@cyberethos.org">Start a project</a>
+        <div className="final-actions">
+          <a href="mailto:info@cyberethos.org">Start a project</a>
+          <a className="secondary-action" href={whopUrl} target="_blank" rel="noreferrer">
+            Join Whop - $29/mo
+          </a>
+        </div>
       </FadeIn>
     </section>
   );

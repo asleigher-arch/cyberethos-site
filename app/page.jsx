@@ -2,6 +2,8 @@
 
 import { FadeIn, Motion } from "@/components/MotionPrimitives";
 
+const whopUrl = "https://whop.com/cyber-ethos/";
+
 export default function HomePage() {
   return (
     <main className="site-shell">
@@ -34,7 +36,7 @@ function Nav() {
         <a href="/">Home</a>
         <a href="/work-with-us">Work With Us</a>
       </nav>
-      <a className="nav-cta" href="mailto:contact@cyberethos.org">
+      <a className="nav-cta" href="mailto:info@cyberethos.org">
         Contact
       </a>
     </header>
@@ -53,7 +55,10 @@ function Hero() {
         </p>
         <div className="hero-actions">
           <a href="/work-with-us">See what we build</a>
-          <a href="mailto:contact@cyberethos.org">Start a project</a>
+          <a href="mailto:info@cyberethos.org">Start a project</a>
+          <a className="whop-link" href={whopUrl} target="_blank" rel="noreferrer">
+            Join Whop - $29/mo
+          </a>
         </div>
       </FadeIn>
 
@@ -103,6 +108,19 @@ function HomeSummary() {
           </Motion.a>
         ))}
       </div>
+      <FadeIn delay={0.12} className="whop-card">
+        <div>
+          <p className="eyebrow">Community</p>
+          <h3>Join the Cyber Ethos Whop community for $29/month.</h3>
+          <p>
+            Learn AI automation, secure workflows, web systems, and practical tools
+            for building a sharper modern business.
+          </p>
+        </div>
+        <a href={whopUrl} target="_blank" rel="noreferrer">
+          Join Whop
+        </a>
+      </FadeIn>
     </section>
   );
 }

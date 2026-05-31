@@ -6,7 +6,7 @@
 
 :root {
   color-scheme: dark;
-  --background-watermark: url("/images/cyber-ethos-cinematic-bg.png");
+  --background-watermark: url("/images/cyber-ethos-clean-bg.png");
 }
 
 * {
@@ -63,12 +63,12 @@ a {
 .watermark-image {
   position: absolute;
   inset: 0;
-  opacity: 0.24;
+  opacity: 0.68;
   background-image: var(--background-watermark);
   background-size: cover;
   background-position: center;
-  filter: saturate(0.82) contrast(1.05);
-  mix-blend-mode: screen;
+  filter: saturate(1.04) contrast(1.08) brightness(1.08);
+  mix-blend-mode: normal;
 }
 
 .site-watermark::after {
@@ -76,8 +76,9 @@ a {
   inset: 0;
   content: "";
   background:
-    linear-gradient(90deg, rgba(6, 9, 13, 0.86), rgba(6, 9, 13, 0.42) 45%, rgba(6, 9, 13, 0.74)),
-    linear-gradient(180deg, rgba(6, 9, 13, 0.3), rgba(6, 9, 13, 0.92));
+    radial-gradient(circle at 52% 55%, rgba(6, 9, 13, 0.08), transparent 19rem),
+    linear-gradient(90deg, rgba(6, 9, 13, 0.54), rgba(6, 9, 13, 0.16) 48%, rgba(6, 9, 13, 0.46)),
+    linear-gradient(180deg, rgba(6, 9, 13, 0.1), rgba(6, 9, 13, 0.7));
 }
 
 .nav-glass,
@@ -148,7 +149,8 @@ a {
 
 .nav-cta,
 .hero-actions a:first-child,
-.final-band a {
+.final-band a,
+.whop-card a {
   border-radius: 999px;
   background: rgba(245, 241, 232, 0.92);
   color: #11151b;
@@ -238,7 +240,8 @@ a {
 }
 
 .hero-actions a,
-.final-band a {
+.final-band a,
+.whop-card a {
   display: inline-flex;
   min-height: 54px;
   align-items: center;
@@ -248,13 +251,19 @@ a {
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
-.hero-actions a:last-child {
+.hero-actions a:not(:first-child) {
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   color: #f8f3ea;
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(20px);
+}
+
+.hero-actions a.whop-link {
+  border-color: rgba(255, 210, 143, 0.34);
+  background: rgba(255, 201, 121, 0.14);
+  color: #fff3df;
 }
 
 .hero-actions a:hover,
@@ -265,7 +274,8 @@ a {
 .hero-panel,
 .service-card,
 .process-card,
-.final-band {
+.final-band,
+.whop-card {
   border: 1px solid rgba(255, 255, 255, 0.16);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.04)),
@@ -376,6 +386,34 @@ a {
   font-size: 1.6rem;
 }
 
+.whop-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  margin-top: 18px;
+  border-radius: 34px;
+  padding: clamp(24px, 4vw, 40px);
+}
+
+.whop-card h3 {
+  margin: 12px 0 0;
+  color: #f8f3ea;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.whop-card p:not(.eyebrow) {
+  margin: 12px 0 0;
+  max-width: 620px;
+  color: rgba(245, 241, 232, 0.66);
+  line-height: 1.65;
+}
+
+.whop-card a {
+  white-space: nowrap;
+}
+
 .work-page {
   min-height: 100svh;
   padding: 130px 0 80px;
@@ -478,6 +516,24 @@ a {
   margin-top: 32px;
 }
 
+.final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.final-actions a {
+  margin-top: 0;
+}
+
+.final-actions .secondary-action {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff3df;
+}
+
 @media (max-width: 920px) {
   .nav-glass {
     grid-template-columns: 1fr auto;
@@ -501,6 +557,10 @@ a {
   }
 
   .summary-row {
+    grid-template-columns: 1fr;
+  }
+
+  .whop-card {
     grid-template-columns: 1fr;
   }
 
@@ -562,8 +622,13 @@ a {
     display: grid;
   }
 
-  .hero-actions a {
+  .hero-actions a,
+  .final-actions a {
     width: 100%;
+  }
+
+  .final-actions {
+    display: grid;
   }
 
   .signal-grid {
