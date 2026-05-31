@@ -3,6 +3,8 @@
 import { FadeIn, Motion, Stagger, StaggerItem } from "@/components/MotionPrimitives";
 
 const whopUrl = "https://whop.com/cyber-ethos/";
+const emailUrl =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=info@cyberethos.org&su=Cyber%20Ethos%20Project%20Inquiry";
 
 const services = [
   {
@@ -70,7 +72,7 @@ function Nav() {
         <a href="/">Home</a>
         <a href="/work-with-us">Work With Us</a>
       </nav>
-      <a className="nav-cta" href="mailto:info@cyberethos.org">
+      <a className="nav-cta" href="#contact">
         Contact
       </a>
     </header>
@@ -118,7 +120,7 @@ function Process() {
 
 function FinalCTA() {
   return (
-    <section className="final-band">
+    <section id="contact" className="final-band">
       <FadeIn>
         <p className="eyebrow">Cyber Ethos</p>
         <h2>Automate what slows you down. Secure what matters.</h2>
@@ -126,8 +128,12 @@ function FinalCTA() {
           Send the workflow, website problem, or security concern you want fixed.
           We will turn it into a practical system.
         </p>
+        <div className="contact-direct">
+          <span>Email</span>
+          <strong>info@cyberethos.org</strong>
+        </div>
         <div className="final-actions">
-          <a href="mailto:info@cyberethos.org">Start a project</a>
+          <a href={emailUrl} target="_blank" rel="noreferrer">Start a project</a>
           <a className="secondary-action" href={whopUrl} target="_blank" rel="noreferrer">
             Join Whop - $29/mo
           </a>

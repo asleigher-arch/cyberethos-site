@@ -516,6 +516,29 @@ a {
   margin-top: 32px;
 }
 
+.contact-direct {
+  display: inline-grid;
+  gap: 6px;
+  margin-top: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 16px 20px;
+}
+
+.contact-direct span {
+  color: rgba(245, 241, 232, 0.52);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.contact-direct strong {
+  color: #f8f3ea;
+  font-size: 1.1rem;
+}
+
 .final-actions {
   display: flex;
   flex-wrap: wrap;

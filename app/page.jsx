@@ -3,6 +3,7 @@
 import { FadeIn, Motion } from "@/components/MotionPrimitives";
 
 const whopUrl = "https://whop.com/cyber-ethos/";
+const contactUrl = "/work-with-us#contact";
 
 export default function HomePage() {
   return (
@@ -36,7 +37,7 @@ function Nav() {
         <a href="/">Home</a>
         <a href="/work-with-us">Work With Us</a>
       </nav>
-      <a className="nav-cta" href="mailto:info@cyberethos.org">
+      <a className="nav-cta" href={contactUrl}>
         Contact
       </a>
     </header>
@@ -55,7 +56,7 @@ function Hero() {
         </p>
         <div className="hero-actions">
           <a href="/work-with-us">See what we build</a>
-          <a href="mailto:info@cyberethos.org">Start a project</a>
+          <a href={contactUrl}>Start a project</a>
           <a className="whop-link" href={whopUrl} target="_blank" rel="noreferrer">
             Join Whop - $29/mo
           </a>
