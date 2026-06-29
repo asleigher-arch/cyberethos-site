@@ -557,6 +557,68 @@ a {
   color: #fff3df;
 }
 
+.legal-shell {
+  min-height: 100vh;
+}
+
+.legal-page {
+  position: relative;
+  z-index: 1;
+  width: min(880px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 170px 0 90px;
+}
+
+.legal-page h1 {
+  margin: 18px 0 10px;
+  color: #f8f3ea;
+  font-size: clamp(3.1rem, 8vw, 5.6rem);
+  font-weight: 720;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.legal-updated {
+  margin: 0 0 30px;
+  color: rgba(245, 241, 232, 0.64);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.legal-card {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 32px;
+  background: rgba(8, 12, 17, 0.68);
+  padding: clamp(24px, 4vw, 44px);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(26px) saturate(1.1);
+}
+
+.legal-card h2 {
+  margin: 34px 0 10px;
+  color: #f8f3ea;
+  font-size: 1.3rem;
+  font-weight: 760;
+}
+
+.legal-card h2:first-child {
+  margin-top: 0;
+}
+
+.legal-card p {
+  margin: 0 0 16px;
+  color: rgba(245, 241, 232, 0.74);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.legal-card a {
+  color: #f0c27a;
+  font-weight: 760;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
 @media (max-width: 920px) {
   .nav-glass {
     grid-template-columns: 1fr auto;
