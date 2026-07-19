@@ -3,7 +3,7 @@ import "./globals.css";
 export const metadata = {
   title: "Cyber Ethos Operator",
   description:
-    "A simple operator review for small-business operations, security basics, AI readiness, and web intake."
+    "A simple operator report that gives small business owners visibility into operations, security basics, AI workflow, and web intake."
 };
 
 export default function RootLayout({ children }) {

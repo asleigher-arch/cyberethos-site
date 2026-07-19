@@ -2,35 +2,37 @@
 
 import { FadeIn } from "@/components/MotionPrimitives";
 
-const results = ["Operator Score", "Risk areas", "Automation fit", "30-day cleanup plan"];
+const services = [
+  "Operations review",
+  "Security basics",
+  "AI workflow opportunities",
+  "Website and intake cleanup",
+  "Clear next steps"
+];
 
-export default function HomePage() {
+export default function VisibilityPage() {
   return (
     <main className="site-shell app-site">
       <Nav />
-      <section className="three-page-hero">
+      <section className="three-page-hero single">
         <FadeIn className="three-copy">
-          <p className="eyebrow">Preview</p>
-          <h1>See what the report looks like.</h1>
+          <p className="eyebrow">Visibility</p>
+          <h1>Know what is happening inside your business.</h1>
           <p>
-            Cyber Ethos gives small business owners a clear snapshot of what to
-            clean up first.
+            We help you see where work gets stuck, where risk is building, and
+            what can be safely improved with better systems or AI.
           </p>
           <div className="hero-actions">
-            <a href="/visibility">What we help with</a>
-            <a href="/contact">Contact</a>
+            <a href="/contact">Request review</a>
+            <a href="/">See preview</a>
           </div>
-        </FadeIn>
-
-        <FadeIn delay={0.12} className="report-preview">
-          <img src="/images/operator-report-preview.png" alt="Cyber Ethos Operator score report preview" />
         </FadeIn>
       </section>
 
       <section className="mini-section">
-        <p className="eyebrow">Results</p>
+        <p className="eyebrow">Services</p>
         <div className="mini-grid">
-          {results.map((item) => (
+          {services.map((item) => (
             <span key={item}>{item}</span>
           ))}
         </div>
