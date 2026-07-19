@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <main className="site-shell app-site">
       <Nav />
-      <section className="three-page-hero">
+      <section className="three-page-hero preview-hero">
         <FadeIn className="three-copy">
           <p className="eyebrow">Preview</p>
           <h1>See what the report looks like.</h1>
@@ -22,7 +22,7 @@ export default function HomePage() {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.12} className="report-preview">
+        <FadeIn delay={0.12} className="report-preview watermark-phone" aria-hidden="true">
           <img src="/images/operator-report-preview.png" alt="Cyber Ethos Operator score report preview" />
         </FadeIn>
       </section>

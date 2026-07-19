@@ -374,6 +374,10 @@ a {
   padding: 130px 0 70px;
 }
 
+.preview-hero {
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 0.22fr);
+}
+
 .three-page-hero.single {
   min-height: 620px;
   grid-template-columns: 1fr;
@@ -408,6 +412,34 @@ a {
   background: rgba(11, 13, 18, 0.86);
   box-shadow: 0 34px 120px rgba(0, 0, 0, 0.56);
   backdrop-filter: blur(16px);
+}
+
+.watermark-phone {
+  position: absolute;
+  top: 86px;
+  right: clamp(-70px, -4vw, -24px);
+  z-index: -1;
+  width: min(430px, 42vw);
+  max-height: 760px;
+  opacity: 0.48;
+  filter: saturate(0.95) brightness(0.86);
+  transform: rotate(-1.5deg);
+  pointer-events: none;
+}
+
+.watermark-phone::before {
+  position: absolute;
+  inset: -28px;
+  z-index: -1;
+  content: "";
+  border-radius: 54px;
+  background: radial-gradient(circle at 50% 30%, rgba(244, 200, 120, 0.16), transparent 20rem);
+  filter: blur(12px);
+}
+
+.watermark-phone img {
+  opacity: 0.78;
+  mix-blend-mode: screen;
 }
 
 .report-preview img {
@@ -1071,6 +1103,12 @@ a {
     gap: 34px;
   }
 
+  .watermark-phone {
+    right: -92px;
+    width: 360px;
+    opacity: 0.28;
+  }
+
   .phone-card {
     max-width: 420px;
   }
@@ -1146,6 +1184,13 @@ a {
   .three-page-hero.single {
     min-height: auto;
     padding: 116px 0 42px;
+  }
+
+  .watermark-phone {
+    top: 130px;
+    right: -128px;
+    width: 330px;
+    opacity: 0.2;
   }
 
   .three-copy h1 {
