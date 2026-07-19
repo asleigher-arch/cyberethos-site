@@ -1,45 +1,61 @@
 "use client";
 
-import { FadeIn, Motion } from "@/components/MotionPrimitives";
+import { FadeIn, Motion, Stagger, StaggerItem } from "@/components/MotionPrimitives";
 
-const whopUrl = "https://whop.com/cyber-ethos/";
 const contactUrl = "/work-with-us#contact";
+
+const pillars = [
+  {
+    title: "Assess",
+    copy: "Readiness score across operations, security, AI workflow, and web presence."
+  },
+  {
+    title: "Prioritize",
+    copy: "Choose the fixes that unlock the most leverage without adding complexity."
+  },
+  {
+    title: "Build",
+    copy: "Implement automations, intake, reporting, access cleanup, and website paths."
+  },
+  {
+    title: "Document",
+    copy: "Leave the owner with plain-language docs and a repeatable operating rhythm."
+  }
+];
+
+const audiences = [
+  "Local service businesses",
+  "Founders and solo operators",
+  "Small teams with messy handoffs",
+  "Community organizations"
+];
 
 export default function HomePage() {
   return (
     <main className="site-shell">
-      <SiteWatermark />
       <Nav />
       <Hero />
-      <HomeSummary />
-      <UseCases />
+      <ServiceLogic />
+      <AudienceStrip />
       <FinalCTA />
     </main>
   );
 }
 
-function SiteWatermark() {
-  return (
-    <div className="site-watermark" aria-hidden="true">
-      <div className="watermark-glow" />
-      <div className="watermark-image" />
-    </div>
-  );
-}
-
 function Nav() {
   return (
-    <header className="nav-glass">
+    <header className="nav-bar">
       <a href="/" className="brand">
         <span>CE</span>
         <strong>Cyber Ethos</strong>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/work-with-us">Work With Us</a>
+        <a href="#operator">Operator</a>
+        <a href="#services">Services</a>
+        <a href="/work-with-us">Security</a>
       </nav>
       <a className="nav-cta" href={contactUrl}>
-        Contact
+        Start
       </a>
     </header>
   );
@@ -48,119 +64,93 @@ function Nav() {
 function Hero() {
   return (
     <section className="hero">
-      <FadeIn className="hero-content">
-        <p className="eyebrow">AI automation, secure web systems, and information security</p>
-        <h1>Mission-driven AI automation. Secure systems. Real impact.</h1>
+      <FadeIn className="hero-copy">
+        <p className="eyebrow">Small business operator systems</p>
+        <h1>Make the business easier to run.</h1>
         <p>
-          Cyber Ethos helps small businesses automate repetitive work, improve their
-          digital presence, and protect the systems they rely on every day.
+          Cyber Ethos helps owners find workflow gaps, apply AI where it fits,
+          improve security, and clean up the systems behind daily work.
         </p>
         <div className="hero-actions">
-          <a href="/work-with-us">See what we build</a>
-          <a href={contactUrl}>Start a project</a>
-          <a className="whop-link" href={whopUrl} target="_blank" rel="noreferrer">
-            Join Whop - $29/mo
-          </a>
+          <a href="/work-with-us">Get an Operator Review</a>
+          <a href="#services">See service paths</a>
         </div>
       </FadeIn>
 
-      <FadeIn delay={0.12} className="hero-panel">
-        <div className="panel-topline">
-          <span>Operating System</span>
-          <strong>Cyber Ethos</strong>
+      <FadeIn delay={0.12} className="operator-preview">
+        <div className="preview-header">
+          <span>Cyber Ethos Operator</span>
+          <strong>Readiness Snapshot</strong>
         </div>
-        <div className="signal-card primary">
-          <span>01</span>
-          <strong>Automate the repeatable.</strong>
-          <p>Lead intake, research, content, follow-ups, reporting, and internal workflows.</p>
+        <div className="score-ring">
+          <strong>74</strong>
+          <span>Operator Score</span>
         </div>
-        <div className="signal-grid">
-          <div className="signal-card">
-            <span>02</span>
-            <strong>Improve the website.</strong>
-          </div>
-          <div className="signal-card">
-            <span>03</span>
-            <strong>Protect the operation.</strong>
-          </div>
+        <div className="preview-grid">
+          <Metric label="Workflow" value="Needs map" />
+          <Metric label="AI Fit" value="High" />
+          <Metric label="Security" value="Baseline" />
+          <Metric label="Website" value="Intake weak" />
+        </div>
+        <div className="preview-flow">
+          <span>Intake</span>
+          <span>Follow-up</span>
+          <span>Permissions</span>
+          <span>Reporting</span>
         </div>
       </FadeIn>
     </section>
   );
 }
 
-function HomeSummary() {
+function Metric({ label, value }) {
   return (
-    <section className="home-summary">
-      <FadeIn>
-        <p className="eyebrow">What Cyber Ethos Does</p>
-        <h2>Simple systems for businesses that need less chaos and more control.</h2>
+    <div className="metric">
+      <span>{label}</span>
+      <strong>{value}</strong>
+    </div>
+  );
+}
+
+function ServiceLogic() {
+  return (
+    <section id="services" className="service-section">
+      <FadeIn className="section-heading">
+        <p className="eyebrow">Operator Review Method</p>
+        <h2>The service follows the app logic.</h2>
       </FadeIn>
-      <div className="summary-row">
-        {["Automation", "Web Systems", "Security"].map((item, index) => (
-          <Motion.a
-            href="/work-with-us"
-            key={item}
-            className="summary-pill"
-            whileHover={{ y: -6 }}
-            transition={{ type: "spring", stiffness: 180, damping: 18 }}
-          >
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <strong>{item}</strong>
-          </Motion.a>
+      <Stagger className="pillar-grid">
+        {pillars.map((pillar, index) => (
+          <StaggerItem key={pillar.title}>
+            <Motion.article
+              className="pillar-card"
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 180, damping: 18 }}
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.copy}</p>
+            </Motion.article>
+          </StaggerItem>
         ))}
-      </div>
-      <FadeIn delay={0.12} className="whop-card">
-        <div>
-          <p className="eyebrow">Community</p>
-          <h3>Join the Cyber Ethos Whop community for $29/month.</h3>
-          <p>
-            Learn AI automation, secure workflows, web systems, and practical tools
-            for building a sharper modern business.
-          </p>
-        </div>
-        <a href={whopUrl} target="_blank" rel="noreferrer">
-          Join Whop
-        </a>
-      </FadeIn>
+      </Stagger>
     </section>
   );
 }
 
-function UseCases() {
-  const useCases = [
-    {
-      title: "For busy local businesses",
-      copy: "Replace scattered intake forms, repeated messages, missed follow-ups, and manual reporting with one cleaner operating flow."
-    },
-    {
-      title: "For founders and small teams",
-      copy: "Launch a sharper web presence, connect the tools you already use, and build repeatable systems before the workload gets heavier."
-    },
-    {
-      title: "For community organizations",
-      copy: "Organize requests, volunteers, documents, outreach, and case updates without creating another complicated system to manage."
-    }
-  ];
-
+function AudienceStrip() {
   return (
-    <section className="use-cases">
-      <FadeIn className="section-intro">
-        <p className="eyebrow">Who We Help</p>
-        <h2>Practical systems for teams that need momentum, not more noise.</h2>
+    <section className="audience-strip">
+      <FadeIn>
+        <p className="eyebrow">Who This Is For</p>
+        <h2>Built for owners who feel the work getting heavier.</h2>
       </FadeIn>
-      <div className="use-case-grid">
-        {useCases.map((item) => (
-          <Motion.article
-            key={item.title}
-            className="use-case-card"
-            whileHover={{ y: -6 }}
-            transition={{ type: "spring", stiffness: 180, damping: 18 }}
-          >
-            <span />
-            <h3>{item.title}</h3>
-            <p>{item.copy}</p>
-          </Motion.article>
+      <div className="audience-row">
+        {audiences.map((audience) => (
+          <div className="audience-item" key={audience}>
+            <strong>{audience}</strong>
+            <span>Less manual busywork, cleaner customer paths, stronger security habits, and a clearer next move.</span>
+          </div>
         ))}
       </div>
     </section>
@@ -169,13 +159,9 @@ function UseCases() {
 
 function FinalCTA() {
   return (
-    <section className="final-band compact">
-      <div>
-        <p className="eyebrow">Start Here</p>
-        <h2>Tell us what feels slow, messy, or exposed.</h2>
-        <p>We will help turn it into a cleaner system.</p>
-        <a href="/work-with-us">Work with Cyber Ethos</a>
-      </div>
+    <section className="final-band home-final">
+      <h2>Start with the Operator Review. Build only what earns its place.</h2>
+      <a href="/work-with-us">Request review</a>
     </section>
   );
 }

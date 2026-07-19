@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Cyber Ethos | Mission-Driven AI Systems",
+  title: "Cyber Ethos | Small Business Operator Systems",
   description:
-    "Premium AI automation, operational systems, and cybersecurity foundations for modern small businesses."
+    "Operational insight, AI workflow systems, information security, and web infrastructure for small business owners."
 };
 
 export default function RootLayout({ children }) {
