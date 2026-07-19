@@ -85,6 +85,7 @@ a {
 .hero,
 .page-hero,
 .home-summary,
+.use-cases,
 .work-page,
 .process,
 .final-band {
@@ -345,7 +346,7 @@ a {
 }
 
 .home-summary {
-  padding: 80px 0 120px;
+  padding: 80px 0 76px;
 }
 
 .home-summary h2 {
@@ -412,6 +413,59 @@ a {
 
 .whop-card a {
   white-space: nowrap;
+}
+
+.use-cases {
+  padding: 0 0 92px;
+}
+
+.use-cases .section-intro h2 {
+  max-width: 880px;
+  margin-top: 20px;
+  color: #f8f3ea;
+  font-size: 4.2rem;
+  font-weight: 760;
+  line-height: 1;
+}
+
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.use-case-card {
+  min-height: 290px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 34px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.035)),
+    rgba(10, 14, 19, 0.34);
+  padding: 26px;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(30px);
+}
+
+.use-case-card span {
+  display: block;
+  width: 48px;
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(245, 241, 232, 0.8), rgba(232, 176, 96, 0.72));
+}
+
+.use-case-card h3 {
+  margin: 86px 0 0;
+  color: #f8f3ea;
+  font-size: 1.55rem;
+  line-height: 1.1;
+}
+
+.use-case-card p {
+  margin: 15px 0 0;
+  color: rgba(245, 241, 232, 0.72);
+  line-height: 1.65;
 }
 
 .work-page {
@@ -637,7 +691,8 @@ a {
     max-width: 620px;
   }
 
-  .service-grid {
+  .service-grid,
+  .use-case-grid {
     grid-template-columns: 1fr;
   }
 

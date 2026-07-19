@@ -12,6 +12,7 @@ export default function HomePage() {
       <Nav />
       <Hero />
       <HomeSummary />
+      <UseCases />
       <FinalCTA />
     </main>
   );
@@ -126,15 +127,55 @@ function HomeSummary() {
   );
 }
 
+function UseCases() {
+  const useCases = [
+    {
+      title: "For busy local businesses",
+      copy: "Replace scattered intake forms, repeated messages, missed follow-ups, and manual reporting with one cleaner operating flow."
+    },
+    {
+      title: "For founders and small teams",
+      copy: "Launch a sharper web presence, connect the tools you already use, and build repeatable systems before the workload gets heavier."
+    },
+    {
+      title: "For community organizations",
+      copy: "Organize requests, volunteers, documents, outreach, and case updates without creating another complicated system to manage."
+    }
+  ];
+
+  return (
+    <section className="use-cases">
+      <FadeIn className="section-intro">
+        <p className="eyebrow">Who We Help</p>
+        <h2>Practical systems for teams that need momentum, not more noise.</h2>
+      </FadeIn>
+      <div className="use-case-grid">
+        {useCases.map((item) => (
+          <Motion.article
+            key={item.title}
+            className="use-case-card"
+            whileHover={{ y: -6 }}
+            transition={{ type: "spring", stiffness: 180, damping: 18 }}
+          >
+            <span />
+            <h3>{item.title}</h3>
+            <p>{item.copy}</p>
+          </Motion.article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function FinalCTA() {
   return (
     <section className="final-band compact">
-      <FadeIn>
+      <div>
         <p className="eyebrow">Start Here</p>
         <h2>Tell us what feels slow, messy, or exposed.</h2>
         <p>We will help turn it into a cleaner system.</p>
         <a href="/work-with-us">Work with Cyber Ethos</a>
-      </FadeIn>
+      </div>
     </section>
   );
 }

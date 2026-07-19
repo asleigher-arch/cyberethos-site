@@ -121,7 +121,7 @@ function Process() {
 function FinalCTA() {
   return (
     <section id="contact" className="final-band">
-      <FadeIn>
+      <div>
         <p className="eyebrow">Cyber Ethos</p>
         <h2>Automate what slows you down. Secure what matters.</h2>
         <p>
@@ -138,7 +138,7 @@ function FinalCTA() {
             Join Whop - $29/mo
           </a>
         </div>
-      </FadeIn>
+      </div>
     </section>
   );
 }
