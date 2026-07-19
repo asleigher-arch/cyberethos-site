@@ -577,10 +577,32 @@ a {
   grid-template-columns: 0.9fr 1.1fr;
   gap: 42px;
   align-items: center;
+  border: 1px solid rgba(16, 24, 32, 0.1);
+  background: #fffaf1;
+  color: var(--ink);
+}
+
+.fit-section .eyebrow {
+  color: var(--blue);
+}
+
+.fit-section h2 {
+  max-width: 430px;
+  color: var(--ink);
+  font-size: clamp(2.25rem, 3.6vw, 3.6rem);
+  line-height: 1.04;
 }
 
 .fit-list {
   margin-top: 0;
+}
+
+.fit-list span {
+  border-color: rgba(16, 24, 32, 0.08);
+  background: #eee6d9;
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 18px 22px;
 }
 
 .final-band {
