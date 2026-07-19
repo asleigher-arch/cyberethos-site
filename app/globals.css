@@ -375,8 +375,7 @@ a {
 }
 
 .preview-hero {
-  grid-template-columns: 1fr;
-  overflow: hidden;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 0.22fr);
 }
 
 .three-page-hero.single {
@@ -406,47 +405,41 @@ a {
   line-height: 1.65;
 }
 
-.phone-watermark {
-  position: absolute;
-  top: 58px;
-  right: clamp(-170px, -10vw, -82px);
-  z-index: 0;
-  width: min(560px, 48vw);
-  opacity: 0.22;
-  filter: blur(0.4px) saturate(0.9) brightness(1.08);
-  transform: rotate(-2deg);
-  pointer-events: none;
-  mix-blend-mode: screen;
+.report-preview {
+  overflow: hidden;
+  border: 10px solid rgba(11, 13, 18, 0.86);
+  border-radius: 42px;
+  background: rgba(11, 13, 18, 0.86);
+  box-shadow: 0 34px 120px rgba(0, 0, 0, 0.56);
+  backdrop-filter: blur(16px);
 }
 
-.phone-watermark::before {
+.watermark-phone {
   position: absolute;
-  inset: -40px;
+  top: 86px;
+  right: clamp(-70px, -4vw, -24px);
+  z-index: -1;
+  width: min(430px, 42vw);
+  max-height: 760px;
+  opacity: 0.48;
+  filter: saturate(0.95) brightness(0.86);
+  transform: rotate(-1.5deg);
+  pointer-events: none;
+}
+
+.watermark-phone::before {
+  position: absolute;
+  inset: -28px;
   z-index: -1;
   content: "";
-  border-radius: 80px;
-  background: radial-gradient(circle at 50% 40%, rgba(244, 200, 120, 0.2), transparent 24rem);
-  filter: blur(22px);
+  border-radius: 54px;
+  background: radial-gradient(circle at 50% 30%, rgba(244, 200, 120, 0.16), transparent 20rem);
+  filter: blur(12px);
 }
 
-.phone-watermark::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  border-radius: 48px;
-  background: linear-gradient(90deg, rgba(7, 9, 13, 0.18), rgba(7, 9, 13, 0.66));
-}
-
-.phone-watermark img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 48px;
-}
-
-.three-copy {
-  position: relative;
-  z-index: 2;
+.watermark-phone img {
+  opacity: 0.78;
+  mix-blend-mode: screen;
 }
 
 .report-preview img {
@@ -1110,10 +1103,10 @@ a {
     gap: 34px;
   }
 
-  .phone-watermark {
-    right: -120px;
-    width: 430px;
-    opacity: 0.18;
+  .watermark-phone {
+    right: -92px;
+    width: 360px;
+    opacity: 0.28;
   }
 
   .phone-card {
@@ -1193,11 +1186,11 @@ a {
     padding: 116px 0 42px;
   }
 
-  .phone-watermark {
+  .watermark-phone {
     top: 130px;
-    right: -150px;
-    width: 360px;
-    opacity: 0.14;
+    right: -128px;
+    width: 330px;
+    opacity: 0.2;
   }
 
   .three-copy h1 {
