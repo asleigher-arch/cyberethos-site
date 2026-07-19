@@ -1,43 +1,66 @@
 "use client";
 
-import { FadeIn, Motion, Stagger, StaggerItem } from "@/components/MotionPrimitives";
+import { FadeIn } from "@/components/MotionPrimitives";
 
-const contactUrl = "/work-with-us#contact";
-
-const pillars = [
-  {
-    title: "Assess",
-    copy: "Readiness score across operations, security, AI workflow, and web presence."
-  },
-  {
-    title: "Prioritize",
-    copy: "Choose the fixes that unlock the most leverage without adding complexity."
-  },
-  {
-    title: "Build",
-    copy: "Implement automations, intake, reporting, access cleanup, and website paths."
-  },
-  {
-    title: "Document",
-    copy: "Leave the owner with plain-language docs and a repeatable operating rhythm."
-  }
-];
-
-const audiences = [
-  "Local service businesses",
-  "Founders and solo operators",
-  "Small teams with messy handoffs",
-  "Community organizations"
-];
+const checks = ["Operations", "Security", "AI readiness", "Web intake"];
+const results = ["Operator Score", "Top findings", "Next moves", "30-day plan"];
 
 export default function HomePage() {
   return (
-    <main className="site-shell">
+    <main className="site-shell app-site">
       <Nav />
-      <Hero />
-      <ServiceLogic />
-      <AudienceStrip />
-      <FinalCTA />
+      <section className="app-hero">
+        <FadeIn className="app-copy">
+          <p className="eyebrow">Cyber Ethos Operator</p>
+          <h1>Know what to fix next.</h1>
+          <p>
+            A simple operator review for small businesses. See workflow gaps,
+            security basics, AI opportunities, and next steps.
+          </p>
+          <div className="hero-actions">
+            <a href="/work-with-us">Request review</a>
+            <a href="/support">App support</a>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.12} className="phone-card">
+          <div className="phone-top">
+            <span>Operator Score</span>
+            <strong>74</strong>
+          </div>
+          <div className="phone-list">
+            {checks.map((item) => (
+              <div key={item}>
+                <span>{item}</span>
+                <strong>Review</strong>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+      </section>
+
+      <section className="app-section">
+        <p className="eyebrow">What It Checks</p>
+        <div className="compact-grid">
+          {checks.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="app-section">
+        <p className="eyebrow">What You Get</p>
+        <div className="compact-grid">
+          {results.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="app-cta">
+        <h2>Start with a review. Build only what matters.</h2>
+        <a href="/work-with-us">Get started</a>
+      </section>
     </main>
   );
 }
@@ -50,118 +73,13 @@ function Nav() {
         <strong>Cyber Ethos</strong>
       </a>
       <nav aria-label="Primary navigation">
-        <a href="#operator">Operator</a>
-        <a href="#services">Services</a>
-        <a href="/work-with-us">Security</a>
+        <a href="/work-with-us">Review</a>
+        <a href="/support">Support</a>
+        <a href="/privacy">Privacy</a>
       </nav>
-      <a className="nav-cta" href={contactUrl}>
+      <a className="nav-cta" href="/work-with-us">
         Start
       </a>
     </header>
-  );
-}
-
-function Hero() {
-  return (
-    <section className="hero">
-      <FadeIn className="hero-copy">
-        <p className="eyebrow">Small business operator systems</p>
-        <h1>Make the business easier to run.</h1>
-        <p>
-          Cyber Ethos helps owners find workflow gaps, apply AI where it fits,
-          improve security, and clean up the systems behind daily work.
-        </p>
-        <div className="hero-actions">
-          <a href="/work-with-us">Get an Operator Review</a>
-          <a href="#services">See service paths</a>
-        </div>
-      </FadeIn>
-
-      <FadeIn delay={0.12} className="operator-preview">
-        <div className="preview-header">
-          <span>Cyber Ethos Operator</span>
-          <strong>Readiness Snapshot</strong>
-        </div>
-        <div className="score-ring">
-          <strong>74</strong>
-          <span>Operator Score</span>
-        </div>
-        <div className="preview-grid">
-          <Metric label="Workflow" value="Needs map" />
-          <Metric label="AI Fit" value="High" />
-          <Metric label="Security" value="Baseline" />
-          <Metric label="Website" value="Intake weak" />
-        </div>
-        <div className="preview-flow">
-          <span>Intake</span>
-          <span>Follow-up</span>
-          <span>Permissions</span>
-          <span>Reporting</span>
-        </div>
-      </FadeIn>
-    </section>
-  );
-}
-
-function Metric({ label, value }) {
-  return (
-    <div className="metric">
-      <span>{label}</span>
-      <strong>{value}</strong>
-    </div>
-  );
-}
-
-function ServiceLogic() {
-  return (
-    <section id="services" className="service-section">
-      <FadeIn className="section-heading">
-        <p className="eyebrow">Operator Review Method</p>
-        <h2>The service follows the app logic.</h2>
-      </FadeIn>
-      <Stagger className="pillar-grid">
-        {pillars.map((pillar, index) => (
-          <StaggerItem key={pillar.title}>
-            <Motion.article
-              className="pillar-card"
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 180, damping: 18 }}
-            >
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{pillar.title}</h3>
-              <p>{pillar.copy}</p>
-            </Motion.article>
-          </StaggerItem>
-        ))}
-      </Stagger>
-    </section>
-  );
-}
-
-function AudienceStrip() {
-  return (
-    <section className="audience-strip">
-      <FadeIn>
-        <p className="eyebrow">Who This Is For</p>
-        <h2>Built for owners who feel the work getting heavier.</h2>
-      </FadeIn>
-      <div className="audience-row">
-        {audiences.map((audience) => (
-          <div className="audience-item" key={audience}>
-            <strong>{audience}</strong>
-            <span>Less manual busywork, cleaner customer paths, stronger security habits, and a clearer next move.</span>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function FinalCTA() {
-  return (
-    <section className="final-band home-final">
-      <h2>Start with the Operator Review. Build only what earns its place.</h2>
-      <a href="/work-with-us">Request review</a>
-    </section>
   );
 }

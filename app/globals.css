@@ -56,6 +56,7 @@ a {
 }
 
 .nav-bar,
+.nav-glass,
 .hero,
 .operator-bridge,
 .service-section,
@@ -72,7 +73,8 @@ a {
   margin: 0 auto;
 }
 
-.nav-bar {
+.nav-bar,
+.nav-glass {
   position: fixed;
   top: 18px;
   left: 50%;
@@ -114,14 +116,16 @@ a {
   letter-spacing: 0;
 }
 
-.nav-bar nav {
+.nav-bar nav,
+.nav-glass nav {
   gap: 22px;
   color: var(--muted);
   font-size: 14px;
   font-weight: 760;
 }
 
-.nav-bar nav a:hover {
+.nav-bar nav a:hover,
+.nav-glass nav a:hover {
   color: var(--ink);
 }
 
@@ -139,6 +143,190 @@ a {
   padding: 12px 20px;
   font-size: 14px;
   font-weight: 850;
+}
+
+.app-site {
+  background:
+    linear-gradient(90deg, rgba(17, 20, 23, 0.035) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(17, 20, 23, 0.035) 1px, transparent 1px),
+    #f6f1e8;
+  background-size: 64px 64px;
+}
+
+.app-hero,
+.app-section,
+.app-cta,
+.app-contact {
+  position: relative;
+  z-index: 1;
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.app-hero {
+  display: grid;
+  min-height: 760px;
+  grid-template-columns: minmax(0, 1fr) 390px;
+  gap: 64px;
+  align-items: center;
+  padding: 130px 0 72px;
+}
+
+.app-hero.single {
+  min-height: 560px;
+  grid-template-columns: 1fr;
+}
+
+.app-copy {
+  max-width: 640px;
+}
+
+.app-copy h1 {
+  margin: 18px 0 0;
+  color: var(--ink);
+  font-size: clamp(3.4rem, 6vw, 5.6rem);
+  font-weight: 850;
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+.app-copy p:not(.eyebrow) {
+  max-width: 520px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.62;
+}
+
+.phone-card {
+  border-radius: 38px;
+  background: #101820;
+  padding: 28px;
+  color: #fff8ea;
+  box-shadow: 0 34px 100px rgba(16, 24, 32, 0.18);
+}
+
+.phone-top {
+  display: grid;
+  place-items: center;
+  min-height: 210px;
+  border: 1px solid rgba(244, 200, 120, 0.2);
+  border-radius: 30px;
+  background: #172432;
+  text-align: center;
+}
+
+.phone-top span {
+  color: #9baab5;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.phone-top strong {
+  margin-top: -28px;
+  color: #fff8ea;
+  font-size: 5rem;
+  line-height: 1;
+}
+
+.phone-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.phone-list div,
+.compact-grid span,
+.app-contact {
+  border: 1px solid rgba(16, 24, 32, 0.08);
+  border-radius: 16px;
+  background: #fffaf1;
+  padding: 18px 20px;
+}
+
+.phone-list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #111d28;
+}
+
+.phone-list span {
+  color: #9baab5;
+  font-weight: 760;
+}
+
+.phone-list strong {
+  color: #f4c878;
+}
+
+.app-section {
+  padding: 36px 0;
+}
+
+.compact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.compact-grid span {
+  color: var(--ink);
+  font-weight: 850;
+}
+
+.app-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 54px;
+  margin-bottom: 44px;
+  border-radius: 24px;
+  background: #101820;
+  padding: 34px;
+}
+
+.app-cta h2 {
+  max-width: 620px;
+  margin: 0;
+  color: #fff8ea;
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  line-height: 1.08;
+}
+
+.app-cta a {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  border-radius: 999px;
+  background: #f4c878;
+  color: #15120b;
+  padding: 0 22px;
+  font-weight: 850;
+}
+
+.app-contact {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 60px;
+}
+
+.app-contact span {
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.app-contact strong {
+  color: var(--ink);
+  font-size: 1.35rem;
 }
 
 .hero {
@@ -760,6 +948,19 @@ a {
     display: none;
   }
 
+  .nav-glass nav {
+    display: none;
+  }
+
+  .app-hero {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .phone-card {
+    max-width: 420px;
+  }
+
   .hero,
   .proof-section,
   .fit-section {
@@ -814,6 +1015,26 @@ a {
 
   .nav-cta {
     display: none;
+  }
+
+  .app-hero,
+  .app-hero.single {
+    min-height: auto;
+    padding: 116px 0 42px;
+  }
+
+  .app-copy h1 {
+    font-size: 3rem;
+    line-height: 1.02;
+  }
+
+  .compact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-cta {
+    display: grid;
+    text-align: center;
   }
 
   .hero {
