@@ -150,14 +150,35 @@ a {
 }
 
 .app-site {
+  isolation: isolate;
+  background: #07090d;
+}
+
+.app-site::before {
+  position: fixed;
+  inset: -40px;
+  z-index: 0;
+  content: "";
   background:
-    radial-gradient(circle at 55% 34%, rgba(244, 200, 120, 0.2), transparent 22rem),
-    linear-gradient(90deg, rgba(7, 16, 24, 0.86), rgba(7, 16, 24, 0.52) 46%, rgba(7, 16, 24, 0.88)),
-    linear-gradient(180deg, rgba(7, 16, 24, 0.35), rgba(7, 16, 24, 0.96)),
-    url("/images/cyber-ethos-cinematic-bg.png");
-  background-attachment: fixed;
-  background-position: center;
+    linear-gradient(180deg, rgba(7, 9, 13, 0.42), rgba(7, 9, 13, 0.9)),
+    linear-gradient(90deg, rgba(7, 9, 13, 0.86), rgba(7, 9, 13, 0.34) 48%, rgba(7, 9, 13, 0.86)),
+    url("/images/operator-report-preview.png");
+  background-position: center top;
   background-size: cover;
+  filter: blur(22px) saturate(1.05) brightness(0.72);
+  opacity: 0.95;
+  transform: scale(1.08);
+}
+
+.app-site::after {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 20%, rgba(246, 176, 92, 0.24), transparent 22rem),
+    linear-gradient(180deg, rgba(7, 9, 13, 0.12), #07090d 92%);
 }
 
 .app-hero,
@@ -382,10 +403,10 @@ a {
 
 .report-preview {
   overflow: hidden;
-  border: 10px solid rgba(16, 24, 32, 0.86);
+  border: 10px solid rgba(11, 13, 18, 0.86);
   border-radius: 42px;
-  background: rgba(16, 24, 32, 0.86);
-  box-shadow: 0 34px 120px rgba(0, 0, 0, 0.42);
+  background: rgba(11, 13, 18, 0.86);
+  box-shadow: 0 34px 120px rgba(0, 0, 0, 0.56);
   backdrop-filter: blur(16px);
 }
 
