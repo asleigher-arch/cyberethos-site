@@ -21,10 +21,39 @@ const services = [
   }
 ];
 
-const findings = [
-  { label: "Security basics", status: "Tighten first" },
-  { label: "Operations", status: "Cleanup needed" },
-  { label: "Automation fit", status: "Useful with guardrails" }
+const metrics = [
+  {
+    score: "54",
+    label: "overall",
+    title: "Security first",
+    status: "Low",
+    tone: "amber",
+    text: "Useful automation potential, but access and backups should be tightened first."
+  },
+  {
+    score: "41",
+    label: "ops",
+    title: "Operations readiness",
+    status: "Foundation gap",
+    tone: "orange",
+    text: "Follow-up, task ownership, and workflow documentation need cleanup."
+  },
+  {
+    score: "36",
+    label: "security",
+    title: "Security readiness",
+    status: "Needs work",
+    tone: "red",
+    text: "MFA, passwords, access, backups, and recovery should be tightened first."
+  },
+  {
+    score: "76",
+    label: "potential",
+    title: "Automation potential",
+    status: "Solid baseline",
+    tone: "green",
+    text: "Repeated admin work and follow-up create strong automation opportunities."
+  }
 ];
 
 export default function HomePage() {
@@ -45,33 +74,33 @@ export default function HomePage() {
         </div>
 
         <div className="report-card" aria-label="Operator report preview">
-          <div className="report-card-top">
+          <div className="report-heading">
             <div>
-              <span>Operator Score</span>
-              <strong>54</strong>
+              <p className="eyebrow">Visual Report</p>
+              <h2>Your Operator Score</h2>
             </div>
-            <p>
-              Security first. Useful automation potential after access,
-              backups, and handoffs are cleaned up.
-            </p>
+            <strong>54</strong>
           </div>
 
-          <div className="report-findings">
-            {findings.map((item) => (
-              <div key={item.label}>
-                <span>{item.label}</span>
-                <strong>{item.status}</strong>
-              </div>
+          <div className="metric-stack">
+            {metrics.map((metric) => (
+              <article className={`metric-card ${metric.tone}`} key={metric.title}>
+                <div className="metric-score">
+                  <strong>{metric.score}</strong>
+                  <span>{metric.label}</span>
+                </div>
+                <div className="metric-copy">
+                  <div>
+                    <h3>{metric.title}</h3>
+                    <span>{metric.status}</span>
+                  </div>
+                  <div className="metric-bar" aria-hidden="true">
+                    <span style={{ width: `${metric.score}%` }} />
+                  </div>
+                  <p>{metric.text}</p>
+                </div>
+              </article>
             ))}
-          </div>
-
-          <div className="report-image">
-            <div className="phone-preview">
-              <img
-                src="/images/operator-report-preview.png"
-                alt="Cyber Ethos Operator score report preview"
-              />
-            </div>
           </div>
         </div>
       </section>
