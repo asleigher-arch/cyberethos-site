@@ -9,9 +9,8 @@ const navItems = [
 export function SiteLayout({ active = "/", children }) {
   return (
     <main className="operator-site">
-      <aside className="operator-sidebar">
+      <header className="operator-topbar">
         <a href="/" className="operator-brand" aria-label="Cyber Ethos home">
-          <span>CE</span>
           <strong>Cyber Ethos</strong>
         </a>
 
@@ -27,13 +26,41 @@ export function SiteLayout({ active = "/", children }) {
           ))}
         </nav>
 
-        <div className="sidebar-contact">
-          <span>Operator Review</span>
-          <a href="mailto:info@cyberethos.org">info@cyberethos.org</a>
-        </div>
-      </aside>
+        <a className="topbar-button" href="/contact">
+          Request review
+        </a>
+      </header>
 
       <section className="operator-content">{children}</section>
+
+      <footer className="operator-footer">
+        <a href="/" className="footer-brand">Cyber Ethos</a>
+        <div className="footer-socials" aria-label="Social links">
+          <span>in</span>
+          <span>ig</span>
+          <span>x</span>
+        </div>
+        <nav aria-label="Footer navigation">
+          <div>
+            <strong>Company</strong>
+            <a href="/">Preview</a>
+            <a href="/visibility">Visibility</a>
+            <a href="/contact">Contact</a>
+          </div>
+          <div>
+            <strong>Services</strong>
+            <a href="/#services">Operations</a>
+            <a href="/#services">Security</a>
+            <a href="/#services">AI workflow</a>
+          </div>
+          <div>
+            <strong>Support</strong>
+            <a href="/support">Support</a>
+            <a href="/privacy">Privacy</a>
+            <a href="mailto:info@cyberethos.org">Email</a>
+          </div>
+        </nav>
+      </footer>
     </main>
   );
 }

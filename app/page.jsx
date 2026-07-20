@@ -61,16 +61,39 @@ export default function HomePage() {
     <SiteLayout active="/">
       <section className="operator-hero">
         <div className="hero-brief">
-          <p className="eyebrow">Small Business Operator Systems</p>
-          <h1>A clear view of what to fix inside your business.</h1>
+          <h1>About</h1>
+          <p className="subheading">Operational clarity for small business owners</p>
           <p>
             Cyber Ethos reviews operations, security basics, AI workflow fit,
             and web intake so you know what to clean up first.
           </p>
-          <div className="hero-actions">
-            <a href="/contact">Request review</a>
-            <a href="/visibility">What you get</a>
-          </div>
+          <p>
+            You get a practical operator report that shows where work gets
+            stuck, what is risky, and what can be safely improved.
+          </p>
+
+          <form className="inline-contact" action="mailto:info@cyberethos.org">
+            <h2>Contact me</h2>
+            <div className="form-row">
+              <label>
+                First name
+                <input name="firstName" placeholder="Jane" />
+              </label>
+              <label>
+                Last name
+                <input name="lastName" placeholder="Smitherton" />
+              </label>
+            </div>
+            <label>
+              Email address
+              <input name="email" type="email" placeholder="email@janesfakedomain.net" />
+            </label>
+            <label>
+              Your message
+              <textarea name="message" placeholder="Enter your question or message" />
+            </label>
+            <button type="submit">Submit</button>
+          </form>
         </div>
 
         <div className="report-card" aria-label="Operator report preview">
