@@ -21,6 +21,12 @@ const services = [
   }
 ];
 
+const findings = [
+  { label: "Security basics", status: "Tighten first" },
+  { label: "Operations", status: "Cleanup needed" },
+  { label: "Automation fit", status: "Useful with guardrails" }
+];
+
 export default function HomePage() {
   return (
     <SiteLayout active="/">
@@ -38,16 +44,35 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="report-card">
-          <div>
-            <span>Operator Score</span>
-            <strong>54</strong>
-            <small>Security first</small>
+        <div className="report-card" aria-label="Operator report preview">
+          <div className="report-card-top">
+            <div>
+              <span>Operator Score</span>
+              <strong>54</strong>
+            </div>
+            <p>
+              Security first. Useful automation potential after access,
+              backups, and handoffs are cleaned up.
+            </p>
           </div>
-          <img
-            src="/images/operator-report-preview.png"
-            alt="Cyber Ethos Operator score report preview"
-          />
+
+          <div className="report-findings">
+            {findings.map((item) => (
+              <div key={item.label}>
+                <span>{item.label}</span>
+                <strong>{item.status}</strong>
+              </div>
+            ))}
+          </div>
+
+          <div className="report-image">
+            <div className="phone-preview">
+              <img
+                src="/images/operator-report-preview.png"
+                alt="Cyber Ethos Operator score report preview"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
