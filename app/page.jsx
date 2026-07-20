@@ -1,59 +1,70 @@
 "use client";
 
-import { FadeIn } from "@/components/MotionPrimitives";
+import { SiteLayout } from "@/components/SiteLayout";
 
-const results = ["Operator Score", "Risk areas", "Automation fit", "30-day cleanup plan"];
+const services = [
+  {
+    title: "Operations review",
+    text: "Find dropped follow-ups, unclear owners, and manual work that slows the business down."
+  },
+  {
+    title: "Security basics",
+    text: "Check access, backups, passwords, vendor risk, and sensitive data handling."
+  },
+  {
+    title: "AI workflow fit",
+    text: "Spot where AI can help without giving up control or creating new risk."
+  },
+  {
+    title: "Website intake",
+    text: "Clean up the path from visitor to request so leads are easier to handle."
+  }
+];
 
 export default function HomePage() {
   return (
-    <main className="site-shell app-site">
-      <Nav />
-      <section className="three-page-hero preview-hero">
-        <FadeIn className="three-copy">
-          <p className="eyebrow">Preview</p>
-          <h1>See what the report looks like.</h1>
+    <SiteLayout active="/">
+      <section className="operator-hero">
+        <div className="hero-brief">
+          <p className="eyebrow">Small Business Operator Systems</p>
+          <h1>A clear view of what to fix inside your business.</h1>
           <p>
-            Cyber Ethos gives small business owners a clear snapshot of what to
-            clean up first.
+            Cyber Ethos reviews operations, security basics, AI workflow fit,
+            and web intake so you know what to clean up first.
           </p>
           <div className="hero-actions">
-            <a href="/visibility">What we help with</a>
-            <a href="/contact">Contact</a>
+            <a href="/contact">Request review</a>
+            <a href="/visibility">What you get</a>
           </div>
-        </FadeIn>
+        </div>
 
-        <FadeIn delay={0.12} className="report-preview watermark-phone" aria-hidden="true">
-          <img src="/images/operator-report-preview.png" alt="Cyber Ethos Operator score report preview" />
-        </FadeIn>
+        <div className="report-card">
+          <div>
+            <span>Operator Score</span>
+            <strong>54</strong>
+            <small>Security first</small>
+          </div>
+          <img
+            src="/images/operator-report-preview.png"
+            alt="Cyber Ethos Operator score report preview"
+          />
+        </div>
       </section>
 
-      <section className="mini-section">
-        <p className="eyebrow">Results</p>
-        <div className="mini-grid">
-          {results.map((item) => (
-            <span key={item}>{item}</span>
+      <section className="operator-section" id="services">
+        <div className="section-title">
+          <p className="eyebrow">Services</p>
+          <h2>Practical help for owners who need clarity.</h2>
+        </div>
+        <div className="service-grid">
+          {services.map((service) => (
+            <article key={service.title} className="service-card">
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+            </article>
           ))}
         </div>
       </section>
-    </main>
-  );
-}
-
-function Nav() {
-  return (
-    <header className="nav-bar">
-      <a href="/" className="brand">
-        <span>CE</span>
-        <strong>Cyber Ethos</strong>
-      </a>
-      <nav aria-label="Primary navigation">
-        <a href="/">Preview</a>
-        <a href="/visibility">Visibility</a>
-        <a href="/contact">Contact</a>
-      </nav>
-      <a className="nav-cta" href="/contact">
-        Start
-      </a>
-    </header>
+    </SiteLayout>
   );
 }
