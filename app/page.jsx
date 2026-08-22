@@ -52,6 +52,9 @@ function CyberFigure() {
         <span className="trace trace-one" />
         <span className="trace trace-two" />
         <span className="trace trace-three" />
+        <span className="packet packet-one" />
+        <span className="packet packet-two" />
+        <span className="packet packet-three" />
         <span className="ring ring-one" />
         <span className="ring ring-two" />
       </div>
@@ -69,6 +72,88 @@ function CyberFigure() {
           <dd>Prioritized cleanup plan</dd>
         </div>
       </dl>
+    </div>
+  );
+}
+
+function ThreatRadar() {
+  return (
+    <div className="motion-figure radar-figure" aria-label="Animated visibility radar">
+      <span className="motion-label">FIG. 01 · VISIBILITY RADAR</span>
+      <div className="radar-screen" aria-hidden="true">
+        <span className="radar-ring r1" />
+        <span className="radar-ring r2" />
+        <span className="radar-ring r3" />
+        <span className="radar-sweep" />
+        <span className="radar-dot d1" />
+        <span className="radar-dot d2" />
+        <span className="radar-dot d3" />
+        <span className="radar-axis horizontal" />
+        <span className="radar-axis vertical" />
+      </div>
+    </div>
+  );
+}
+
+function AttackPathFigure() {
+  return (
+    <div className="motion-figure path-figure" aria-label="Animated attack path map">
+      <span className="motion-label">FIG. 02 · GAP MAP</span>
+      <div className="path-screen" aria-hidden="true">
+        <span className="path-lane lane-one" />
+        <span className="path-lane lane-two" />
+        <span className="path-lane lane-three" />
+        <span className="path-point p1" />
+        <span className="path-point p2" />
+        <span className="path-point p3" />
+        <span className="path-point p4" />
+        <span className="path-pulse pulse-one" />
+        <span className="path-pulse pulse-two" />
+      </div>
+    </div>
+  );
+}
+
+function ReviewSignalFigure() {
+  return (
+    <div className="motion-figure signal-figure" aria-label="Animated review signal stack">
+      <span className="motion-label">FIG. 03 · SIGNAL STACK</span>
+      <div className="signal-screen" aria-hidden="true">
+        <span className="signal-bar b1" />
+        <span className="signal-bar b2" />
+        <span className="signal-bar b3" />
+        <span className="signal-bar b4" />
+        <span className="signal-scan" />
+      </div>
+    </div>
+  );
+}
+
+function ResponseLoopFigure() {
+  return (
+    <div className="motion-figure loop-figure" aria-label="Animated response loop">
+      <span className="motion-label">FIG. 04 · CLEANUP LOOP</span>
+      <div className="loop-screen" aria-hidden="true">
+        <span className="loop-orbit orbit-one" />
+        <span className="loop-orbit orbit-two" />
+        <span className="loop-core" />
+        <span className="loop-marker m1" />
+        <span className="loop-marker m2" />
+      </div>
+    </div>
+  );
+}
+
+function SecureHandoffFigure() {
+  return (
+    <div className="motion-figure handoff-figure" aria-label="Animated secure handoff">
+      <span className="motion-label">FIG. 05 · SECURE HANDOFF</span>
+      <div className="handoff-screen" aria-hidden="true">
+        <span className="vault" />
+        <span className="handoff-line" />
+        <span className="handoff-token" />
+        <span className="check-ring" />
+      </div>
     </div>
   );
 }
@@ -93,18 +178,24 @@ export default function HomePage() {
 
       <section className="operator-section thesis-section" id="thesis">
         <div className="section-kicker"><span>01</span><em>THESIS</em></div>
-        <div className="split-section">
-          <h2>Most owners are not missing effort. They are missing visibility.</h2>
-          <p>
-            Work gets stuck between inboxes, people, tools, vendors, passwords, and websites. Cyber Ethos turns that mess into a short, practical list of what to clean up first.
-          </p>
+        <div className="split-section illustrated-section">
+          <div>
+            <h2>Most owners are not missing effort. They are missing visibility.</h2>
+            <p>
+              Work gets stuck between inboxes, people, tools, vendors, passwords, and websites. Cyber Ethos turns that mess into a short, practical list of what to clean up first.
+            </p>
+          </div>
+          <ThreatRadar />
         </div>
       </section>
 
       <section className="operator-section" id="gaps">
         <div className="section-kicker"><span>02</span><em>THE GAPS</em></div>
-        <div className="section-title">
-          <h2>Where time, trust, and control usually leak.</h2>
+        <div className="section-title illustrated-title">
+          <div>
+            <h2>Where time, trust, and control usually leak.</h2>
+          </div>
+          <AttackPathFigure />
         </div>
         <div className="gap-grid">
           {gaps.map((gap) => (
@@ -125,6 +216,7 @@ export default function HomePage() {
             <p>
               The report is not a generic dashboard. It is a short operator brief showing the friction, risk, and automation opportunities that matter right now.
             </p>
+            <ReviewSignalFigure />
           </div>
           <div className="readiness-panel" aria-label="Readiness report preview">
             <div className="readiness-top">
@@ -146,8 +238,11 @@ export default function HomePage() {
 
       <section className="operator-section process-section-dark" id="process">
         <div className="section-kicker"><span>04</span><em>PROCESS</em></div>
-        <div className="split-section">
-          <h2>Review the business like an operator, not a software salesperson.</h2>
+        <div className="split-section illustrated-section">
+          <div>
+            <h2>Review the business like an operator, not a software salesperson.</h2>
+            <ResponseLoopFigure />
+          </div>
           <ol className="process-list">
             {process.map((item) => (
               <li key={item}>{item}</li>
@@ -161,6 +256,7 @@ export default function HomePage() {
           <p className="eyebrow">REQUEST REVIEW</p>
           <h2>Find the first cleanup moves before buying another tool.</h2>
         </div>
+        <SecureHandoffFigure />
         <a href="/contact">Start the review</a>
       </section>
     </SiteLayout>

@@ -2347,3 +2347,398 @@ a {
     height: 290px;
   }
 }
+
+/* Cyber Ethos animated security figures */
+.illustrated-section,
+.illustrated-title {
+  align-items: center;
+}
+
+.illustrated-section > div:first-child,
+.review-layout > div:first-child {
+  display: grid;
+  gap: 28px;
+}
+
+.illustrated-title {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.55fr);
+  gap: clamp(36px, 7vw, 96px);
+  max-width: none;
+}
+
+.motion-figure {
+  position: relative;
+  min-height: 250px;
+  border-top: 1px solid rgba(238, 231, 216, 0.16);
+  color: #eee7d8;
+  padding-top: 16px;
+}
+
+.motion-label {
+  display: block;
+  color: #c45b49;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.radar-screen,
+.path-screen,
+.signal-screen,
+.loop-screen,
+.handoff-screen {
+  position: relative;
+  height: 250px;
+  margin-top: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(238, 231, 216, 0.12);
+  background:
+    linear-gradient(90deg, rgba(238,231,216,0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(238,231,216,0.035) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(69, 192, 199, 0.10), transparent 62%),
+    rgba(238, 231, 216, 0.018);
+  background-size: 38px 38px, 38px 38px, auto, auto;
+}
+
+.packet,
+.radar-ring,
+.radar-sweep,
+.radar-dot,
+.radar-axis,
+.path-lane,
+.path-point,
+.path-pulse,
+.signal-bar,
+.signal-scan,
+.loop-orbit,
+.loop-core,
+.loop-marker,
+.vault,
+.handoff-line,
+.handoff-token,
+.check-ring {
+  position: absolute;
+  display: block;
+}
+
+/* Hero packet movement */
+.packet {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #46c6c9;
+  box-shadow: 0 0 18px rgba(70, 198, 201, 0.85);
+}
+
+.packet-one { left: 18%; top: 51%; animation: packetOne 4.8s linear infinite; }
+.packet-two { left: 43%; top: 25%; animation: packetTwo 5.4s linear infinite; }
+.packet-three { left: 50%; bottom: 20%; background: #c45b49; box-shadow: 0 0 18px rgba(196, 91, 73, 0.8); animation: packetThree 6s linear infinite; }
+
+.ring-one { animation: breatheRing 6s ease-in-out infinite; }
+.ring-two { animation: breatheRing 6s ease-in-out infinite reverse; }
+.node { animation: nodePulse 3.8s ease-in-out infinite; }
+.node-e { animation-delay: 1.2s; }
+
+/* FIG 01 radar */
+.radar-ring {
+  inset: 50%;
+  border: 1px solid rgba(238, 231, 216, 0.14);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.radar-ring.r1 { width: 74px; height: 74px; }
+.radar-ring.r2 { width: 146px; height: 146px; }
+.radar-ring.r3 { width: 218px; height: 218px; border-color: rgba(70,198,201,0.22); }
+.radar-axis { background: rgba(238,231,216,0.11); }
+.radar-axis.horizontal { left: 11%; right: 11%; top: 50%; height: 1px; }
+.radar-axis.vertical { top: 10%; bottom: 10%; left: 50%; width: 1px; }
+.radar-sweep {
+  left: 50%;
+  top: 50%;
+  width: 108px;
+  height: 1px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, rgba(70,198,201,0.95), transparent);
+  animation: radarSweep 5s linear infinite;
+}
+.radar-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #46c6c9;
+  box-shadow: 0 0 18px rgba(70,198,201,0.85);
+  animation: radarBlink 2.8s ease-in-out infinite;
+}
+.radar-dot.d1 { left: 62%; top: 32%; }
+.radar-dot.d2 { left: 36%; top: 58%; animation-delay: 0.8s; background: #c45b49; }
+.radar-dot.d3 { left: 68%; top: 67%; animation-delay: 1.4s; }
+
+/* FIG 02 attack/gap path */
+.path-lane {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(238,231,216,0.18), transparent);
+}
+.lane-one { left: 8%; right: 9%; top: 32%; transform: rotate(8deg); }
+.lane-two { left: 11%; right: 13%; top: 56%; transform: rotate(-13deg); }
+.lane-three { left: 18%; right: 14%; top: 72%; transform: rotate(5deg); }
+.path-point {
+  width: 13px;
+  height: 13px;
+  border: 1px solid rgba(238,231,216,0.75);
+  border-radius: 50%;
+  background: #07090a;
+}
+.p1 { left: 13%; top: 36%; }
+.p2 { left: 36%; top: 50%; }
+.p3 { left: 62%; top: 40%; border-color: #c45b49; }
+.p4 { right: 14%; top: 65%; border-color: #46c6c9; }
+.path-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c45b49;
+  box-shadow: 0 0 18px rgba(196,91,73,0.8);
+}
+.pulse-one { left: 13%; top: 37%; animation: pathMoveOne 5.2s ease-in-out infinite; }
+.pulse-two { left: 35%; top: 51%; background: #46c6c9; box-shadow: 0 0 18px rgba(70,198,201,0.8); animation: pathMoveTwo 6.4s ease-in-out infinite; }
+
+/* FIG 03 signal stack */
+.signal-screen {
+  height: 180px;
+}
+.signal-bar {
+  left: 12%;
+  right: 12%;
+  height: 20px;
+  border: 1px solid rgba(238,231,216,0.13);
+  background: linear-gradient(90deg, rgba(196,91,73,0.26), rgba(70,198,201,0.14));
+  transform-origin: left center;
+  animation: signalWidth 4.2s ease-in-out infinite;
+}
+.b1 { top: 28px; animation-delay: 0s; }
+.b2 { top: 68px; animation-delay: 0.4s; }
+.b3 { top: 108px; animation-delay: 0.8s; }
+.b4 { top: 148px; animation-delay: 1.2s; }
+.signal-scan {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, #46c6c9, transparent);
+  box-shadow: 0 0 20px rgba(70,198,201,0.75);
+  animation: scanAcross 3.8s linear infinite;
+}
+
+/* FIG 04 response loop */
+.loop-orbit {
+  left: 50%;
+  top: 50%;
+  border: 1px solid rgba(238,231,216,0.16);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.orbit-one { width: 190px; height: 105px; animation: orbitTurn 7s linear infinite; }
+.orbit-two { width: 108px; height: 190px; border-color: rgba(70,198,201,0.25); animation: orbitTurn 9s linear infinite reverse; }
+.loop-core {
+  left: calc(50% - 22px);
+  top: calc(50% - 22px);
+  width: 44px;
+  height: 44px;
+  border: 1px solid #c45b49;
+  border-radius: 50%;
+  box-shadow: 0 0 28px rgba(196,91,73,0.35);
+  animation: nodePulse 3s ease-in-out infinite;
+}
+.loop-marker {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #46c6c9;
+  box-shadow: 0 0 16px rgba(70,198,201,0.8);
+}
+.m1 { left: calc(50% + 90px); top: 50%; animation: markerFloat 5s ease-in-out infinite; }
+.m2 { left: calc(50% - 96px); top: 48%; background: #c45b49; animation: markerFloat 5s ease-in-out infinite reverse; }
+
+/* FIG 05 handoff */
+.handoff-figure {
+  width: min(300px, 32vw);
+  min-height: 170px;
+  flex: 0 0 auto;
+}
+.handoff-screen {
+  height: 155px;
+}
+.vault {
+  left: 22px;
+  top: 44px;
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(238,231,216,0.68);
+  border-radius: 4px;
+}
+.vault::before {
+  position: absolute;
+  left: 16px;
+  top: -24px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(238,231,216,0.68);
+  border-bottom: 0;
+  border-radius: 18px 18px 0 0;
+  content: "";
+}
+.handoff-line {
+  left: 82px;
+  right: 52px;
+  top: 74px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(238,231,216,0.16), rgba(70,198,201,0.8), rgba(238,231,216,0.16));
+}
+.handoff-token {
+  left: 92px;
+  top: 68px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #46c6c9;
+  box-shadow: 0 0 18px rgba(70,198,201,0.85);
+  animation: handoffMove 3.4s ease-in-out infinite;
+}
+.check-ring {
+  right: 24px;
+  top: 51px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #46c6c9;
+  border-radius: 50%;
+  box-shadow: 0 0 26px rgba(70,198,201,0.3);
+  animation: checkPulse 3.4s ease-in-out infinite;
+}
+.check-ring::after {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  width: 17px;
+  height: 9px;
+  border-left: 2px solid #46c6c9;
+  border-bottom: 2px solid #46c6c9;
+  content: "";
+  transform: rotate(-45deg);
+}
+
+@keyframes packetOne {
+  0% { transform: translate(0, 0); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translate(210px, -112px); opacity: 0; }
+}
+@keyframes packetTwo {
+  0% { transform: translate(0, 0); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translate(190px, 40px); opacity: 0; }
+}
+@keyframes packetThree {
+  0% { transform: translate(0, 0); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translate(118px, -88px); opacity: 0; }
+}
+@keyframes breatheRing {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.95; transform: scale(1.025); }
+}
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.74; }
+  50% { opacity: 1; box-shadow: 0 0 30px rgba(70,198,201,0.6); }
+}
+@keyframes radarSweep {
+  to { transform: rotate(360deg); }
+}
+@keyframes radarBlink {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+@keyframes pathMoveOne {
+  0%, 100% { transform: translate(0,0); opacity: 0; }
+  10%, 80% { opacity: 1; }
+  45% { transform: translate(120px, 70px); }
+  80% { transform: translate(300px, 18px); }
+}
+@keyframes pathMoveTwo {
+  0%, 100% { transform: translate(0,0); opacity: 0; }
+  10%, 82% { opacity: 1; }
+  55% { transform: translate(150px, -50px); }
+  82% { transform: translate(330px, 38px); }
+}
+@keyframes signalWidth {
+  0%, 100% { transform: scaleX(0.42); opacity: 0.55; }
+  50% { transform: scaleX(0.95); opacity: 1; }
+}
+@keyframes scanAcross {
+  0% { left: 8%; opacity: 0; }
+  12%, 88% { opacity: 1; }
+  100% { left: 92%; opacity: 0; }
+}
+@keyframes orbitTurn {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+@keyframes markerFloat {
+  0%, 100% { transform: translateY(-4px); opacity: 0.55; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+@keyframes handoffMove {
+  0%, 100% { transform: translateX(0); opacity: 0; }
+  18%, 78% { opacity: 1; }
+  82% { transform: translateX(150px); opacity: 1; }
+}
+@keyframes checkPulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.94); }
+  72% { opacity: 1; transform: scale(1.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .packet,
+  .ring,
+  .node,
+  .radar-sweep,
+  .radar-dot,
+  .path-pulse,
+  .signal-bar,
+  .signal-scan,
+  .loop-orbit,
+  .loop-core,
+  .loop-marker,
+  .handoff-token,
+  .check-ring {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .illustrated-title {
+    grid-template-columns: 1fr;
+  }
+
+  .motion-figure,
+  .handoff-figure {
+    width: 100%;
+    max-width: 560px;
+  }
+
+  .final-review-cta {
+    display: grid;
+    align-items: start;
+  }
+}
+
+@media (max-width: 620px) {
+  .radar-screen,
+  .path-screen,
+  .loop-screen {
+    height: 220px;
+  }
+
+  .signal-screen,
+  .handoff-screen {
+    height: 150px;
+  }
+}
