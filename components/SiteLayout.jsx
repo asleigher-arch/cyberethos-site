@@ -2,21 +2,20 @@
 
 const navItems = [
   { href: "/#services", label: "Services" },
-  { href: "/#roles", label: "Roles" },
   { href: "/#process", label: "Process" },
+  { href: "/#fit", label: "Who it helps" },
   { href: "/contact", label: "Contact" }
 ];
 
-export function SiteLayout({ active = "/", children }) {
+export function SiteLayout({ children, active = "/" }) {
   return (
-    <main className="ce-site">
-      <header className="ce-header">
-        <a href="/" className="ce-brand" aria-label="Cyber Ethos home">
+    <main className="ce-simple-site">
+      <header className="ce-simple-header">
+        <a href="/" className="ce-simple-brand" aria-label="Cyber Ethos home">
           <span>CE</span>
           <strong>Cyber Ethos</strong>
         </a>
-
-        <nav className="ce-nav" aria-label="Primary navigation">
+        <nav aria-label="Primary navigation" className="ce-simple-nav">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -27,32 +26,22 @@ export function SiteLayout({ active = "/", children }) {
             </a>
           ))}
         </nav>
-
-        <a className="ce-header-cta" href="/contact">
-          Request a review
-        </a>
+        <a className="ce-simple-header-cta" href="/contact">Request a review</a>
       </header>
 
-      <section className="ce-main-content">{children}</section>
+      <div className="ce-simple-content">{children}</div>
 
-      <footer className="ce-footer">
+      <footer className="ce-simple-footer">
         <div>
-          <a href="/" className="ce-footer-brand">Cyber Ethos</a>
-          <p>Offshore support, operations cleanup, direct engineering, and basic security controls for growing businesses.</p>
+          <a href="/" className="ce-simple-footer-brand">Cyber Ethos</a>
+          <p>Practical offshore support, engineering help, operations cleanup, and access control for small business owners.</p>
         </div>
         <nav aria-label="Footer navigation">
-          <div>
-            <strong>Company</strong>
-            <a href="/#services">Services</a>
-            <a href="/#process">Process</a>
-            <a href="/contact">Contact</a>
-          </div>
-          <div>
-            <strong>Support</strong>
-            <a href="/support">Support</a>
-            <a href="/privacy">Privacy</a>
-            <a href="mailto:info@cyberethos.org">Email</a>
-          </div>
+          <a href="/#services">Services</a>
+          <a href="/#process">Process</a>
+          <a href="/contact">Contact</a>
+          <a href="/support">Support</a>
+          <a href="/privacy">Privacy</a>
         </nav>
       </footer>
     </main>
