@@ -19,7 +19,7 @@ export default function PrivacyPage() {
         </div>
 
         <aside className="ce-contact-panel" aria-label="Privacy contact">
-          <span>CONTACT</span>
+          <span>Contact</span>
           <p>For privacy questions, email info@cyberethos.org.</p>
           <p>Last updated: August 27, 2026</p>
         </aside>

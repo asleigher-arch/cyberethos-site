@@ -29,7 +29,7 @@ export function SiteLayout({ active = "/", children }) {
         </nav>
 
         <a className="topbar-button" href="/contact">
-          Request review
+          Request a review
         </a>
       </header>
 

@@ -22,18 +22,18 @@ export default function ContactPage() {
     <SiteLayout active="/contact">
       <section className="ce-contact-hero">
         <div>
-          <p className="ce-eyebrow">REQUEST REVIEW</p>
+          <p className="ce-eyebrow">Request a review</p>
           <h1>Tell us what needs to come off your plate.</h1>
           <p>
             Send a rough explanation of the business problem. Cyber Ethos will help turn it into a clear support plan for offshore assistance, direct engineering help, and safer delegation.
           </p>
           <div className="ce-actions">
-            <a href={emailUrl} target="_blank" rel="noreferrer">Request review</a>
+            <a href={emailUrl} target="_blank" rel="noreferrer">Request a review</a>
             <a href="mailto:info@cyberethos.org">info@cyberethos.org</a>
           </div>
         </div>
         <aside className="ce-contact-panel" aria-label="What to include in the request">
-          <span>INCLUDE THIS</span>
+          <span>Include this</span>
           {intakePrompts.map((prompt) => (
             <p key={prompt}>{prompt}</p>
           ))}

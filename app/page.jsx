@@ -3,9 +3,9 @@
 import { SiteLayout } from "@/components/SiteLayout";
 
 const proofCards = [
-  { label: "OPS", title: "Follow-ups, intake, calendars, admin work", value: "VA READY" },
-  { label: "SEC", title: "Access, passwords, files, vendor handoffs", value: "CONTROL FIRST" },
-  { label: "BUILD", title: "Websites, automations, dashboards, internal tools", value: "ENGINEERING" }
+  { label: "Operations", title: "Follow-ups, intake, calendars, admin work", value: "VA ready" },
+  { label: "Control", title: "Access, passwords, files, vendor handoffs", value: "Control first" },
+  { label: "Build", title: "Websites, automations, dashboards, internal tools", value: "Engineering" }
 ];
 
 const services = [
@@ -51,11 +51,11 @@ const steps = [
 
 function HeroCollage() {
   return (
-    <div className="ce-collage" aria-label="Cyber Ethos operating support preview">
+    <div className="ce-collage" aria-label="Cyber Ethos support preview">
       <div className="ce-collage-card ce-card-main">
         <div className="ce-card-topline">
-          <span>SUPPORT PLAN</span>
-          <strong>ACTIVE</strong>
+          <span>Support plan</span>
+          <strong>Active</strong>
         </div>
         <h2>Owner capacity map</h2>
         <div className="ce-capacity-bars" aria-hidden="true">
@@ -66,19 +66,19 @@ function HeroCollage() {
       </div>
 
       <div className="ce-collage-card ce-card-small ce-card-va">
-        <span>ROLE FIT</span>
+        <span>Recommended role</span>
         <strong>Part-time VA</strong>
         <p>Inbox · Calendar · CRM · Follow-up</p>
       </div>
 
       <div className="ce-collage-card ce-card-small ce-card-eng">
-        <span>BUILD FIT</span>
+        <span>Technical fit</span>
         <strong>Direct engineer</strong>
         <p>Website · Automation · Dashboard</p>
       </div>
 
       <div className="ce-collage-card ce-card-security">
-        <span>CONTROL LAYER</span>
+        <span>Access control</span>
         <div className="ce-security-grid" aria-hidden="true">
           <i />
           <i />
@@ -98,7 +98,7 @@ export default function HomePage() {
     <SiteLayout active="/">
       <section className="ce-hero">
         <div className="ce-hero-copy">
-          <p className="ce-eyebrow">CYBER ETHOS / SMALL BUSINESS OPERATIONS</p>
+          <p className="ce-eyebrow">Small business support</p>
           <h1>Offshore support without losing control.</h1>
           <p>
             Cyber Ethos helps business owners clean up operations, protect access, and decide what to hand to a part-time VA, full-time offshore assistant, or direct engineering team.
@@ -122,13 +122,13 @@ export default function HomePage() {
       </section>
 
       <section className="ce-section ce-statement" id="thesis">
-        <p className="ce-eyebrow">THE SHIFT</p>
+        <p className="ce-eyebrow">How it helps</p>
         <h2>Get the right help, with clear handoffs and basic security in place first.</h2>
       </section>
 
       <section className="ce-section" id="services">
         <div className="ce-section-head">
-          <p className="ce-eyebrow">WHAT WE HELP WITH</p>
+          <p className="ce-eyebrow">What we help with</p>
           <h2>Practical support for owners who need reliable help.</h2>
         </div>
         <div className="ce-service-grid">
@@ -144,7 +144,7 @@ export default function HomePage() {
 
       <section className="ce-section ce-roles" id="roles">
         <div>
-          <p className="ce-eyebrow">ROLE EXAMPLES</p>
+          <p className="ce-eyebrow">Role examples</p>
           <h2>Part-time help, full-time help, or technical talent.</h2>
         </div>
         <div className="ce-role-grid">
@@ -156,7 +156,7 @@ export default function HomePage() {
 
       <section className="ce-section ce-process" id="review">
         <div className="ce-section-head">
-          <p className="ce-eyebrow">THE REVIEW</p>
+          <p className="ce-eyebrow">The review</p>
           <h2>A clean plan before you hire.</h2>
           <p>
             We look at the work, the tools, the risk, and the owner bottlenecks. Then we tell you what to delegate first and what needs tighter control.
@@ -174,7 +174,7 @@ export default function HomePage() {
 
       <section className="ce-final" id="contact">
         <div>
-          <p className="ce-eyebrow">START HERE</p>
+          <p className="ce-eyebrow">Start here</p>
           <h2>Show us what is taking too much time. We will turn it into a support plan.</h2>
         </div>
         <a href="/contact">Request a review</a>

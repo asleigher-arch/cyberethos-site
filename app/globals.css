@@ -4075,3 +4075,188 @@ a {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* Clean header and heading system: simpler Dribbble-style clarity */
+.operator-topbar {
+  width: min(1180px, calc(100% - 40px)) !important;
+  margin: 18px auto 0 !important;
+  padding: 12px 14px !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items: center !important;
+  gap: 18px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(20, 33, 38, 0.08) !important;
+  box-shadow: 0 18px 60px rgba(20, 33, 38, 0.08) !important;
+  backdrop-filter: blur(18px) !important;
+}
+
+.operator-brand {
+  gap: 10px !important;
+  color: #142126 !important;
+}
+
+.operator-brand span {
+  width: 34px !important;
+  height: 34px !important;
+  border-radius: 50% !important;
+  background: #0f766e !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.operator-brand strong {
+  color: #142126 !important;
+  font-size: 0.92rem !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+}
+
+.operator-nav {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.operator-nav a {
+  padding: 9px 12px !important;
+  border-radius: 999px !important;
+  color: rgba(20, 33, 38, 0.72) !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.operator-nav a:hover,
+.operator-nav a[aria-current="page"] {
+  background: rgba(15, 118, 110, 0.08) !important;
+  color: #0f766e !important;
+}
+
+.topbar-button {
+  padding: 10px 15px !important;
+  border-radius: 999px !important;
+  font-size: 0.88rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+}
+
+.ce-hero,
+.ce-contact-hero {
+  padding-top: 92px !important;
+}
+
+.ce-eyebrow,
+.ce-card-topline span,
+.ce-collage-card > span,
+.ce-proof-strip article > span {
+  color: #0f766e !important;
+  font-size: 0.82rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.ce-proof-strip article strong,
+.ce-card-topline strong {
+  color: rgba(20, 33, 38, 0.74) !important;
+  font-size: 0.8rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+.ce-section {
+  margin-top: 74px !important;
+}
+
+.ce-section-head {
+  gap: 10px !important;
+}
+
+.ce-section h2,
+.ce-section-head h2,
+.ce-statement h2,
+.ce-roles h2,
+.ce-process h2,
+.ce-final h2,
+.ce-contact-hero h1,
+.ce-legal-hero h1 {
+  color: #142126 !important;
+  letter-spacing: -0.045em !important;
+}
+
+.ce-section h2,
+.ce-section-head h2,
+.ce-statement h2,
+.ce-roles h2,
+.ce-process h2,
+.ce-final h2 {
+  font-size: clamp(2rem, 3.2vw, 3.2rem) !important;
+  line-height: 1.02 !important;
+  max-width: 780px !important;
+}
+
+.ce-final {
+  align-items: center !important;
+}
+
+@media (max-width: 760px) {
+  .operator-topbar {
+    width: min(100% - 24px, 1180px) !important;
+    grid-template-columns: 1fr auto !important;
+    border-radius: 24px !important;
+    padding: 12px !important;
+  }
+
+  .operator-nav {
+    grid-column: 1 / -1 !important;
+    order: 3 !important;
+    justify-content: flex-start !important;
+    gap: 4px !important;
+    overflow-x: auto !important;
+    padding-top: 4px !important;
+  }
+
+  .operator-nav a {
+    padding: 8px 10px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .topbar-button {
+    padding: 9px 12px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .ce-hero,
+  .ce-contact-hero {
+    padding-top: 54px !important;
+  }
+}
+
+/* Keep footer headers clean too */
+.footer-brand,
+.footer-line,
+.operator-footer strong {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+}
+
+.footer-brand {
+  color: #142126 !important;
+  font-size: 1rem !important;
+}
+
+.footer-line {
+  color: rgba(20, 33, 38, 0.58) !important;
+}
+
+.operator-footer strong {
+  color: rgba(20, 33, 38, 0.78) !important;
+  font-size: 0.9rem !important;
+}

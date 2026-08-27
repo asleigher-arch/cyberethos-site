@@ -22,7 +22,7 @@ export default function SupportPage() {
         </div>
 
         <aside className="ce-contact-panel" aria-label="How to contact support">
-          <span>CONTACT</span>
+          <span>Contact</span>
           <p>Email info@cyberethos.org with your name, company, website, and a short description of what you need help with.</p>
           <p>For urgent access, password, data, or vendor-control concerns, include that clearly in the subject line.</p>
         </aside>
