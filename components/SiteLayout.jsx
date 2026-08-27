@@ -1,9 +1,9 @@
 "use client";
 
 const navItems = [
-  { href: "/#thesis", label: "Thesis" },
-  { href: "/#gaps", label: "Gaps" },
-  { href: "/#preview", label: "Review" },
+  { href: "/#services", label: "Services" },
+  { href: "/#roles", label: "Roles" },
+  { href: "/#review", label: "Review" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -37,19 +37,19 @@ export function SiteLayout({ active = "/", children }) {
 
       <footer className="operator-footer">
         <a href="/" className="footer-brand">Cyber Ethos</a>
-        <p className="footer-line">Operations · Security · Offshore support · Intake visibility</p>
+        <p className="footer-line">Operations · Security · Offshore assistants · Direct engineering</p>
         <nav aria-label="Footer navigation">
           <div>
             <strong>Company</strong>
-            <a href="/#thesis">Thesis</a>
-            <a href="/#preview">Review preview</a>
+            <a href="/#services">Services</a>
+            <a href="/#review">Review preview</a>
             <a href="/contact">Contact</a>
           </div>
           <div>
             <strong>Services</strong>
-            <a href="/#gaps">Operations</a>
-            <a href="/#gaps">Security basics</a>
-            <a href="/#gaps">Offshore support</a>
+            <a href="/#services">Operations</a>
+            <a href="/#services">Security basics</a>
+            <a href="/#roles">Offshore support</a>
           </div>
           <div>
             <strong>Support</strong>

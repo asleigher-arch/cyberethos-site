@@ -3,36 +3,51 @@
 import { SiteLayout } from "@/components/SiteLayout";
 
 const emailUrl =
-  "mailto:info@cyberethos.org?subject=Cyber%20Ethos%20Review%20Request&body=Name%3A%0ACompany%3A%0AWebsite%3A%0AWhere%20do%20you%20need%20more%20time%2C%20trust%2C%20control%2C%20or%20security%3F%0AWhat%20support%20would%20help%20most%3A%20part-time%20VA%2C%20full-time%20VA%2C%20or%20engineering%20help%3F%0AWhat%20have%20you%20already%20tried%3F%0A";
+  "mailto:info@cyberethos.org?subject=Cyber%20Ethos%20Review%20Request&body=Name%3A%0ACompany%3A%0AWebsite%3A%0AWhat%20work%20are%20you%20trying%20to%20get%20off%20your%20plate%3F%0AWhat%20support%20would%20help%20most%3A%20part-time%20VA%2C%20full-time%20VA%2C%20or%20engineering%20help%3F%0AAny%20access%2C%20password%2C%20customer%20data%2C%20or%20security%20concerns%3F%0A";
 
 const intakePrompts = [
-  "What work keeps getting dropped, repeated, or handled manually?",
-  "Where are you worried about access, passwords, backups, vendors, or sensitive data?",
-  "What kind of support would help most: part-time VA, full-time VA, or direct technical/engineering help?"
+  "What work are you trying to get off your plate?",
+  "Do you need part-time VA, full-time VA, or technical/engineering support?",
+  "What access, passwords, customer data, or approval points need protection?"
+];
+
+const contactCards = [
+  { label: "01", title: "Operations", text: "Admin, inbox, calendar, customer follow-up, CRM, research, documentation." },
+  { label: "02", title: "Technical", text: "Website fixes, dashboards, automations, integrations, product support." },
+  { label: "03", title: "Control", text: "Permissions, sensitive data, password sharing, vendor access, approval rules." }
 ];
 
 export default function ContactPage() {
   return (
     <SiteLayout active="/contact">
-      <section className="operator-page contact-panel">
-        <p className="eyebrow">Request Review</p>
-        <h1>Show me where the business needs support.</h1>
-        <p>
-          Send the workflow, website problem, security concern, hiring bottleneck, or business process you want cleaned up. You do not need a perfect brief. A messy explanation is enough to start.
-        </p>
-
-        <div className="contact-intake" aria-label="Review request prompts">
+      <section className="ce-contact-hero">
+        <div>
+          <p className="ce-eyebrow">REQUEST REVIEW</p>
+          <h1>Tell us what needs to come off your plate.</h1>
+          <p>
+            Send a rough explanation of the business problem. Cyber Ethos will help turn it into a clear support plan for offshore assistance, direct engineering help, and safer delegation.
+          </p>
+          <div className="ce-actions">
+            <a href={emailUrl} target="_blank" rel="noreferrer">Request review</a>
+            <a href="mailto:info@cyberethos.org">info@cyberethos.org</a>
+          </div>
+        </div>
+        <aside className="ce-contact-panel" aria-label="What to include in the request">
+          <span>INCLUDE THIS</span>
           {intakePrompts.map((prompt) => (
-            <div key={prompt}>{prompt}</div>
+            <p key={prompt}>{prompt}</p>
           ))}
-        </div>
+        </aside>
+      </section>
 
-        <div className="contact-actions">
-          <a href={emailUrl} target="_blank" rel="noreferrer">
-            Request review
-          </a>
-          <a href="mailto:info@cyberethos.org">info@cyberethos.org</a>
-        </div>
+      <section className="ce-contact-grid" aria-label="Review focus areas">
+        {contactCards.map((card) => (
+          <article key={card.title}>
+            <span>{card.label}</span>
+            <h2>{card.title}</h2>
+            <p>{card.text}</p>
+          </article>
+        ))}
       </section>
     </SiteLayout>
   );

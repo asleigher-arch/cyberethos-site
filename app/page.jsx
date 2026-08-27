@@ -2,172 +2,92 @@
 
 import { SiteLayout } from "@/components/SiteLayout";
 
-const gaps = [
+const proofCards = [
+  { label: "OPS", title: "Follow-ups, intake, calendars, admin work", value: "VA READY" },
+  { label: "SEC", title: "Access, passwords, files, vendor handoffs", value: "CONTROL FIRST" },
+  { label: "BUILD", title: "Websites, automations, dashboards, internal tools", value: "ENGINEERING" }
+];
+
+const services = [
   {
     number: "01",
-    title: "Operations drag",
-    text: "Dropped follow-ups, unclear owners, manual handoffs, and work that lives in someone's head."
+    title: "Offshore virtual assistants",
+    text: "Part-time or full-time executive/admin support for inboxes, calendars, follow-ups, research, CRM updates, and repeatable business operations."
   },
   {
     number: "02",
-    title: "Security basics",
-    text: "Access, passwords, backups, devices, vendor risk, and sensitive data handling before automation."
+    title: "Direct engineering support",
+    text: "Affordable technical help for websites, dashboards, automations, product fixes, integrations, and internal tools without building a bloated local team."
   },
   {
     number: "03",
-    title: "Offshore support fit",
-    text: "Where full-time or part-time virtual assistants and direct technical talent can remove bottlenecks without losing control."
+    title: "Operations cleanup",
+    text: "Before adding people, we clean up ownership, handoffs, tools, access, documentation, and the steps that keep slowing the business down."
   },
   {
     number: "04",
-    title: "Web intake",
-    text: "The path from visitor to request, and what happens after someone asks for help."
+    title: "Security and control",
+    text: "Hiring offshore should not mean losing control. We review passwords, permissions, sensitive data, recovery, vendor access, and approval points."
   }
 ];
 
-const reviewRows = [
-  { label: "OVERALL", value: "54", note: "Useful upside. Cleanup needed first." },
-  { label: "OPERATIONS", value: "41", note: "Ownership and follow-up gaps." },
-  { label: "SECURITY", value: "36", note: "MFA, access, backups, recovery." },
-  { label: "TALENT FIT", value: "76", note: "Strong support and delivery potential." }
+const roles = [
+  "Executive assistant",
+  "Operations assistant",
+  "Customer support VA",
+  "Research assistant",
+  "CRM/admin assistant",
+  "Web/product engineer",
+  "Automation builder",
+  "Dashboard/reporting support"
 ];
 
-const process = [
-  "Map how work actually moves",
-  "Find the gaps creating risk or wasted time",
-  "Separate quick fixes from deeper cleanup",
-  "Deliver a plain-English action plan"
+const steps = [
+  "Understand what the owner is trying to offload",
+  "Map what should be handled by a VA, engineer, or owner",
+  "Clean up access, handoffs, and approval rules",
+  "Create the role plan, first tasks, and hiring direction"
 ];
 
-const deliverables = [
-  {
-    title: "Clarity map",
-    text: "A plain-English view of where time, trust, control, or security needs attention."
-  },
-  {
-    title: "First cleanup moves",
-    text: "The few fixes to handle before adding another tool, contractor, virtual assistant, or engineering resource."
-  },
-  {
-    title: "Hiring fit note",
-    text: "Which roles can be handled by part-time support, full-time offshore help, or a direct engineering team."
-  }
-];
-
-function CyberFigure() {
+function HeroCollage() {
   return (
-    <div className="cyber-figure" aria-label="Cyber Ethos readiness schematic">
-      <div className="figure-label">FIG. 00</div>
-      <div className="schematic" aria-hidden="true">
-        <span className="node node-a" />
-        <span className="node node-b" />
-        <span className="node node-c" />
-        <span className="node node-d" />
-        <span className="node node-e" />
-        <span className="trace trace-one" />
-        <span className="trace trace-two" />
-        <span className="trace trace-three" />
-        <span className="packet packet-one" />
-        <span className="packet packet-two" />
-        <span className="packet packet-three" />
-        <span className="ring ring-one" />
-        <span className="ring ring-two" />
-      </div>
-      <dl className="figure-meta">
-        <div>
-          <dt>SUBJECT</dt>
-          <dd>Cyber Ethos Review</dd>
+    <div className="ce-collage" aria-label="Cyber Ethos operating support preview">
+      <div className="ce-collage-card ce-card-main">
+        <div className="ce-card-topline">
+          <span>SUPPORT PLAN</span>
+          <strong>ACTIVE</strong>
         </div>
-        <div>
-          <dt>DOMAIN</dt>
-          <dd>Operations · Security · Talent</dd>
+        <h2>Owner capacity map</h2>
+        <div className="ce-capacity-bars" aria-hidden="true">
+          <span style={{ "--bar": "78%" }}>Admin load</span>
+          <span style={{ "--bar": "64%" }}>Follow-up drag</span>
+          <span style={{ "--bar": "52%" }}>Technical backlog</span>
         </div>
-        <div>
-          <dt>OUTPUT</dt>
-          <dd>Prioritized cleanup plan</dd>
+      </div>
+
+      <div className="ce-collage-card ce-card-small ce-card-va">
+        <span>ROLE FIT</span>
+        <strong>Part-time VA</strong>
+        <p>Inbox · Calendar · CRM · Follow-up</p>
+      </div>
+
+      <div className="ce-collage-card ce-card-small ce-card-eng">
+        <span>BUILD FIT</span>
+        <strong>Direct engineer</strong>
+        <p>Website · Automation · Dashboard</p>
+      </div>
+
+      <div className="ce-collage-card ce-card-security">
+        <span>CONTROL LAYER</span>
+        <div className="ce-security-grid" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+          <i />
+          <i />
+          <i />
         </div>
-      </dl>
-    </div>
-  );
-}
-
-function ThreatRadar() {
-  return (
-    <div className="motion-figure radar-figure" aria-label="Animated visibility radar">
-      <span className="motion-label">FIG. 01 · VISIBILITY RADAR</span>
-      <div className="radar-screen" aria-hidden="true">
-        <span className="radar-ring r1" />
-        <span className="radar-ring r2" />
-        <span className="radar-ring r3" />
-        <span className="radar-sweep" />
-        <span className="radar-dot d1" />
-        <span className="radar-dot d2" />
-        <span className="radar-dot d3" />
-        <span className="radar-axis horizontal" />
-        <span className="radar-axis vertical" />
-      </div>
-    </div>
-  );
-}
-
-function AttackPathFigure() {
-  return (
-    <div className="motion-figure path-figure" aria-label="Animated attack path map">
-      <span className="motion-label">FIG. 02 · GAP MAP</span>
-      <div className="path-screen" aria-hidden="true">
-        <span className="path-lane lane-one" />
-        <span className="path-lane lane-two" />
-        <span className="path-lane lane-three" />
-        <span className="path-point p1" />
-        <span className="path-point p2" />
-        <span className="path-point p3" />
-        <span className="path-point p4" />
-        <span className="path-pulse pulse-one" />
-        <span className="path-pulse pulse-two" />
-      </div>
-    </div>
-  );
-}
-
-function ReviewSignalFigure() {
-  return (
-    <div className="motion-figure signal-figure" aria-label="Animated review signal stack">
-      <span className="motion-label">FIG. 03 · SIGNAL STACK</span>
-      <div className="signal-screen" aria-hidden="true">
-        <span className="signal-bar b1" />
-        <span className="signal-bar b2" />
-        <span className="signal-bar b3" />
-        <span className="signal-bar b4" />
-        <span className="signal-scan" />
-      </div>
-    </div>
-  );
-}
-
-function ResponseLoopFigure() {
-  return (
-    <div className="motion-figure loop-figure" aria-label="Animated response loop">
-      <span className="motion-label">FIG. 04 · CLEANUP LOOP</span>
-      <div className="loop-screen" aria-hidden="true">
-        <span className="loop-orbit orbit-one" />
-        <span className="loop-orbit orbit-two" />
-        <span className="loop-core" />
-        <span className="loop-marker m1" />
-        <span className="loop-marker m2" />
-      </div>
-    </div>
-  );
-}
-
-function SecureHandoffFigure() {
-  return (
-    <div className="motion-figure handoff-figure" aria-label="Animated secure handoff">
-      <span className="motion-label">FIG. 05 · SECURE HANDOFF</span>
-      <div className="handoff-screen" aria-hidden="true">
-        <span className="vault" />
-        <span className="handoff-line" />
-        <span className="handoff-token" />
-        <span className="check-ring" />
+        <p>Access rules before delegation.</p>
       </div>
     </div>
   );
@@ -176,119 +96,88 @@ function SecureHandoffFigure() {
 export default function HomePage() {
   return (
     <SiteLayout active="/">
-      <section className="operator-hero brief-hero">
-        <div className="hero-brief">
-          <p className="eyebrow">CYBER ETHOS · SMALL BUSINESS READINESS · OFFSHORE SUPPORT</p>
-          <h1>Small businesses do not need more tools. They need clarity on time, trust, and control.</h1>
-          <p className="subheading">
-            Cyber Ethos reviews your operations, security basics, web intake, and offshore hiring fit, then gives you a practical cleanup and staffing plan.
+      <section className="ce-hero">
+        <div className="ce-hero-copy">
+          <p className="ce-eyebrow">CYBER ETHOS / SMALL BUSINESS OPERATIONS</p>
+          <h1>Hire offshore support without losing control of the business.</h1>
+          <p>
+            Cyber Ethos helps business owners clean up operations, protect access, and decide what to hand to a part-time VA, full-time offshore assistant, or direct engineering team.
           </p>
-          <div className="hero-actions">
-            <a href="/contact">Request review</a>
-            <a href="#preview">See the review</a>
+          <div className="ce-actions">
+            <a href="/contact">Request a review</a>
+            <a href="#services">See what we handle</a>
           </div>
         </div>
-        <CyberFigure />
+        <HeroCollage />
       </section>
 
-      <section className="operator-section thesis-section" id="thesis">
-        <div className="section-kicker"><span>01</span><em>THESIS</em></div>
-        <div className="split-section illustrated-section">
-          <div>
-            <h2>Most owners are not missing effort. They are missing visibility.</h2>
-            <p>
-              Work gets stuck between inboxes, people, tools, vendors, passwords, and websites. Cyber Ethos turns that mess into a short, practical list of what to clean up first.
-            </p>
-          </div>
-          <ThreatRadar />
-        </div>
+      <section className="ce-proof-strip" aria-label="Cyber Ethos proof points">
+        {proofCards.map((card) => (
+          <article key={card.label}>
+            <span>{card.label}</span>
+            <p>{card.title}</p>
+            <strong>{card.value}</strong>
+          </article>
+        ))}
       </section>
 
-      <section className="operator-section" id="gaps">
-        <div className="section-kicker"><span>02</span><em>THE GAPS</em></div>
-        <div className="section-title illustrated-title">
-          <div>
-            <h2>Where time, trust, and control break down.</h2>
-          </div>
-          <AttackPathFigure />
+      <section className="ce-section ce-statement" id="thesis">
+        <p className="ce-eyebrow">THE SHIFT</p>
+        <h2>Most owners do not need another app. They need trusted people, clean handoffs, and basic security before they delegate.</h2>
+      </section>
+
+      <section className="ce-section" id="services">
+        <div className="ce-section-head">
+          <p className="ce-eyebrow">WHAT WE HELP WITH</p>
+          <h2>Practical support for businesses that are ready to stop doing everything themselves.</h2>
         </div>
-        <div className="gap-grid">
-          {gaps.map((gap) => (
-            <article key={gap.title} className="service-card gap-card">
-              <span>{gap.number}</span>
-              <h3>{gap.title}</h3>
-              <p>{gap.text}</p>
+        <div className="ce-service-grid">
+          {services.map((service) => (
+            <article key={service.title} className="ce-service-card">
+              <span>{service.number}</span>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="operator-section review-section" id="preview">
-        <div className="section-kicker"><span>03</span><em>REVIEW PREVIEW</em></div>
-        <div className="review-layout">
-          <div>
-            <h2>A clear read on what to fix first.</h2>
-            <p>
-              The report is not a generic dashboard. It is a short operator brief showing the friction, risk, and offshore support opportunities that matter right now.
-            </p>
-            <ReviewSignalFigure />
-          </div>
-          <div className="readiness-panel" aria-label="Readiness report preview">
-            <div className="readiness-top">
-              <p>VISUAL REPORT</p>
-              <strong>54</strong>
-            </div>
-            <div className="readiness-table">
-              {reviewRows.map((row) => (
-                <div key={row.label}>
-                  <span>{row.label}</span>
-                  <strong>{row.value}</strong>
-                  <p>{row.note}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="operator-section deliverable-section" id="deliverables">
-        <div className="section-kicker"><span>04</span><em>WHAT YOU GET</em></div>
-        <div className="section-title">
-          <h2>A short report owners can actually use.</h2>
-        </div>
-        <div className="deliverable-grid">
-          {deliverables.map((item, index) => (
-            <article key={item.title} className="service-card gap-card">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="operator-section process-section-dark" id="process">
-        <div className="section-kicker"><span>05</span><em>PROCESS</em></div>
-        <div className="split-section illustrated-section">
-          <div>
-            <h2>Review the business like an operator, not a software salesperson.</h2>
-            <ResponseLoopFigure />
-          </div>
-          <ol className="process-list">
-            {process.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="operator-section final-review-cta" id="contact">
+      <section className="ce-section ce-roles" id="roles">
         <div>
-          <p className="eyebrow">REQUEST REVIEW</p>
-          <h2>Find the first cleanup moves before buying another tool.</h2>
+          <p className="ce-eyebrow">ROLE EXAMPLES</p>
+          <h2>Part-time help, full-time help, or direct technical talent.</h2>
         </div>
-        <SecureHandoffFigure />
-        <a href="/contact">Start the review</a>
+        <div className="ce-role-grid">
+          {roles.map((role) => (
+            <span key={role}>{role}</span>
+          ))}
+        </div>
+      </section>
+
+      <section className="ce-section ce-process" id="review">
+        <div className="ce-section-head">
+          <p className="ce-eyebrow">THE REVIEW</p>
+          <h2>A clean plan before you hire.</h2>
+          <p>
+            We look at the work, the tools, the risk, and the owner bottlenecks. Then we tell you what to delegate first and what needs tighter control.
+          </p>
+        </div>
+        <ol>
+          {steps.map((step, index) => (
+            <li key={step}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{step}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="ce-final" id="contact">
+        <div>
+          <p className="ce-eyebrow">START HERE</p>
+          <h2>Show us what is taking too much of your time. We will turn it into a support plan.</h2>
+        </div>
+        <a href="/contact">Request a review</a>
       </section>
     </SiteLayout>
   );
