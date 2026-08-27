@@ -179,7 +179,7 @@ export default function HomePage() {
       <section className="operator-hero brief-hero">
         <div className="hero-brief">
           <p className="eyebrow">CYBER ETHOS · SMALL BUSINESS READINESS · OFFSHORE SUPPORT</p>
-          <h1>Small businesses do not need more tools. They need to know what is leaking time, trust, and control.</h1>
+          <h1>Small businesses do not need more tools. They need clarity on time, trust, and control.</h1>
           <p className="subheading">
             Cyber Ethos reviews your operations, security basics, web intake, and offshore hiring fit, then gives you a practical cleanup and staffing plan.
           </p>
@@ -208,7 +208,7 @@ export default function HomePage() {
         <div className="section-kicker"><span>02</span><em>THE GAPS</em></div>
         <div className="section-title illustrated-title">
           <div>
-            <h2>Where time, trust, and control usually leak.</h2>
+            <h2>Where time, trust, and control break down.</h2>
           </div>
           <AttackPathFigure />
         </div>

@@ -3,7 +3,7 @@
 import { SiteLayout } from "@/components/SiteLayout";
 
 const emailUrl =
-  "mailto:info@cyberethos.org?subject=Cyber%20Ethos%20Review%20Request&body=Name%3A%0ACompany%3A%0AWebsite%3A%0AWhat%20is%20leaking%20time%2C%20trust%2C%20control%2C%20or%20security%3F%0AWhat%20support%20would%20help%20most%3A%20part-time%20VA%2C%20full-time%20VA%2C%20or%20engineering%20help%3F%0AWhat%20have%20you%20already%20tried%3F%0A";
+  "mailto:info@cyberethos.org?subject=Cyber%20Ethos%20Review%20Request&body=Name%3A%0ACompany%3A%0AWebsite%3A%0AWhere%20do%20you%20need%20more%20time%2C%20trust%2C%20control%2C%20or%20security%3F%0AWhat%20support%20would%20help%20most%3A%20part-time%20VA%2C%20full-time%20VA%2C%20or%20engineering%20help%3F%0AWhat%20have%20you%20already%20tried%3F%0A";
 
 const intakePrompts = [
   "What work keeps getting dropped, repeated, or handled manually?",
@@ -16,7 +16,7 @@ export default function ContactPage() {
     <SiteLayout active="/contact">
       <section className="operator-page contact-panel">
         <p className="eyebrow">Request Review</p>
-        <h1>Show me where the business is leaking.</h1>
+        <h1>Show me where the business needs support.</h1>
         <p>
           Send the workflow, website problem, security concern, hiring bottleneck, or business process you want cleaned up. You do not need a perfect brief. A messy explanation is enough to start.
         </p>
