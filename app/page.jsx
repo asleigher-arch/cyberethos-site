@@ -99,7 +99,7 @@ export default function HomePage() {
       <section className="ce-hero">
         <div className="ce-hero-copy">
           <p className="ce-eyebrow">CYBER ETHOS / SMALL BUSINESS OPERATIONS</p>
-          <h1>Hire offshore support without losing control of the business.</h1>
+          <h1>Offshore support without losing control.</h1>
           <p>
             Cyber Ethos helps business owners clean up operations, protect access, and decide what to hand to a part-time VA, full-time offshore assistant, or direct engineering team.
           </p>
@@ -123,13 +123,13 @@ export default function HomePage() {
 
       <section className="ce-section ce-statement" id="thesis">
         <p className="ce-eyebrow">THE SHIFT</p>
-        <h2>Most owners do not need another app. They need trusted people, clean handoffs, and basic security before they delegate.</h2>
+        <h2>Get the right help, with clear handoffs and basic security in place first.</h2>
       </section>
 
       <section className="ce-section" id="services">
         <div className="ce-section-head">
           <p className="ce-eyebrow">WHAT WE HELP WITH</p>
-          <h2>Practical support for businesses that are ready to stop doing everything themselves.</h2>
+          <h2>Practical support for owners who need reliable help.</h2>
         </div>
         <div className="ce-service-grid">
           {services.map((service) => (
@@ -145,7 +145,7 @@ export default function HomePage() {
       <section className="ce-section ce-roles" id="roles">
         <div>
           <p className="ce-eyebrow">ROLE EXAMPLES</p>
-          <h2>Part-time help, full-time help, or direct technical talent.</h2>
+          <h2>Part-time help, full-time help, or technical talent.</h2>
         </div>
         <div className="ce-role-grid">
           {roles.map((role) => (
@@ -175,7 +175,7 @@ export default function HomePage() {
       <section className="ce-final" id="contact">
         <div>
           <p className="ce-eyebrow">START HERE</p>
-          <h2>Show us what is taking too much of your time. We will turn it into a support plan.</h2>
+          <h2>Show us what is taking too much time. We will turn it into a support plan.</h2>
         </div>
         <a href="/contact">Request a review</a>
       </section>

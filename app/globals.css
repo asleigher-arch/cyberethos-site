@@ -3396,3 +3396,426 @@ a {
     margin-top: 84px;
   }
 }
+
+/* Calm-down pass: less crowded, smaller type, fewer aggressive visual beats */
+.ce-hero,
+.ce-contact-hero {
+  min-height: 640px;
+  grid-template-columns: minmax(0, 0.92fr) minmax(330px, 0.62fr);
+  gap: clamp(32px, 5vw, 68px);
+  padding: 136px 0 70px;
+}
+
+.ce-hero h1,
+.ce-contact-hero h1 {
+  max-width: 720px;
+  font-size: clamp(3rem, 5.6vw, 5.8rem);
+  line-height: 0.96;
+  letter-spacing: -0.048em;
+}
+
+.ce-contact-hero h1 {
+  max-width: 760px;
+  font-size: clamp(3rem, 5.2vw, 5.4rem);
+}
+
+.ce-hero p:not(.ce-eyebrow),
+.ce-contact-hero p:not(.ce-eyebrow),
+.ce-section-head p:not(.ce-eyebrow),
+.ce-process .ce-section-head p {
+  max-width: 620px;
+  font-size: 1.04rem;
+  line-height: 1.62;
+}
+
+.ce-collage {
+  min-height: 460px;
+}
+
+.ce-collage::before {
+  inset: 28px;
+  border-radius: 30px;
+  opacity: 0.55;
+}
+
+.ce-card-main {
+  top: 34px;
+  right: 22px;
+  left: 22px;
+  min-height: 270px;
+}
+
+.ce-card-main h2 {
+  margin-top: 52px;
+  font-size: clamp(1.9rem, 3.1vw, 2.65rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.ce-card-small {
+  min-height: 128px;
+  padding: 20px;
+}
+
+.ce-card-small strong {
+  margin-top: 28px;
+  font-size: 1.16rem;
+}
+
+.ce-card-va {
+  top: 250px;
+  left: 12px;
+  transform: rotate(-2deg);
+}
+
+.ce-card-eng {
+  right: 12px;
+  bottom: 34px;
+  transform: rotate(2deg);
+}
+
+.ce-card-security {
+  display: none;
+}
+
+.ce-proof-strip {
+  gap: 12px;
+  margin-bottom: 82px;
+}
+
+.ce-proof-strip article {
+  min-height: 142px;
+  padding: 22px;
+}
+
+.ce-proof-strip p {
+  margin-top: 26px;
+  font-size: 1.08rem;
+}
+
+.ce-section {
+  margin-top: 86px;
+}
+
+.ce-statement h2,
+.ce-section-head h2,
+.ce-roles h2,
+.ce-process h2,
+.ce-final h2 {
+  max-width: 880px;
+  font-size: clamp(2.05rem, 3.8vw, 3.95rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.ce-service-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 38px;
+}
+
+.ce-service-card {
+  min-height: 250px;
+  border-radius: 22px;
+  padding: 24px;
+}
+
+.ce-service-card h3 {
+  margin-top: 52px;
+  font-size: clamp(1.35rem, 1.6vw, 1.62rem);
+  line-height: 1.08;
+}
+
+.ce-service-card p {
+  font-size: 0.96rem;
+  line-height: 1.58;
+}
+
+.ce-roles {
+  grid-template-columns: minmax(0, 0.65fr) minmax(320px, 0.9fr);
+  gap: 34px;
+}
+
+.ce-role-grid span {
+  border-radius: 14px;
+  padding: 15px 16px;
+  font-size: 0.95rem;
+}
+
+.ce-process {
+  border-radius: 28px;
+  padding: clamp(26px, 4vw, 48px);
+}
+
+.ce-process ol {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 38px;
+}
+
+.ce-process li {
+  min-height: 146px;
+}
+
+.ce-process li p {
+  margin-top: 38px;
+  font-size: 1.02rem;
+}
+
+.ce-final {
+  margin-top: 90px;
+  border-radius: 28px;
+  padding: clamp(28px, 4vw, 46px);
+}
+
+.ce-final h2 {
+  max-width: 760px;
+}
+
+.ce-contact-panel,
+.ce-contact-grid article,
+.ce-service-card,
+.ce-proof-strip article,
+.ce-collage-card {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 18px 55px rgba(0, 0, 0, 0.18);
+}
+
+.ce-contact-grid article {
+  min-height: 210px;
+  border-radius: 22px;
+}
+
+.ce-contact-grid h2 {
+  margin-top: 54px;
+  font-size: 1.55rem;
+}
+
+@media (max-width: 980px) {
+  .ce-hero,
+  .ce-contact-hero,
+  .ce-roles {
+    grid-template-columns: 1fr;
+  }
+
+  .ce-collage {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ce-hero,
+  .ce-contact-hero {
+    padding-top: 118px;
+  }
+
+  .ce-hero h1,
+  .ce-contact-hero h1 {
+    font-size: 2.75rem;
+    line-height: 1;
+  }
+
+  .ce-proof-strip,
+  .ce-service-grid,
+  .ce-process ol,
+  .ce-contact-grid,
+  .ce-role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ce-statement h2,
+  .ce-section-head h2,
+  .ce-roles h2,
+  .ce-process h2,
+  .ce-final h2 {
+    font-size: 2.05rem;
+    line-height: 1.06;
+  }
+}
+
+/* Owner feedback pass: reduce headline dominance and simplify the first screen */
+.ce-hero,
+.ce-contact-hero {
+  min-height: 580px;
+  padding: 122px 0 58px;
+}
+
+.ce-hero h1,
+.ce-contact-hero h1 {
+  font-size: clamp(2.55rem, 4.35vw, 4.45rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 780;
+}
+
+.ce-statement h2,
+.ce-section-head h2,
+.ce-roles h2,
+.ce-process h2,
+.ce-final h2 {
+  font-size: clamp(1.75rem, 3vw, 3.05rem);
+  line-height: 1.1;
+  letter-spacing: -0.028em;
+  font-weight: 760;
+}
+
+.ce-hero p:not(.ce-eyebrow),
+.ce-contact-hero p:not(.ce-eyebrow) {
+  margin-top: 22px;
+  font-size: 1rem;
+}
+
+.ce-collage {
+  min-height: 390px;
+}
+
+.ce-card-main {
+  min-height: 238px;
+}
+
+.ce-card-main h2 {
+  margin-top: 42px;
+  font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+  font-weight: 760;
+}
+
+.ce-card-va,
+.ce-card-eng {
+  width: min(230px, 48%);
+}
+
+.ce-card-small strong {
+  font-size: 1.02rem;
+}
+
+.ce-card-small p {
+  font-size: 0.84rem;
+}
+
+.ce-proof-strip {
+  margin-bottom: 64px;
+}
+
+.ce-proof-strip article {
+  min-height: 120px;
+}
+
+.ce-proof-strip p {
+  margin-top: 18px;
+  font-size: 0.98rem;
+}
+
+.ce-section {
+  margin-top: 68px;
+}
+
+.ce-service-grid,
+.ce-process ol {
+  margin-top: 30px;
+}
+
+.ce-service-card {
+  min-height: 218px;
+}
+
+.ce-service-card h3 {
+  margin-top: 36px;
+  font-size: 1.28rem;
+  font-weight: 760;
+}
+
+.ce-process li {
+  min-height: 126px;
+}
+
+.ce-process li p {
+  margin-top: 26px;
+}
+
+.ce-final {
+  margin-top: 72px;
+}
+
+@media (max-width: 640px) {
+  .ce-hero h1,
+  .ce-contact-hero h1 {
+    font-size: 2.28rem;
+    line-height: 1.08;
+  }
+
+  .ce-statement h2,
+  .ce-section-head h2,
+  .ce-roles h2,
+  .ce-process h2,
+  .ce-final h2 {
+    font-size: 1.82rem;
+  }
+}
+
+/* Final simplification: no angled/stacked hero clutter */
+.ce-hero,
+.ce-contact-hero {
+  min-height: 540px;
+  padding-top: 106px;
+}
+
+.ce-hero h1,
+.ce-contact-hero h1 {
+  font-size: clamp(2.35rem, 3.9vw, 4rem);
+  font-weight: 720;
+  line-height: 1.08;
+}
+
+.ce-collage {
+  display: grid;
+  min-height: auto;
+  gap: 12px;
+}
+
+.ce-collage::before {
+  display: none;
+}
+
+.ce-collage-card {
+  position: relative;
+  inset: auto;
+  width: auto;
+  transform: none;
+  border-radius: 22px;
+}
+
+.ce-card-main {
+  min-height: 220px;
+}
+
+.ce-card-va,
+.ce-card-eng {
+  width: auto;
+  min-height: auto;
+}
+
+.ce-card-small strong {
+  margin-top: 20px;
+}
+
+.ce-card-security {
+  display: none;
+}
+
+.ce-service-card h3,
+.ce-contact-grid h2,
+.ce-proof-strip p,
+.ce-role-grid span,
+.ce-process li p {
+  font-weight: 680;
+}
+
+@media (max-width: 640px) {
+  .ce-hero,
+  .ce-contact-hero {
+    padding-top: 102px;
+  }
+
+  .ce-hero h1,
+  .ce-contact-hero h1 {
+    font-size: 2.12rem;
+  }
+}
