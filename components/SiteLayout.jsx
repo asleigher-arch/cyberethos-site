@@ -3,20 +3,20 @@
 const navItems = [
   { href: "/#services", label: "Services" },
   { href: "/#roles", label: "Roles" },
-  { href: "/#review", label: "Review" },
+  { href: "/#process", label: "Process" },
   { href: "/contact", label: "Contact" }
 ];
 
 export function SiteLayout({ active = "/", children }) {
   return (
-    <main className="operator-site">
-      <header className="operator-topbar">
-        <a href="/" className="operator-brand" aria-label="Cyber Ethos home">
+    <main className="ce-site">
+      <header className="ce-header">
+        <a href="/" className="ce-brand" aria-label="Cyber Ethos home">
           <span>CE</span>
           <strong>Cyber Ethos</strong>
         </a>
 
-        <nav className="operator-nav" aria-label="Primary navigation">
+        <nav className="ce-nav" aria-label="Primary navigation">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -28,28 +28,24 @@ export function SiteLayout({ active = "/", children }) {
           ))}
         </nav>
 
-        <a className="topbar-button" href="/contact">
+        <a className="ce-header-cta" href="/contact">
           Request a review
         </a>
       </header>
 
-      <section className="operator-content">{children}</section>
+      <section className="ce-main-content">{children}</section>
 
-      <footer className="operator-footer">
-        <a href="/" className="footer-brand">Cyber Ethos</a>
-        <p className="footer-line">Operations · Security · Offshore assistants · Direct engineering</p>
+      <footer className="ce-footer">
+        <div>
+          <a href="/" className="ce-footer-brand">Cyber Ethos</a>
+          <p>Offshore support, operations cleanup, direct engineering, and basic security controls for growing businesses.</p>
+        </div>
         <nav aria-label="Footer navigation">
           <div>
             <strong>Company</strong>
             <a href="/#services">Services</a>
-            <a href="/#review">Review preview</a>
+            <a href="/#process">Process</a>
             <a href="/contact">Contact</a>
-          </div>
-          <div>
-            <strong>Services</strong>
-            <a href="/#services">Operations</a>
-            <a href="/#services">Security basics</a>
-            <a href="/#roles">Offshore support</a>
           </div>
           <div>
             <strong>Support</strong>
