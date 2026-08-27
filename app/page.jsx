@@ -41,8 +41,8 @@ const process = [
 
 const deliverables = [
   {
-    title: "Leak map",
-    text: "A plain-English view of where time, trust, control, or security is slipping through the cracks."
+    title: "Clarity map",
+    text: "A plain-English view of where time, trust, control, or security needs attention."
   },
   {
     title: "First cleanup moves",
