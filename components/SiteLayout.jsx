@@ -37,7 +37,7 @@ export function SiteLayout({ active = "/", children }) {
 
       <footer className="operator-footer">
         <a href="/" className="footer-brand">Cyber Ethos</a>
-        <p className="footer-line">Operations · Security · AI workflow · Intake visibility</p>
+        <p className="footer-line">Operations · Security · Offshore support · Intake visibility</p>
         <nav aria-label="Footer navigation">
           <div>
             <strong>Company</strong>
@@ -49,7 +49,7 @@ export function SiteLayout({ active = "/", children }) {
             <strong>Services</strong>
             <a href="/#gaps">Operations</a>
             <a href="/#gaps">Security basics</a>
-            <a href="/#gaps">AI workflow</a>
+            <a href="/#gaps">Offshore support</a>
           </div>
           <div>
             <strong>Support</strong>

@@ -38,7 +38,7 @@ export default function HeroScene() {
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          Ambient AI operating systems
+          Offshore operating support
         </Motion.p>
         <Motion.h1
           initial={{ opacity: 0, y: 28, filter: "blur(16px)" }}
@@ -52,8 +52,8 @@ export default function HeroScene() {
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
         >
-          Cyber Ethos turns automation, cybersecurity, web presence, integrations,
-          monitoring, and community into one elegant business ecosystem.
+          Cyber Ethos turns offshore staffing, cybersecurity, web presence, integrations,
+          monitoring, and community into one practical business support system.
         </Motion.p>
       </div>
 

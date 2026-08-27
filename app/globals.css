@@ -1633,6 +1633,24 @@ a {
   margin-top: 28px;
 }
 
+.contact-intake {
+  display: grid;
+  gap: 0;
+  margin-top: 34px;
+  border-top: 1px solid rgba(238, 231, 216, 0.12);
+  border-left: 1px solid rgba(238, 231, 216, 0.12);
+}
+
+.contact-intake div {
+  border-right: 1px solid rgba(238, 231, 216, 0.12);
+  border-bottom: 1px solid rgba(238, 231, 216, 0.12);
+  background: rgba(238, 231, 216, 0.025);
+  color: rgba(238, 231, 216, 0.76);
+  padding: 18px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
 @media (max-width: 900px) {
   .operator-site {
     grid-template-columns: 1fr;
@@ -2058,6 +2076,15 @@ a {
   border-left: 1px solid rgba(238, 231, 216, 0.12);
 }
 
+.deliverable-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 48px;
+  border-top: 1px solid rgba(238, 231, 216, 0.12);
+  border-left: 1px solid rgba(238, 231, 216, 0.12);
+}
+
 .service-card,
 .visibility-list div,
 .contact-panel {
@@ -2299,6 +2326,10 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .deliverable-grid {
+    grid-template-columns: 1fr;
+  }
+
   .readiness-panel,
   .cyber-figure {
     max-width: 560px;
@@ -2332,6 +2363,7 @@ a {
   }
 
   .gap-grid,
+  .deliverable-grid,
   .readiness-table div,
   .operator-footer nav,
   .final-review-cta {

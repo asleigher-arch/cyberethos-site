@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Cyber Ethos Operator",
+  title: "Cyber Ethos | Small Business Operations and Offshore Support",
   description:
-    "A simple operator report that gives small business owners visibility into operations, security basics, AI workflow, and web intake."
+    "Cyber Ethos helps small business owners find where they are leaking time, trust, control, or security, then plan practical offshore support and direct engineering help."
 };
 
 export default function RootLayout({ children }) {

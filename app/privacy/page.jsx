@@ -16,7 +16,7 @@ export default function PrivacyPage() {
         <div className="legal-card">
           <p>
             Cyber Ethos Operator is a local self-assessment app for small-business operations,
-            security basics, and automation readiness. This policy explains what information the
+            security basics, and offshore support readiness. This policy explains what information the
             current version of the app collects and how purchase processing works.
           </p>
 

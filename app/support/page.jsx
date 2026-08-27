@@ -36,7 +36,7 @@ export default function SupportPage() {
           <h2>What the app does</h2>
           <p>
             Cyber Ethos Operator gives small-business owners a short self-assessment across
-            operations, security basics, and automation readiness. The paid report provides scores,
+            operations, security basics, and offshore support readiness. The paid report provides scores,
             top findings, practical next moves, and a 30-day cleanup plan.
           </p>
 

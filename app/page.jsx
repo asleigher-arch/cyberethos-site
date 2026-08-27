@@ -15,8 +15,8 @@ const gaps = [
   },
   {
     number: "03",
-    title: "AI workflow fit",
-    text: "Where AI can remove friction without creating new exposure, confusion, or loss of control."
+    title: "Offshore support fit",
+    text: "Where full-time or part-time virtual assistants and direct technical talent can remove bottlenecks without losing control."
   },
   {
     number: "04",
@@ -29,7 +29,7 @@ const reviewRows = [
   { label: "OVERALL", value: "54", note: "Useful upside. Cleanup needed first." },
   { label: "OPERATIONS", value: "41", note: "Ownership and follow-up gaps." },
   { label: "SECURITY", value: "36", note: "MFA, access, backups, recovery." },
-  { label: "AI FIT", value: "76", note: "Strong admin automation potential." }
+  { label: "TALENT FIT", value: "76", note: "Strong support and delivery potential." }
 ];
 
 const process = [
@@ -37,6 +37,21 @@ const process = [
   "Find the gaps creating risk or wasted time",
   "Separate quick fixes from deeper cleanup",
   "Deliver a plain-English action plan"
+];
+
+const deliverables = [
+  {
+    title: "Leak map",
+    text: "A plain-English view of where time, trust, control, or security is slipping through the cracks."
+  },
+  {
+    title: "First cleanup moves",
+    text: "The few fixes to handle before adding another tool, contractor, virtual assistant, or engineering resource."
+  },
+  {
+    title: "Hiring fit note",
+    text: "Which roles can be handled by part-time support, full-time offshore help, or a direct engineering team."
+  }
 ];
 
 function CyberFigure() {
@@ -65,7 +80,7 @@ function CyberFigure() {
         </div>
         <div>
           <dt>DOMAIN</dt>
-          <dd>Operations · Security · AI</dd>
+          <dd>Operations · Security · Talent</dd>
         </div>
         <div>
           <dt>OUTPUT</dt>
@@ -163,10 +178,10 @@ export default function HomePage() {
     <SiteLayout active="/">
       <section className="operator-hero brief-hero">
         <div className="hero-brief">
-          <p className="eyebrow">CYBER ETHOS · SMALL BUSINESS READINESS · PRACTICAL SECURITY</p>
+          <p className="eyebrow">CYBER ETHOS · SMALL BUSINESS READINESS · OFFSHORE SUPPORT</p>
           <h1>Small businesses do not need more tools. They need to know what is leaking time, trust, and control.</h1>
           <p className="subheading">
-            Cyber Ethos reviews your operations, security basics, AI workflow fit, and web intake, then gives you a practical cleanup report.
+            Cyber Ethos reviews your operations, security basics, web intake, and offshore hiring fit, then gives you a practical cleanup and staffing plan.
           </p>
           <div className="hero-actions">
             <a href="/contact">Request review</a>
@@ -214,7 +229,7 @@ export default function HomePage() {
           <div>
             <h2>A clear read on what to fix first.</h2>
             <p>
-              The report is not a generic dashboard. It is a short operator brief showing the friction, risk, and automation opportunities that matter right now.
+              The report is not a generic dashboard. It is a short operator brief showing the friction, risk, and offshore support opportunities that matter right now.
             </p>
             <ReviewSignalFigure />
           </div>
@@ -236,8 +251,24 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="operator-section deliverable-section" id="deliverables">
+        <div className="section-kicker"><span>04</span><em>WHAT YOU GET</em></div>
+        <div className="section-title">
+          <h2>A short report owners can actually use.</h2>
+        </div>
+        <div className="deliverable-grid">
+          {deliverables.map((item, index) => (
+            <article key={item.title} className="service-card gap-card">
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="operator-section process-section-dark" id="process">
-        <div className="section-kicker"><span>04</span><em>PROCESS</em></div>
+        <div className="section-kicker"><span>05</span><em>PROCESS</em></div>
         <div className="split-section illustrated-section">
           <div>
             <h2>Review the business like an operator, not a software salesperson.</h2>
