@@ -1,102 +1,71 @@
+import { SiteLayout } from "@/components/SiteLayout";
+
 export const metadata = {
-  title: "Privacy Policy | Cyber Ethos Operator",
-  description: "Privacy policy for the Cyber Ethos Operator iPhone app."
+  title: "Privacy Policy | Cyber Ethos",
+  description: "Privacy policy for Cyber Ethos website visitors and client inquiries."
 };
 
 export default function PrivacyPage() {
   return (
-    <main className="site-shell legal-shell">
-      <SiteWatermark />
-      <SimpleNav />
-      <section className="legal-page">
-        <p className="eyebrow">Cyber Ethos Operator</p>
-        <h1>Privacy Policy</h1>
-        <p className="legal-updated">Last updated: June 28, 2026</p>
-
-        <div className="legal-card">
+    <SiteLayout active="/privacy">
+      <section className="ce-contact-hero ce-legal-hero">
+        <div>
+          <p className="ce-eyebrow">Cyber Ethos privacy</p>
+          <h1>Privacy Policy</h1>
           <p>
-            Cyber Ethos Operator is a local self-assessment app for small-business operations,
-            security basics, and offshore support readiness. This policy explains what information the
-            current version of the app collects and how purchase processing works.
+            This policy explains how Cyber Ethos handles information submitted through the website,
+            email, review requests, and client conversations.
+          </p>
+        </div>
+
+        <aside className="ce-contact-panel" aria-label="Privacy contact">
+          <span>CONTACT</span>
+          <p>For privacy questions, email info@cyberethos.org.</p>
+          <p>Last updated: August 27, 2026</p>
+        </aside>
+      </section>
+
+      <section className="ce-process ce-legal-card" aria-label="Privacy policy details">
+        <div className="ce-section-head">
+          <p className="ce-eyebrow">Plain-English policy</p>
+          <h2>We only ask for what we need to understand the request.</h2>
+          <p>
+            Cyber Ethos works with business owners on operations, assistant handoffs, technical support,
+            and security basics. The information you send helps us understand the situation and respond.
+          </p>
+        </div>
+
+        <div className="ce-legal-copy">
+          <h3>Information we may receive</h3>
+          <p>
+            You may choose to send your name, company, email address, website, operational problems,
+            technical needs, access concerns, vendor details, or other business context.
           </p>
 
-          <h2>Information we collect</h2>
+          <h3>How we use it</h3>
           <p>
-            The current version of Cyber Ethos Operator does not collect personal information.
-            Assessment answers are used locally on your device to generate your Operator Score
-            report. The current version does not send assessment answers to a Cyber Ethos server.
+            We use submitted information to reply, prepare a support plan, provide services, manage client
+            communication, and improve our internal process.
           </p>
 
-          <h2>Purchases</h2>
+          <h3>What we do not do</h3>
           <p>
-            Cyber Ethos Operator uses Apple In-App Purchase to unlock the full Operator Score
-            report. Purchase processing is handled by Apple. Cyber Ethos does not receive your full
-            payment card details.
+            Cyber Ethos does not sell personal information. We do not use website inquiries to run unrelated
+            advertising campaigns or share your business details with unrelated third parties.
           </p>
 
-          <h2>Tracking</h2>
+          <h3>Security note</h3>
           <p>
-            Cyber Ethos Operator does not track you across apps or websites owned by other
-            companies.
+            Please do not send passwords, secret keys, payment card numbers, or highly sensitive credentials
+            through email. If access needs to be shared, we will agree on a safer handoff method first.
           </p>
 
-          <h2>Analytics and advertising</h2>
+          <h3>Contact</h3>
           <p>
-            The current version does not include third-party advertising SDKs or analytics SDKs.
-          </p>
-
-          <h2>Data sharing</h2>
-          <p>
-            Cyber Ethos does not sell personal information from this app. The current version does
-            not share assessment answers with third parties.
-          </p>
-
-          <h2>Security note</h2>
-          <p>
-            Cyber Ethos Operator is intended to help you think through business readiness. It is not
-            a formal security audit, compliance certification, penetration test, or guarantee that
-            your business is secure.
-          </p>
-
-          <h2>Changes to this policy</h2>
-          <p>
-            If future versions add accounts, cloud sync, analytics, support forms, or community
-            features, this policy will be updated before those changes are released.
-          </p>
-
-          <h2>Contact</h2>
-          <p>
-            For privacy questions, contact <a href="mailto:info@cyberethos.org">info@cyberethos.org</a>.
+            For privacy questions or deletion requests, contact <a href="mailto:info@cyberethos.org">info@cyberethos.org</a>.
           </p>
         </div>
       </section>
-    </main>
-  );
-}
-
-function SiteWatermark() {
-  return (
-    <div className="site-watermark" aria-hidden="true">
-      <div className="watermark-glow" />
-      <div className="watermark-image" />
-    </div>
-  );
-}
-
-function SimpleNav() {
-  return (
-    <header className="nav-glass">
-      <a href="/" className="brand">
-        <span>CE</span>
-        <strong>Cyber Ethos</strong>
-      </a>
-      <nav aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/support">Support</a>
-      </nav>
-      <a className="nav-cta" href="mailto:info@cyberethos.org">
-        Contact
-      </a>
-    </header>
+    </SiteLayout>
   );
 }

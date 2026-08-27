@@ -16,8 +16,8 @@ export default function VisibilityPage() {
         <p className="eyebrow">Visibility</p>
         <h1>Know what is happening before you add more tools.</h1>
         <p>
-          We turn messy workflows, weak handoffs, security gaps, and scattered
-          intake into a simple operator report.
+          We turn messy workflows, weak handoffs, security basics, and scattered
+          intake into a simple support plan.
         </p>
 
         <div className="visibility-list">

@@ -1,85 +1,50 @@
+import { SiteLayout } from "@/components/SiteLayout";
+
 export const metadata = {
-  title: "Support | Cyber Ethos Operator",
-  description: "Support information for the Cyber Ethos Operator iPhone app."
+  title: "Support | Cyber Ethos",
+  description: "Support information for Cyber Ethos clients and website visitors."
 };
 
 export default function SupportPage() {
   return (
-    <main className="site-shell legal-shell">
-      <SiteWatermark />
-      <SimpleNav />
-      <section className="legal-page">
-        <p className="eyebrow">Cyber Ethos Operator</p>
-        <h1>Support</h1>
-        <p className="legal-updated">Help for the Cyber Ethos Operator iPhone app.</p>
-
-        <div className="legal-card">
-          <h2>Contact support</h2>
+    <SiteLayout active="/support">
+      <section className="ce-contact-hero ce-legal-hero">
+        <div>
+          <p className="ce-eyebrow">Cyber Ethos support</p>
+          <h1>Support</h1>
           <p>
-            For help with Cyber Ethos Operator, email <a href="mailto:info@cyberethos.org">info@cyberethos.org</a>.
+            Help for business owners, client inquiries, website questions, and Cyber Ethos service requests.
           </p>
-          <p>
-            Please include the device you are using, the app version if available, and a short
-            description of what happened.
-          </p>
-
-          <h2>Purchases and restore</h2>
-          <p>
-            The full Operator Score report is unlocked through Apple In-App Purchase. If you already
-            purchased the report, use the restore purchase option on the app paywall.
-          </p>
-          <p>
-            Payment, refund, and purchase history are handled by Apple. For refund requests, use
-            Apple&apos;s purchase support flow at <a href="https://reportaproblem.apple.com/">reportaproblem.apple.com</a>.
-          </p>
-
-          <h2>What the app does</h2>
-          <p>
-            Cyber Ethos Operator gives small-business owners a short self-assessment across
-            operations, security basics, and offshore support readiness. The paid report provides scores,
-            top findings, practical next moves, and a 30-day cleanup plan.
-          </p>
-
-          <h2>Important limits</h2>
-          <p>
-            Cyber Ethos Operator is a planning and readiness tool. It is not a formal security audit,
-            penetration test, compliance certification, or guarantee that a business is secure.
-          </p>
-
-          <h2>Privacy</h2>
-          <p>
-            The current version processes assessment answers locally on your device. Read the full
-            privacy policy at <a href="/privacy">cyberethos.org/privacy</a>.
-          </p>
+          <div className="ce-actions">
+            <a href="mailto:info@cyberethos.org">Email support</a>
+            <a href="/contact">Request a review</a>
+          </div>
         </div>
+
+        <aside className="ce-contact-panel" aria-label="How to contact support">
+          <span>CONTACT</span>
+          <p>Email info@cyberethos.org with your name, company, website, and a short description of what you need help with.</p>
+          <p>For urgent access, password, data, or vendor-control concerns, include that clearly in the subject line.</p>
+        </aside>
       </section>
-    </main>
-  );
-}
 
-function SiteWatermark() {
-  return (
-    <div className="site-watermark" aria-hidden="true">
-      <div className="watermark-glow" />
-      <div className="watermark-image" />
-    </div>
-  );
-}
-
-function SimpleNav() {
-  return (
-    <header className="nav-glass">
-      <a href="/" className="brand">
-        <span>CE</span>
-        <strong>Cyber Ethos</strong>
-      </a>
-      <nav aria-label="Primary navigation">
-        <a href="/">Home</a>
-        <a href="/privacy">Privacy</a>
-      </nav>
-      <a className="nav-cta" href="mailto:info@cyberethos.org">
-        Contact
-      </a>
-    </header>
+      <section className="ce-contact-grid" aria-label="Support topics">
+        <article>
+          <span>01</span>
+          <h2>Business support</h2>
+          <p>Questions about operations cleanup, assistant handoffs, admin workflows, and service requests.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h2>Technical help</h2>
+          <p>Questions about websites, automations, dashboards, integrations, or engineering support.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h2>Security basics</h2>
+          <p>Questions about access, passwords, shared files, vendor accounts, and protecting customer data.</p>
+        </article>
+      </section>
+    </SiteLayout>
   );
 }
