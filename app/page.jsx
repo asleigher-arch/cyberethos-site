@@ -2,117 +2,162 @@
 
 import { SiteLayout } from "@/components/SiteLayout";
 
-const services = [
+const benefits = [
   {
-    title: "Offshore assistant support",
-    text: "Part-time or full-time help for inbox, calendar, follow-up, CRM updates, research, documents, and repeat operations."
+    title: "Offshore support made simple",
+    text: "We help you decide what a VA should handle, what should stay with you, and what needs a clear handoff."
   },
   {
-    title: "Engineering and technical help",
-    text: "Affordable technical support for websites, automations, dashboards, integrations, internal tools, and product cleanup."
+    title: "Technical help without confusion",
+    text: "Get support for websites, automations, dashboards, tools, and product fixes without hiring a full internal team."
   },
   {
-    title: "Control before delegation",
-    text: "Simple rules for passwords, files, approvals, customer data, recovery access, and vendor permissions before work is handed off."
+    title: "Control before access",
+    text: "Set up simple rules for passwords, files, approvals, customer data, and recovery before anyone starts work."
   }
 ];
 
-const process = [
-  "Review what is taking time",
-  "Decide what should be delegated first",
-  "Match the work to the right role",
-  "Set access and approval rules",
-  "Create a simple support plan"
+const steps = [
+  "Tell us what is taking too much time",
+  "We map the right assistant or technical role",
+  "We set handoffs, access, and approval rules",
+  "You get a plain-English support plan"
 ];
 
-const fit = [
-  "The owner is stuck doing admin every day",
-  "The business needs a VA but does not know what to hand off",
-  "There is technical work piling up without a full-time engineer",
-  "Passwords, customer data, or tool access need better control"
+const roles = [
+  "Executive assistant",
+  "Operations assistant",
+  "Customer support VA",
+  "CRM/admin assistant",
+  "Research assistant",
+  "Web/product engineer",
+  "Automation builder",
+  "Dashboard support"
+];
+
+const faqs = [
+  {
+    q: "Is this for hiring a VA or fixing operations?",
+    a: "Both. We help owners figure out what should be delegated, what support role fits, and how to keep control while handing off work."
+  },
+  {
+    q: "Can you help with technical work too?",
+    a: "Yes. Cyber Ethos can help with engineering support, websites, dashboards, automations, integrations, and technical cleanup."
+  },
+  {
+    q: "What do I get from the review?",
+    a: "A simple support plan that shows what to delegate first, who can help, and what access or approval rules should be in place."
+  }
 ];
 
 export default function HomePage() {
   return (
     <SiteLayout>
-      <section className="ce-simple-hero">
-        <div>
-          <p className="ce-simple-kicker">Small business support</p>
-          <h1>Delegate admin and technical work without losing control.</h1>
+      <section className="hp-hero">
+        <div className="hp-hero-copy">
+          <p className="hp-pretitle">Say hello to</p>
+          <h1>Offshore support that feels easy, safe, and under control.</h1>
           <p>
-            Cyber Ethos helps business owners decide what to hand off, who to hire, and how to protect access before offshore support or engineering help starts.
+            Book a free review and we’ll map what to delegate, who should handle it, and what access rules keep you in control before offshore support or engineering help starts.
           </p>
-          <div className="ce-simple-actions">
-            <a href="/contact">Request a review</a>
-            <a href="#services">See services</a>
+          <div className="hp-actions">
+            <a href="/contact">Start your review</a>
+            <a href="#how">See how it works</a>
           </div>
         </div>
-        <aside className="ce-simple-checklist" aria-label="Review checklist">
-          <p>What the review covers</p>
-          <ul>
-            <li>What is taking too much owner time?</li>
-            <li>Which tasks can a VA handle safely?</li>
-            <li>What needs engineering support?</li>
-            <li>What access should be limited or approved?</li>
-          </ul>
-        </aside>
-      </section>
 
-      <section className="ce-simple-statement">
-        <h2>Most owners do not need more noise. They need the right help, a clean handoff, and basic control over the tools that run the business.</h2>
-      </section>
-
-      <section id="services" className="ce-simple-section">
-        <div className="ce-simple-section-head">
-          <p className="ce-simple-kicker">Services</p>
-          <h2>Practical help before and after you hire.</h2>
+        <div className="hp-hero-art" aria-label="Cyber Ethos support illustration">
+          <div className="hp-art-card hp-art-main">
+            <span>Support plan</span>
+            <strong>What can come off your plate?</strong>
+            <p>VA tasks, engineering help, handoffs, approvals, and access rules in one simple plan.</p>
+          </div>
+          <div className="hp-art-bubble hp-bubble-one">VA ready</div>
+          <div className="hp-art-bubble hp-bubble-two">Access checked</div>
+          <div className="hp-art-tile hp-tile-one">Inbox</div>
+          <div className="hp-art-tile hp-tile-two">CRM</div>
+          <div className="hp-art-tile hp-tile-three">Website</div>
         </div>
-        <div className="ce-simple-service-list">
-          {services.map((service) => (
-            <article key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
+      </section>
+
+      <section className="hp-proof" aria-label="Cyber Ethos trust points">
+        <span>Built for busy owners</span>
+        <span>Offshore VA support</span>
+        <span>Engineering help</span>
+        <span>Security-minded handoffs</span>
+      </section>
+
+      <section id="services" className="hp-section">
+        <div className="hp-section-head">
+          <p>All-in-one support planning</p>
+          <h2>Get the right help without making the business harder to manage.</h2>
+        </div>
+        <div className="hp-benefit-grid">
+          {benefits.map((benefit) => (
+            <article key={benefit.title}>
+              <div className="hp-icon" aria-hidden="true">✓</div>
+              <h3>{benefit.title}</h3>
+              <p>{benefit.text}</p>
+              <a href="/contact">Learn more</a>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="process" className="ce-simple-split">
+      <section id="how" className="hp-how">
         <div>
-          <p className="ce-simple-kicker">Process</p>
-          <h2>A clear plan before anyone gets access.</h2>
-          <p>
-            The review turns a messy list of tasks, tools, and frustrations into a plain-English plan for the first hire or technical helper.
-          </p>
+          <p>Here’s how it works</p>
+          <h2>A calmer way to hand off work.</h2>
+          <a href="/contact">Start your review</a>
         </div>
         <ol>
-          {process.map((item, index) => (
-            <li key={item}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              {item}
+          {steps.map((step, index) => (
+            <li key={step}>
+              <span>{index + 1}</span>
+              <strong>{step}</strong>
             </li>
           ))}
         </ol>
       </section>
 
-      <section id="fit" className="ce-simple-section ce-simple-fit">
-        <div className="ce-simple-section-head">
-          <p className="ce-simple-kicker">Who it helps</p>
-          <h2>Built for owners who need relief, not another complicated system.</h2>
+      <section id="support" className="hp-section hp-roles">
+        <div className="hp-section-head">
+          <p>Support roles</p>
+          <h2>Part-time, full-time, admin, or technical.</h2>
         </div>
-        <div className="ce-simple-fit-list">
-          {fit.map((item) => (
-            <p key={item}>{item}</p>
+        <div className="hp-role-cloud">
+          {roles.map((role) => <span key={role}>{role}</span>)}
+        </div>
+      </section>
+
+      <section className="hp-callout">
+        <div>
+          <p>Simple, practical, not scary</p>
+          <h2>You do not need another complicated system. You need help you can trust.</h2>
+        </div>
+        <p>
+          We focus on owner time, support fit, and control over access. That way offshore help and technical work can move faster without creating chaos.
+        </p>
+      </section>
+
+      <section id="faq" className="hp-faq">
+        <div className="hp-section-head">
+          <p>Questions</p>
+          <h2>Common questions from owners.</h2>
+        </div>
+        <div className="hp-faq-list">
+          {faqs.map((item) => (
+            <article key={item.q}>
+              <h3>{item.q}</h3>
+              <p>{item.a}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="ce-simple-cta">
-        <div>
-          <p className="ce-simple-kicker">Start here</p>
-          <h2>Send what is taking too much time. We will turn it into a support plan.</h2>
-        </div>
-        <a href="/contact">Request a review</a>
+      <section className="hp-final">
+        <h2>Ready to get support without handing over the keys?</h2>
+        <a href="/contact">Start your review</a>
       </section>
     </SiteLayout>
   );

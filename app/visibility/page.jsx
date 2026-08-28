@@ -12,17 +12,24 @@ const items = [
 export default function VisibilityPage() {
   return (
     <SiteLayout active="/visibility">
-      <section className="ce-section-v2 ce-intro-v2">
-        <p className="ce-kicker">Visibility</p>
-        <h1>Know what is happening before you add more tools.</h1>
-        <p>
-          We turn messy workflows, weak handoffs, security basics, and scattered intake into a simple support plan.
-        </p>
-        <div className="ce-role-list-v2">
-          {items.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
+      <section className="hp-contact-hero">
+        <div>
+          <p className="hp-pretitle">Visibility</p>
+          <h1>Know what is happening before you add more tools.</h1>
+          <p>
+            We turn messy workflows, weak handoffs, security basics, and scattered intake into a simple support plan.
+          </p>
+          <div className="hp-actions">
+            <a href="/contact">Start your review</a>
+            <a href="/#how">See how it works</a>
+          </div>
         </div>
+        <aside className="hp-contact-card">
+          <p>What we look at</p>
+          <ul>
+            {items.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </aside>
       </section>
     </SiteLayout>
   );
