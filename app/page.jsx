@@ -1,197 +1,177 @@
 "use client";
 
 import { SiteLayout } from "@/components/SiteLayout";
-import {
-  AnimatedBeam,
-  AuroraBackground,
-  ProblemMarquee,
-  Reveal,
-  ShimmerButton,
-  SpotlightCard
-} from "@/components/MagicEffects";
+import { MagneticCard, MotionReveal, StaggerList, TextTicker, WorkflowGraphic } from "@/components/MotionEffects";
+
+const cleanupItems = [
+  "See which tools, accounts, and vendors actually matter",
+  "Find risky access before handing work to a VA or contractor",
+  "Turn repeated admin work into a simpler workflow",
+  "Know what to automate, delegate, secure, or ignore",
+  "Leave with a plain-English plan instead of more confusion"
+];
 
 const services = [
   {
     title: "Business Tech Cleanup",
-    text: "A focused review of your website, email, domains, passwords, tools, files, backups, and handoffs so you know what to fix first."
+    text: "A practical review of your website, email, domains, tools, files, passwords, vendors, backups, and handoffs."
   },
   {
-    title: "Secure Delegation",
-    text: "Set up VAs and offshore support with safer access, clearer roles, better instructions, and less owner bottleneck."
+    title: "Secure VA Setup",
+    text: "Prepare part-time, full-time, or offshore support with safer access, clearer roles, and better handoff instructions."
   },
   {
-    title: "Automation Systems",
-    text: "Replace repeated admin work with simple automations for intake, follow-up, reporting, file routing, and client updates."
+    title: "Workflow Automation",
+    text: "Build simple systems for intake, follow-up, reporting, client updates, file routing, and repetitive admin work."
   },
   {
-    title: "Engineering Help",
-    text: "Practical implementation support for websites, forms, integrations, AI workflows, dashboards, and technical cleanup."
+    title: "Engineering Support",
+    text: "Hands-on help with websites, forms, integrations, dashboards, AI workflows, and technical implementation."
   }
 ];
 
-const cleanupItems = [
-  "Website, domain, DNS, and email setup",
-  "Password, account, vendor, and file access",
-  "Manual admin work and repeated follow-up",
-  "VA/offshore support readiness",
-  "Security basics, backups, and recovery gaps",
-  "Automation and engineering opportunities"
-];
-
 const process = [
-  ["01", "Map the business", "We look at the actual way work moves through your business, not a fantasy org chart."],
-  ["02", "Find the friction", "We identify repeated work, fragile access, unclear handoffs, risky tools, and owner bottlenecks."],
-  ["03", "Design the support system", "You get a plain-English plan for what to clean up, automate, delegate, secure, or build."],
-  ["04", "Execute what matters", "Cyber Ethos can help implement the highest-value fixes instead of leaving you with a report." ]
-];
-
-const metrics = [
-  ["Less chaos", "Cleaner tools and responsibilities"],
-  ["More control", "Safer access and handoffs"],
-  ["More time", "Less repeated manual work"]
+  "Map how work actually moves through your business",
+  "Identify the fragile tools, manual steps, and access risks",
+  "Create a ranked cleanup and support plan",
+  "Implement the fixes that save time or reduce risk first"
 ];
 
 export default function HomePage() {
   return (
     <SiteLayout>
-      <section className="hero-section">
-        <AuroraBackground />
-        <div className="site-shell hero-grid">
-          <Reveal className="hero-copy">
-            <p className="eyebrow">CYBER ETHOS FOR SMALL BUSINESS OWNERS</p>
-            <h1>Get your business tech under control.</h1>
-            <p className="hero-lede">
-              Practical help with messy tools, weak access, repetitive admin work, basic security, automation, and offshore support without hiring full-time staff.
+      <section className="mp-hero">
+        <div className="mp-background" aria-hidden="true" />
+        <div className="mp-shell mp-hero-grid">
+          <MotionReveal className="mp-hero-copy">
+            <p className="mp-eyebrow">CYBER ETHOS FOR SMALL BUSINESS OWNERS</p>
+            <h1>Reliable help without handing over the keys.</h1>
+            <p className="mp-lede">
+              Cyber Ethos helps you clean up messy business tech, improve security basics, delegate work safely, and build practical support systems without hiring full-time staff.
             </p>
-            <div className="hero-actions">
-              <ShimmerButton>Book a Tech Cleanup Call</ShimmerButton>
-              <a className="ghost-link" href="#offer">See what gets cleaned up</a>
+            <div className="mp-actions">
+              <a className="mp-primary" href="/contact">Book a Tech Cleanup Call</a>
+              <a className="mp-secondary" href="#cleanup">What gets cleaned up</a>
             </div>
-          </Reveal>
-          <Reveal className="hero-visual" delay={0.12}>
-            <AnimatedBeam />
-            <div className="visual-caption">
-              <span>Review</span>
-              <span>Clean up</span>
-              <span>Secure</span>
-              <span>Automate</span>
-            </div>
-          </Reveal>
+          </MotionReveal>
+          <MotionReveal className="mp-hero-art" delay={0.08}>
+            <WorkflowGraphic />
+          </MotionReveal>
         </div>
       </section>
 
-      <ProblemMarquee />
+      <TextTicker />
 
-      <section id="offer" className="section-block offer-block">
-        <div className="site-shell split-layout">
-          <Reveal>
-            <p className="eyebrow">THE FIRST OFFER</p>
+      <section id="cleanup" className="mp-section mp-cleanup">
+        <div className="mp-shell mp-two-col">
+          <MotionReveal>
+            <p className="mp-eyebrow">START HERE</p>
             <h2>Business Tech Cleanup</h2>
-            <p className="section-lede">
-              Built for owners who know the back office is messy but do not know where to start. Cyber Ethos turns the mess into a ranked action plan.
+            <p className="mp-section-lede">
+              The first offer is not a vague audit. It is a guided review that shows what is slowing you down, where access is risky, and what support would actually help.
             </p>
-          </Reveal>
-          <Reveal className="glass-panel" delay={0.1}>
-            <h3>What you leave with</h3>
-            <p>
-              A clear list of what to fix now, what to automate, what to delegate, what needs security attention, and what technical help is actually worth paying for.
-            </p>
-            <div className="check-grid">
-              {cleanupItems.map((item) => <span key={item}>✓ {item}</span>)}
-            </div>
-          </Reveal>
+          </MotionReveal>
+          <MotionReveal delay={0.1}>
+            <MagneticCard className="mp-feature-card">
+              <h3>What you leave with</h3>
+              <StaggerList items={cleanupItems} />
+            </MagneticCard>
+          </MotionReveal>
         </div>
       </section>
 
-      <section id="services" className="section-block services-block">
-        <div className="site-shell">
-          <Reveal className="section-heading center-heading">
-            <p className="eyebrow">SERVICES</p>
-            <h2>Small business support where operations, security, and implementation overlap.</h2>
-          </Reveal>
-          <div className="bento-grid">
+      <section id="services" className="mp-section mp-services">
+        <div className="mp-shell">
+          <MotionReveal className="mp-center-heading">
+            <p className="mp-eyebrow">SERVICES</p>
+            <h2>One business system, not random tech fixes.</h2>
+          </MotionReveal>
+          <div className="mp-service-grid">
             {services.map((service, index) => (
-              <Reveal key={service.title} delay={index * 0.06}>
-                <SpotlightCard className={index === 0 ? "wide-card" : ""}>
-                  <div className="card-index">0{index + 1}</div>
+              <MotionReveal key={service.title} delay={index * 0.04}>
+                <MagneticCard>
+                  <span className="mp-number">0{index + 1}</span>
                   <h3>{service.title}</h3>
                   <p>{service.text}</p>
-                </SpotlightCard>
-              </Reveal>
+                </MagneticCard>
+              </MotionReveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="system" className="section-block dark-showcase">
-        <div className="site-shell showcase-grid">
-          <Reveal>
-            <p className="eyebrow">THE SYSTEM</p>
-            <h2>Cleaner handoffs. Safer access. Less owner dependency.</h2>
-          </Reveal>
-          <Reveal className="workflow-stack" delay={0.12}>
-            {metrics.map(([title, text]) => (
-              <div className="workflow-row" key={title}>
-                <strong>{title}</strong>
-                <span>{text}</span>
+      <section id="workflow" className="mp-section mp-workflow-section">
+        <div className="mp-shell mp-two-col reverse">
+          <MotionReveal>
+            <MagneticCard className="mp-dark-panel">
+              <div className="mp-system-lines">
+                <span>Owner</span>
+                <span>Tools</span>
+                <span>Access</span>
+                <span>VA</span>
+                <span>Automation</span>
+                <span>Control</span>
               </div>
-            ))}
-          </Reveal>
+            </MagneticCard>
+          </MotionReveal>
+          <MotionReveal delay={0.08}>
+            <p className="mp-eyebrow">THE OUTCOME</p>
+            <h2>Cleaner handoffs. Safer access. More control.</h2>
+            <p className="mp-section-lede">
+              The goal is simple: give the owner more time and fewer fragile systems. Cyber Ethos helps define what humans should handle, what software should handle, and what needs security guardrails.
+            </p>
+          </MotionReveal>
         </div>
       </section>
 
-      <section id="process" className="section-block process-block">
-        <div className="site-shell">
-          <Reveal className="section-heading">
-            <p className="eyebrow">PROCESS</p>
-            <h2>A practical path from messy to manageable.</h2>
-          </Reveal>
-          <div className="timeline-grid">
-            {process.map(([num, title, text], index) => (
-              <Reveal key={title} delay={index * 0.07}>
-                <article className="timeline-card">
-                  <span>{num}</span>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
+      <section id="process" className="mp-section mp-process">
+        <div className="mp-shell">
+          <MotionReveal className="mp-center-heading">
+            <p className="mp-eyebrow">PROCESS</p>
+            <h2>From messy to manageable.</h2>
+          </MotionReveal>
+          <div className="mp-process-grid">
+            {process.map((step, index) => (
+              <MotionReveal key={step} delay={index * 0.05}>
+                <article className="mp-process-card">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <p>{step}</p>
                 </article>
-              </Reveal>
+              </MotionReveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="faq" className="section-block faq-block">
-        <div className="site-shell faq-grid">
-          <Reveal>
-            <p className="eyebrow">FAQ</p>
+      <section className="mp-section mp-faq">
+        <div className="mp-shell mp-two-col">
+          <MotionReveal>
+            <p className="mp-eyebrow">FAQ</p>
             <h2>Plain answers before we talk.</h2>
-          </Reveal>
-          <Reveal className="faq-list" delay={0.1}>
+          </MotionReveal>
+          <MotionReveal className="mp-faq-list" delay={0.08}>
             <details open>
               <summary>Is this only cybersecurity?</summary>
-              <p>No. Security is part of the work, but the real goal is control: cleaner tools, safer access, better workflows, and practical implementation help.</p>
+              <p>No. Security is part of the work, but the bigger goal is operational control: cleaner tools, safer access, better delegation, and less manual work.</p>
             </details>
             <details>
-              <summary>Can you help me hire a VA?</summary>
-              <p>Yes. Cyber Ethos can help clarify the role, write handoff instructions, identify what should be delegated, and reduce access risk.</p>
+              <summary>Can you help with VA or offshore support?</summary>
+              <p>Yes. Cyber Ethos can help define the role, prepare the handoff, reduce password chaos, and decide what should or should not be delegated.</p>
             </details>
             <details>
               <summary>Do you need passwords to start?</summary>
-              <p>No. The first review can start from screenshots, tool lists, workflows, and guided walkthroughs. Password sharing is not the starting point.</p>
+              <p>No. The first review starts with context, screenshots, tool lists, and walkthroughs. Sensitive access comes later only if implementation work is approved.</p>
             </details>
-          </Reveal>
+          </MotionReveal>
         </div>
       </section>
 
-      <section className="final-cta">
-        <div className="site-shell final-card">
-          <AuroraBackground />
-          <Reveal>
-            <p className="eyebrow">START HERE</p>
-            <h2>Book a Tech Cleanup Call and get a clearer plan.</h2>
-            <p>No scare tactics. No jargon. Just practical help getting your business systems under control.</p>
-            <ShimmerButton>Book the call</ShimmerButton>
-          </Reveal>
+      <section className="mp-final">
+        <div className="mp-shell mp-final-card">
+          <p className="mp-eyebrow">NEXT STEP</p>
+          <h2>Send the messy version. We will turn it into a plan.</h2>
+          <p>No hype. No scare tactics. Just practical help getting your business systems under control.</p>
+          <a className="mp-primary" href="/contact">Book a Tech Cleanup Call</a>
         </div>
       </section>
     </SiteLayout>

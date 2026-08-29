@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Cyber Ethos | Small Business Tech Cleanup",
+  title: "Cyber Ethos | Practical Tech Cleanup for Small Businesses",
   description:
-    "Cyber Ethos helps small businesses clean up messy tools, improve security, automate repeated work, and build safer support systems."
+    "Cyber Ethos helps small businesses clean up messy tools, improve security basics, delegate work safely, automate repeated admin work, and build practical support systems."
 };
 
 export default function RootLayout({ children }) {
