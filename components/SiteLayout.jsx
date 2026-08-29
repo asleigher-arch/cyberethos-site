@@ -3,38 +3,38 @@
 const navItems = [
   { href: "/#offer", label: "Offer" },
   { href: "/#services", label: "Services" },
+  { href: "/#system", label: "System" },
   { href: "/#process", label: "Process" },
-  { href: "/#faq", label: "FAQ" },
   { href: "/contact", label: "Contact" }
 ];
 
-export function SiteLayout({ children, active = "/" }) {
+export function SiteLayout({ children }) {
   return (
-    <main className="aw-site">
-      <header className="aw-header">
-        <a href="/" className="aw-brand" aria-label="Cyber Ethos home">
-          <span className="aw-mark">CE</span>
-          <span>
+    <main className="magic-site">
+      <header className="site-shell nav-shell">
+        <a className="brand-mark" href="/" aria-label="Cyber Ethos home">
+          <span>CE</span>
+          <div>
             <strong>Cyber Ethos</strong>
-            <small>Practical business tech</small>
-          </span>
+            <small>Small business systems</small>
+          </div>
         </a>
-        <nav className="aw-nav" aria-label="Primary navigation">
+        <nav aria-label="Primary navigation">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} aria-current={active === item.href ? "page" : undefined}>
+            <a key={item.href} href={item.href}>
               {item.label}
             </a>
           ))}
         </nav>
-        <a className="aw-header-cta" href="/contact">Book cleanup call</a>
+        <a className="nav-cta" href="/contact">
+          Book cleanup call
+        </a>
       </header>
-
-      <div className="aw-content">{children}</div>
-
-      <footer className="aw-footer">
+      {children}
+      <footer className="site-shell footer-shell">
         <div>
-          <a href="/" className="aw-footer-brand">Cyber Ethos</a>
-          <p>Small businesses save time, gain control, and improve security with practical technical help.</p>
+          <a className="footer-brand" href="/">Cyber Ethos</a>
+          <p>Practical tech, security, automation, and support systems for small businesses.</p>
         </div>
         <nav aria-label="Footer navigation">
           <a href="/#offer">Offer</a>
