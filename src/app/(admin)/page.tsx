@@ -20,45 +20,49 @@ const storyPoints = [
     text: "Marine Corps veteran and former Iraq Special Operations interpreter who understands trust, pressure, and real-world consequences.",
   },
   {
+    label: "Leadership",
+    text: "Chief of Staff with hands-on experience leading teams, coordinating moving parts, and turning scattered work into disciplined execution.",
+  },
+  {
     label: "Mission",
     text: "Still connected to service through nonprofit operations supporting allies, refugees, veterans, and families who need systems that actually work.",
   },
   {
     label: "Cyber + AI",
-    text: "Cybersecurity graduate student and AI operations builder focused on helping people regain control of their tools, access, workflows, and risk.",
+    text: "Cybersecurity graduate student and AI operations builder focused on helping people regain control of tools, access, workflows, hiring, and risk.",
   },
 ];
 
 const services = [
   {
-    title: "Security Cleanup",
+    title: "Digital Security Review",
     description:
-      "A practical review of accounts, devices, backups, passwords, admin access, MFA, and obvious security gaps before they become expensive problems.",
+      "A practical cleanup of accounts, devices, backups, passwords, admin access, MFA, and obvious security gaps before they become expensive problems.",
     items: ["Access review", "MFA and password cleanup", "Backup and recovery check"],
   },
   {
-    title: "AI Ops Automation",
+    title: "Virtual Assistant Hiring",
     description:
-      "Turn repeated work into usable systems: intake, summaries, reminders, dashboards, reports, and lightweight agent workflows built around your real operation.",
-    items: ["Workflow mapping", "Automation buildout", "Human-in-the-loop controls"],
+      "Help finding and setting up part-time or full-time virtual assistants so business owners can delegate repeatable work without losing control of access, quality, or follow-through.",
+    items: ["Part-time VA support", "Full-time VA support", "Role design and handoffs"],
   },
   {
-    title: "Business Tech Review",
+    title: "Offshore Engineering Hiring",
     description:
-      "Plain-English assessment for small teams that need clarity on tools, vendors, handoffs, data, and what to fix first without buying more software blindly.",
-    items: ["Tool stack review", "Vendor/access cleanup", "30-day action plan"],
+      "Support finding affordable offshore engineering help for product, websites, automation, and technical operations at a much lower cost than local in-person hiring.",
+    items: ["Developer sourcing", "Technical scope review", "Secure access and delivery process"],
   },
   {
-    title: "Mission-Driven Ops Support",
+    title: "Ops Leadership Support",
     description:
-      "Operational help for nonprofits, veteran-connected work, and service organizations where trust, speed, documentation, and follow-through matter.",
-    items: ["Case workflow support", "Volunteer ops systems", "Reporting and coordination"],
+      "Chief-of-staff style help for owners and teams that need better structure, accountability, reporting, and execution across people, tools, and vendors.",
+    items: ["Team coordination", "Execution rhythm", "Dashboards and reporting"],
   },
 ];
 
 const proofCards = [
   "Built from lived experience, not buzzwords.",
-  "Cybersecurity discipline plus practical AI operations.",
+  "Chief of Staff experience leading teams and operations.",
   "Focused on cleanup, control, and usable systems.",
 ];
 
@@ -75,7 +79,7 @@ export default function CyberEthosPortfolio() {
               Built from service, survival, security, and systems.
             </h1>
             <p className="mt-5 max-w-3xl text-theme-xl text-gray-600 dark:text-gray-300">
-              I am Azad Sleigher. Cyber Ethos is where my story meets the work: helping people and organizations clean up digital chaos, protect trust, and build operations that can hold up under pressure.
+              I am Azad Sleigher. Cyber Ethos is where my story meets the work: helping people and organizations clean up digital chaos, hire smarter support, protect trust, and build operations that hold up under pressure.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
@@ -103,7 +107,7 @@ export default function CyberEthosPortfolio() {
                   Azad Sleigher
                 </p>
                 <p className="mt-1 text-theme-sm text-gray-500 dark:text-gray-400">
-                  Veteran · Interpreter · Cybersecurity · AI Ops
+                  Veteran · Interpreter · Chief of Staff · Cybersecurity
                 </p>
               </div>
             </div>
@@ -139,10 +143,10 @@ export default function CyberEthosPortfolio() {
               Why Cyber Ethos exists
             </h2>
             <p className="mt-4 text-gray-600 dark:text-gray-400">
-              Cyber Ethos is not just a services page. It is the product of a life shaped by trust, risk, service, adaptation, and rebuilding systems when the stakes are real.
+              Cyber Ethos is not just a services page. It is the product of a life shaped by trust, risk, service, leadership, adaptation, and rebuilding teams and systems when the stakes are real.
             </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {storyPoints.map((point) => (
               <div
                 key={point.label}
@@ -169,7 +173,7 @@ export default function CyberEthosPortfolio() {
                 The dashboard stays, but now it has a purpose.
               </h2>
               <p className="mt-2 max-w-3xl text-gray-600 dark:text-gray-400">
-                This visual system shows what Cyber Ethos does: turns scattered risks, messy access, and unfinished work into a clear cleanup plan.
+                This visual system shows the kind of public risk signals Cyber Ethos watches: scattered threats, messy access, global cyber flags, and the cleanup moves that bring control back.
               </p>
             </div>
           </div>
@@ -204,7 +208,7 @@ export default function CyberEthosPortfolio() {
             Practical help for people who need control back.
           </h2>
           <p className="mt-4 text-gray-600 dark:text-gray-400">
-            Start with a focused review. Leave with clear cleanup moves, safer access, better workflows, and a support plan that fits the reality of your team.
+            Start with a focused review. Leave with clear cleanup moves, safer access, better workflows, and a practical hiring/support plan for virtual assistants or offshore engineering help when that is the smarter move.
           </p>
         </div>
 
@@ -240,14 +244,14 @@ export default function CyberEthosPortfolio() {
           <div>
             <p className="text-sm font-semibold text-brand-300">Start simple</p>
             <h2 className="mt-2 text-title-sm font-bold">
-              Tell me what feels messy, risky, or stuck.
+              Tell me what feels messy, risky, understaffed, or stuck.
             </h2>
             <p className="mt-3 max-w-2xl text-gray-300">
-              I will help turn it into a practical first cleanup plan: what matters, what can wait, and what to fix first.
+              I will help turn it into a practical first plan: what matters, what can wait, what to fix first, and whether a VA or offshore engineer can take work off your plate.
             </p>
           </div>
           <Link
-            href="mailto:info@cyberethos.org?subject=Cyber%20Ethos%20review&body=What%20feels%20messy%2C%20risky%2C%20or%20stuck%3F%0A%0AWhat%20systems%20or%20accounts%20are%20involved%3F%0A%0AWhat%20would%20a%20good%20outcome%20look%20like%3F"
+            href="mailto:info@cyberethos.org?subject=Cyber%20Ethos%20review&body=What%20feels%20messy%2C%20risky%2C%20understaffed%2C%20or%20stuck%3F%0A%0AWhat%20systems%20or%20accounts%20are%20involved%3F%0A%0ADo%20you%20need%20security%20cleanup%2C%20a%20virtual%20assistant%2C%20offshore%20engineering%20help%2C%20or%20ops%20leadership%20support%3F%0A%0AWhat%20would%20a%20good%20outcome%20look%20like%3F"
             className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-100"
           >
             Request a review

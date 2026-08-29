@@ -7,67 +7,67 @@ import {
 } from "../ui/table";
 import Badge from "../ui/badge/Badge";
 
-interface SecurityFinding {
+interface SecurityFlag {
   id: number;
   finding: string;
   detail: string;
-  asset: string;
+  region: string;
   severity: "Critical" | "High" | "Medium" | "Low";
-  status: "Open" | "Investigating" | "Mitigated" | "Resolved";
+  status: "Active" | "Watching" | "Improving" | "Resolved";
 }
 
-const tableData: SecurityFinding[] = [
+const tableData: SecurityFlag[] = [
   {
     id: 1,
-    finding: "MFA missing on admin mailbox",
-    detail: "Microsoft 365 tenant",
-    asset: "Identity",
-    severity: "Critical",
-    status: "Open",
+    finding: "Phishing kits targeting small businesses",
+    detail: "Credential theft campaigns continue to rise",
+    region: "Global",
+    severity: "High",
+    status: "Active",
   },
   {
     id: 2,
-    finding: "Website plugins need updates",
-    detail: "Business website",
-    asset: "Web",
-    severity: "High",
-    status: "Investigating",
+    finding: "MFA fatigue and weak admin controls",
+    detail: "Identity remains the easiest entry point",
+    region: "U.S.",
+    severity: "Critical",
+    status: "Watching",
   },
   {
     id: 3,
-    finding: "Shared password vault cleanup",
-    detail: "Owner and VA access",
-    asset: "Access",
+    finding: "Exposed cloud storage and stale access",
+    detail: "Old users, vendors, and shared links create risk",
+    region: "Global",
     severity: "Medium",
-    status: "Mitigated",
+    status: "Active",
   },
   {
     id: 4,
-    finding: "Backup coverage verified",
-    detail: "Critical cloud files",
-    asset: "Continuity",
-    severity: "Low",
-    status: "Resolved",
+    finding: "Ransomware pressure on public services",
+    detail: "Healthcare, education, and local government remain targets",
+    region: "U.S. / EU",
+    severity: "High",
+    status: "Watching",
   },
   {
     id: 5,
-    finding: "Phishing reporting workflow",
-    detail: "Staff email procedure",
-    asset: "Training",
+    finding: "Backup readiness gaps",
+    detail: "Many teams still cannot prove fast recovery",
+    region: "Global",
     severity: "Medium",
-    status: "Open",
+    status: "Improving",
   },
 ];
 
-const severityColor = (severity: SecurityFinding["severity"]) => {
+const severityColor = (severity: SecurityFlag["severity"]) => {
   if (severity === "Critical" || severity === "High") return "error";
   if (severity === "Medium") return "warning";
   return "success";
 };
 
-const statusColor = (status: SecurityFinding["status"]) => {
-  if (status === "Resolved" || status === "Mitigated") return "success";
-  if (status === "Investigating") return "warning";
+const statusColor = (status: SecurityFlag["status"]) => {
+  if (status === "Resolved" || status === "Improving") return "success";
+  if (status === "Watching") return "warning";
   return "error";
 };
 
@@ -77,20 +77,11 @@ export default function RecentOrders() {
       <div className="flex flex-col gap-2 mb-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-            Recent Security Findings
+            Recent Security Flags Around the World
           </h3>
           <p className="mt-1 text-theme-sm text-gray-500 dark:text-gray-400">
-            Practical issues to clean up first.
+            Public risk signals that show why cleanup, access control, and resilient operations matter.
           </p>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <button className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-theme-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-            Filter
-          </button>
-          <button className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2.5 text-theme-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 hover:text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-white/[0.03] dark:hover:text-gray-200">
-            See all
-          </button>
         </div>
       </div>
       <div className="max-w-full overflow-x-auto">
@@ -98,10 +89,10 @@ export default function RecentOrders() {
           <TableHeader className="border-gray-100 dark:border-gray-800 border-y">
             <TableRow>
               <TableCell isHeader className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400">
-                Finding
+                Flag
               </TableCell>
               <TableCell isHeader className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400">
-                Asset
+                Region
               </TableCell>
               <TableCell isHeader className="py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400">
                 Severity
@@ -126,7 +117,7 @@ export default function RecentOrders() {
                   </div>
                 </TableCell>
                 <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
-                  {item.asset}
+                  {item.region}
                 </TableCell>
                 <TableCell className="py-3 text-gray-500 text-theme-sm dark:text-gray-400">
                   <Badge size="sm" color={severityColor(item.severity)}>
