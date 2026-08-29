@@ -2,145 +2,142 @@
 
 import { SiteLayout } from "@/components/SiteLayout";
 
-const proofPoints = [
-  "Small business tech cleanup",
-  "Security-minded handoffs",
-  "VA and offshore support",
-  "Practical engineering help"
-];
-
-const services = [
+const serviceLines = [
   {
-    eyebrow: "01",
     title: "Business Tech Cleanup",
-    text: "We review your website, email, domains, tools, passwords, vendors, and messy workflows so you know what to fix first."
+    text: "A practical review of your website, email, domains, tools, accounts, access, backups, and daily workflows."
   },
   {
-    eyebrow: "02",
-    title: "Security Review",
-    text: "Plain-English checks for account access, backups, devices, customer data, password habits, and recovery risks."
+    title: "Secure Delegation",
+    text: "Set up rules for what VAs, contractors, and staff can access without handing over the keys to the business."
   },
   {
-    eyebrow: "03",
-    title: "AI and Automation Setup",
-    text: "We find the repetitive admin work, then build simple automations for intake, follow-up, reporting, and handoffs."
+    title: "Automation Systems",
+    text: "Turn repetitive admin, reporting, intake, follow-up, and handoff work into systems that save real hours."
   },
   {
-    eyebrow: "04",
-    title: "Offshore Support Systems",
-    text: "We help you hire and manage VA or technical help with SOPs, task tracking, approval rules, and safe access boundaries."
+    title: "Engineering Help",
+    text: "Website fixes, integrations, dashboards, internal tools, data cleanup, and technical implementation when the job needs code."
   }
 ];
 
-const outcomes = [
-  "What is wasting owner time",
-  "What accounts and tools need cleanup",
-  "What can safely move to a VA",
-  "Where automation will actually help",
-  "What technical work needs engineering support",
-  "What security rules should exist before delegation"
+const cleanupItems = [
+  "Website, domain, email, and DNS review",
+  "Password, access, vendor, and shared-file cleanup",
+  "Workflow map for repeated manual work",
+  "VA/offshore role fit and handoff plan",
+  "Automation opportunities ranked by effort and value",
+  "Plain-English security and backup recommendations"
 ];
 
 const process = [
-  {
-    step: "01",
-    title: "Review",
-    text: "We look at the business, tools, website, workflows, and support gaps."
-  },
-  {
-    step: "02",
-    title: "Prioritize",
-    text: "We separate urgent risks, time-wasters, delegation opportunities, and nice-to-have ideas."
-  },
-  {
-    step: "03",
-    title: "Build the plan",
-    text: "You get a clear action plan for cleanup, security, automation, and support roles."
-  },
-  {
-    step: "04",
-    title: "Implement",
-    text: "Cyber Ethos can help execute the fixes, set up systems, or support your team."
-  }
+  ["01", "Map the mess", "We document the tools, handoffs, accounts, repeated tasks, and points where work slows down."],
+  ["02", "Find the risks", "We flag weak access, unclear ownership, backup gaps, exposed data habits, and dependency on one person."],
+  ["03", "Build the plan", "You get a short, prioritized plan for cleanup, automation, support roles, and technical fixes."],
+  ["04", "Execute what matters", "Cyber Ethos can help implement the fixes, create SOPs, set up automations, and support your team."]
+];
+
+const audience = [
+  "You are buried in admin work and follow-ups.",
+  "Your team uses too many scattered tools.",
+  "You want offshore help but worry about access and quality.",
+  "You need technical help but do not need a full-time engineer.",
+  "You know security matters but want practical fixes, not scare tactics.",
+  "You want a cleaner business before adding more software."
 ];
 
 const faqs = [
   {
-    q: "Is this cybersecurity or operations help?",
-    a: "Both. Most small business security problems are really messy access, weak handoffs, unclear tools, and no process. We clean that up practically."
+    q: "What is the first offer?",
+    a: "The first offer is a Business Tech Cleanup: a focused review and action plan for your tools, access, security basics, workflows, automation opportunities, and support needs."
   },
   {
-    q: "Do I need to give you passwords first?",
-    a: "No. The first review can start without sensitive access. We map the issues, then decide what access is actually needed."
+    q: "Is this mainly cybersecurity?",
+    a: "Security is part of the work, but the bigger goal is control. We help owners clean up access, tools, handoffs, and workflows so the business runs better and safer."
   },
   {
-    q: "Can you help us hire offshore support?",
-    a: "Yes. We help define the role, create SOPs, set boundaries, and decide what should go to a VA versus technical support."
+    q: "Can you help with VAs or offshore support?",
+    a: "Yes. We help define the role, write the handoff, set approval rules, decide what they can access, and separate VA work from technical or engineering work."
+  },
+  {
+    q: "Do you need passwords to start?",
+    a: "No. The first call and review can start without sensitive access. If access is needed later, we define a safer handoff method first."
   }
 ];
 
 export default function HomePage() {
   return (
     <SiteLayout>
-      <section className="sf-hero">
-        <div className="sf-hero-copy">
-          <p className="sf-eyebrow">Cyber Ethos for small business owners</p>
-          <h1>Practical tech, security, and support systems without full-time staff.</h1>
-          <p className="sf-subtitle">
-            Cyber Ethos helps you clean up messy tools, improve security, automate repetitive work, and bring in VA or engineering help without losing control of the business.
-          </p>
-          <div className="sf-actions">
-            <a className="sf-primary" href="/contact">Book a Tech Cleanup Call</a>
-            <a className="sf-secondary" href="#services">See what we fix</a>
-          </div>
+      <section className="aw-hero">
+        <p className="aw-kicker">Cyber Ethos for small business owners</p>
+        <h1>Get your business tech under control.</h1>
+        <p className="aw-hero-text">
+          Practical help with messy tools, weak access, repetitive admin work, basic security, automation, and offshore support systems without hiring full-time staff.
+        </p>
+        <div className="aw-actions">
+          <a className="aw-primary" href="/contact">Book a Tech Cleanup Call</a>
+          <a className="aw-secondary" href="#offer">See the cleanup plan</a>
         </div>
-
-        <aside className="sf-hero-panel" aria-label="Cyber Ethos review preview">
-          <div className="sf-panel-top">
-            <span>Review preview</span>
-            <strong>Business Tech Cleanup</strong>
-          </div>
-          <div className="sf-panel-grid">
-            <div>
-              <span>Time</span>
-              <strong>Admin bottlenecks</strong>
-            </div>
-            <div>
-              <span>Control</span>
-              <strong>Access rules</strong>
-            </div>
-            <div>
-              <span>Security</span>
-              <strong>Risk cleanup</strong>
-            </div>
-            <div>
-              <span>Support</span>
-              <strong>VA + engineering</strong>
-            </div>
-          </div>
-          <div className="sf-panel-note">
-            <span>No password handoff needed to start.</span>
-            <p>First we map what is broken, risky, repeated, or ready to delegate.</p>
-          </div>
-        </aside>
       </section>
 
-      <section className="sf-proof" aria-label="Cyber Ethos focus areas">
-        {proofPoints.map((point) => <span key={point}>{point}</span>)}
+      <section className="aw-dashboard" aria-label="Business Tech Cleanup preview">
+        <div className="aw-dashboard-top">
+          <div>
+            <span>Business Tech Cleanup</span>
+            <h2>One review. A clear plan for time, control, security, and support.</h2>
+          </div>
+          <a href="/contact">Book cleanup call</a>
+        </div>
+        <div className="aw-dashboard-grid">
+          {[
+            ["Time", "Manual work and owner bottlenecks"],
+            ["Control", "Accounts, passwords, files, and vendors"],
+            ["Security", "Practical risk and recovery basics"],
+            ["Support", "VA, offshore, and engineering fit"]
+          ].map(([label, text]) => (
+            <article key={label}>
+              <span>{label}</span>
+              <strong>{text}</strong>
+            </article>
+          ))}
+        </div>
       </section>
 
-      <section id="services" className="sf-section sf-services">
-        <div className="sf-section-head">
-          <p className="sf-eyebrow">What we help fix</p>
-          <h2>Cleaner systems, safer handoffs, and less owner chaos.</h2>
+      <section id="offer" className="aw-section aw-offer">
+        <div className="aw-section-head">
+          <p className="aw-kicker">The first offer</p>
+          <h2>Business Tech Cleanup</h2>
           <p>
-            The goal is not another complicated platform. The goal is a business that knows who has access, what work can be delegated, and what technical fixes matter first.
+            Built for owners who know things are messy but do not know where to start. We turn the mess into a ranked action plan.
           </p>
         </div>
-        <div className="sf-service-grid">
-          {services.map((service) => (
-            <article key={service.title} className="sf-service-card">
-              <span>{service.eyebrow}</span>
+        <div className="aw-two-col">
+          <div className="aw-copy-block">
+            <h3>What gets reviewed</h3>
+            <p>
+              We look at how the business actually runs: tools, email, website, files, passwords, intake, follow-up, delegation, security basics, and technical gaps.
+            </p>
+            <p>
+              The deliverable is not a giant report. It is a practical plan: what to fix now, what to automate, what to delegate, and what needs technical implementation.
+            </p>
+          </div>
+          <div className="aw-check-grid">
+            {cleanupItems.map((item) => <span key={item}>{item}</span>)}
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="aw-section">
+        <div className="aw-section-head">
+          <p className="aw-kicker">Services</p>
+          <h2>Help where small businesses actually get stuck.</h2>
+          <p>
+            Cyber Ethos sits between ops, security, automation, and engineering. That is where most small business tech problems live.
+          </p>
+        </div>
+        <div className="aw-card-grid">
+          {serviceLines.map((service) => (
+            <article key={service.title}>
               <h3>{service.title}</h3>
               <p>{service.text}</p>
             </article>
@@ -148,42 +145,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="sf-split">
+      <section className="aw-band">
         <div>
-          <p className="sf-eyebrow">What you get</p>
-          <h2>A plain-English cleanup plan you can actually use.</h2>
-          <p>
-            We turn vague tech stress into a short list of practical moves: what to clean up, what to secure, what to automate, and what support role to hire next.
-          </p>
-          <a href="/contact">Start the review</a>
+          <p className="aw-kicker">Good fit</p>
+          <h2>This is for owners who need clarity before more tools.</h2>
         </div>
-        <div className="sf-checklist">
-          {outcomes.map((item) => <span key={item}>{item}</span>)}
+        <div className="aw-pill-list">
+          {audience.map((item) => <span key={item}>{item}</span>)}
         </div>
       </section>
 
-      <section id="how" className="sf-section">
-        <div className="sf-section-head left">
-          <p className="sf-eyebrow">How it works</p>
-          <h2>Simple enough to start this week.</h2>
+      <section id="process" className="aw-section">
+        <div className="aw-section-head left">
+          <p className="aw-kicker">Process</p>
+          <h2>Simple, fast, and built around useful next steps.</h2>
         </div>
-        <div className="sf-process-grid">
-          {process.map((item) => (
-            <article key={item.title}>
-              <span>{item.step}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
+        <div className="aw-timeline">
+          {process.map(([num, title, text]) => (
+            <article key={title}>
+              <span>{num}</span>
+              <div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="faq" className="sf-section sf-faq">
-        <div className="sf-section-head left">
-          <p className="sf-eyebrow">Common questions</p>
-          <h2>Built for normal business owners, not technical teams.</h2>
+      <section id="faq" className="aw-section aw-faq">
+        <div className="aw-section-head">
+          <p className="aw-kicker">FAQ</p>
+          <h2>Plain answers before we talk.</h2>
         </div>
-        <div className="sf-faq-list">
+        <div className="aw-faq-list">
           {faqs.map((item) => (
             <article key={item.q}>
               <h3>{item.q}</h3>
@@ -193,9 +188,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="sf-final">
-        <p className="sf-eyebrow">Start small</p>
-        <h2>Book a Tech Cleanup Call and leave with clearer next moves.</h2>
+      <section className="aw-cta">
+        <p className="aw-kicker">Start here</p>
+        <h2>Book a Tech Cleanup Call and leave with a clearer plan.</h2>
+        <p>No pressure. No jargon. No password handoff required to start.</p>
         <a href="/contact">Book the call</a>
       </section>
     </SiteLayout>

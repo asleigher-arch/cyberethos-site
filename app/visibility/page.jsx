@@ -12,24 +12,20 @@ const items = [
 export default function VisibilityPage() {
   return (
     <SiteLayout active="/visibility">
-      <section className="hp-contact-hero">
-        <div>
-          <p className="hp-pretitle">Visibility</p>
-          <h1>Know what is happening before you add more tools.</h1>
-          <p>
-            We turn messy workflows, weak handoffs, security basics, and scattered intake into a simple support plan.
-          </p>
-          <div className="hp-actions">
-            <a href="/contact">Start your review</a>
-            <a href="/#how">See how it works</a>
-          </div>
+      <section className="aw-page-hero compact">
+        <p className="aw-kicker">Visibility</p>
+        <h1>Know what is happening before you add more tools.</h1>
+        <p>We turn messy workflows, weak handoffs, security basics, and scattered intake into a simple support plan.</p>
+        <div className="aw-actions">
+          <a className="aw-primary" href="/contact">Start your review</a>
+          <a className="aw-secondary" href="/#process">See how it works</a>
         </div>
-        <aside className="hp-contact-card">
-          <p>What we look at</p>
-          <ul>
-            {items.map((item) => <li key={item}>{item}</li>)}
-          </ul>
-        </aside>
+      </section>
+
+      <section className="aw-section">
+        <div className="aw-check-grid standalone">
+          {items.map((item) => <span key={item}>{item}</span>)}
+        </div>
       </section>
     </SiteLayout>
   );
