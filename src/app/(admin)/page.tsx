@@ -17,19 +17,19 @@ export const metadata: Metadata = {
 const storyPoints = [
   {
     label: "Service",
-    text: "Marine Corps veteran and former Iraq Special Operations interpreter who understands trust, pressure, and real-world consequences.",
+    text: "Veteran and former interpreter. Built around trust, pressure, and real stakes.",
   },
   {
     label: "Leadership",
-    text: "Chief of Staff with hands-on experience leading teams, coordinating moving parts, and turning scattered work into disciplined execution.",
+    text: "Chief of Staff experience leading teams and driving execution.",
   },
   {
     label: "Mission",
-    text: "Still connected to service through nonprofit operations supporting allies, refugees, veterans, and families who need systems that actually work.",
+    text: "Supporting people and teams that need systems that actually work.",
   },
   {
     label: "Cyber + AI",
-    text: "Cybersecurity graduate student and AI operations builder focused on helping people regain control of tools, access, workflows, hiring, and risk.",
+    text: "Cybersecurity, AI ops, safer access, hiring, and cleaner workflows.",
   },
 ];
 
@@ -146,16 +146,16 @@ export default function CyberEthosPortfolio() {
               Cyber Ethos is not just a services page. It is the product of a life shaped by trust, risk, service, leadership, adaptation, and rebuilding teams and systems when the stakes are real.
             </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-3 md:grid-cols-2">
             {storyPoints.map((point) => (
               <div
                 key={point.label}
-                className="rounded-2xl border border-gray-200 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-900/50"
+                className="rounded-2xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-900/50"
               >
                 <p className="text-sm font-semibold text-gray-900 dark:text-white">
                   {point.label}
                 </p>
-                <p className="mt-3 text-theme-sm leading-6 text-gray-600 dark:text-gray-400">
+                <p className="mt-2 text-theme-xs leading-5 text-gray-600 dark:text-gray-400">
                   {point.text}
                 </p>
               </div>
