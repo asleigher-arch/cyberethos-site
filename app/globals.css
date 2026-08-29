@@ -2620,3 +2620,575 @@ body:has(.hp-site) {
   .hp-tile-three { left: 120px; }
 }
 
+/* ScrewFast-inspired Cyber Ethos rebuild: clean service-business layout */
+body:has(.sf-site) {
+  background: #f7f4ee;
+}
+
+.sf-site {
+  min-height: 100vh;
+  overflow: clip;
+  background:
+    radial-gradient(circle at 8% 4%, rgba(34, 107, 120, 0.12), transparent 25rem),
+    radial-gradient(circle at 92% 8%, rgba(222, 160, 76, 0.14), transparent 24rem),
+    linear-gradient(180deg, #fbf8f2 0%, #f6f1e8 48%, #f8f6f0 100%);
+  color: #17212b;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.sf-header,
+.sf-content,
+.sf-footer {
+  width: min(1160px, calc(100% - 44px));
+  margin: 0 auto;
+}
+
+.sf-header {
+  display: grid;
+  min-height: 88px;
+  grid-template-columns: 1fr auto auto;
+  gap: 28px;
+  align-items: center;
+  border-bottom: 1px solid rgba(23, 33, 43, 0.1);
+}
+
+.sf-brand,
+.sf-nav,
+.sf-footer nav,
+.sf-actions {
+  display: flex;
+  align-items: center;
+}
+
+.sf-brand {
+  gap: 12px;
+  color: #17212b;
+  text-decoration: none;
+}
+
+.sf-brand span {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 10px;
+  background: #17212b;
+  color: #f7f0df;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.sf-brand strong,
+.sf-footer-brand {
+  color: #17212b;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.sf-nav {
+  gap: 30px;
+}
+
+.sf-nav a,
+.sf-footer a {
+  color: rgba(23, 33, 43, 0.68);
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.sf-nav a:hover,
+.sf-nav a[aria-current="page"],
+.sf-footer a:hover {
+  color: #17212b;
+}
+
+.sf-header-cta,
+.sf-primary,
+.sf-split a,
+.sf-final a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #17212b;
+  color: #fffaf1;
+  padding: 0 22px;
+  font-weight: 900;
+  text-decoration: none;
+  box-shadow: 0 18px 40px rgba(23, 33, 43, 0.14);
+}
+
+.sf-secondary {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(23, 33, 43, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.58);
+  color: #17212b;
+  padding: 0 22px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.sf-content {
+  display: grid;
+  gap: clamp(72px, 8vw, 112px);
+  padding: clamp(54px, 6vw, 92px) 0 84px;
+}
+
+.sf-hero,
+.sf-contact-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.78fr);
+  gap: clamp(42px, 7vw, 86px);
+  align-items: center;
+}
+
+.sf-hero-copy,
+.sf-contact-hero > div {
+  max-width: 740px;
+}
+
+.sf-eyebrow {
+  margin: 0 0 16px;
+  color: #a56a24;
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sf-hero h1,
+.sf-contact-hero h1,
+.sf-section-head h2,
+.sf-split h2,
+.sf-final h2 {
+  margin: 0;
+  color: #17212b;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  text-wrap: pretty;
+}
+
+.sf-hero h1 {
+  max-width: 810px;
+  font-size: clamp(3.15rem, 6.4vw, 6.6rem);
+}
+
+.sf-contact-hero h1 {
+  max-width: 820px;
+  font-size: clamp(3rem, 5.8vw, 5.9rem);
+}
+
+.sf-subtitle,
+.sf-section-head > p:not(.sf-eyebrow),
+.sf-split p,
+.sf-service-card p,
+.sf-process-grid p,
+.sf-faq-list p,
+.sf-footer p {
+  color: rgba(23, 33, 43, 0.68);
+  font-size: 1.03rem;
+  line-height: 1.68;
+}
+
+.sf-subtitle {
+  max-width: 660px;
+  margin: 26px 0 0;
+  font-size: clamp(1.06rem, 1.4vw, 1.2rem);
+}
+
+.sf-actions {
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.sf-hero-panel,
+.sf-contact-card,
+.sf-service-card,
+.sf-process-grid article,
+.sf-faq-list article {
+  border: 1px solid rgba(23, 33, 43, 0.12);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 24px 70px rgba(55, 43, 29, 0.08);
+}
+
+.sf-hero-panel {
+  border-radius: 28px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(23, 33, 43, 0.92), rgba(23, 33, 43, 0.98)),
+    #17212b;
+  color: #fffaf1;
+  padding: 26px;
+}
+
+.sf-panel-top {
+  display: flex;
+  min-height: 190px;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 22px;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    radial-gradient(circle at 70% 20%, rgba(72, 169, 160, 0.25), transparent 16rem);
+  background-size: 34px 34px, 34px 34px, auto;
+  padding: 22px;
+}
+
+.sf-panel-top span,
+.sf-panel-grid span,
+.sf-panel-note span {
+  color: rgba(255, 250, 241, 0.58);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sf-panel-top strong {
+  max-width: 300px;
+  color: #fffaf1;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.sf-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.sf-panel-grid div {
+  border: 1px solid rgba(255, 250, 241, 0.11);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.055);
+  padding: 16px;
+}
+
+.sf-panel-grid strong {
+  display: block;
+  margin-top: 8px;
+  color: #fffaf1;
+  font-size: 1rem;
+  line-height: 1.18;
+}
+
+.sf-panel-note {
+  margin-top: 14px;
+  border-radius: 18px;
+  background: #f2c46d;
+  color: #17212b;
+  padding: 18px;
+}
+
+.sf-panel-note span,
+.sf-panel-note p {
+  color: #17212b;
+}
+
+.sf-panel-note p {
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+.sf-proof {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  border-top: 1px solid rgba(23, 33, 43, 0.1);
+  border-bottom: 1px solid rgba(23, 33, 43, 0.1);
+  padding: 18px 0;
+}
+
+.sf-proof span {
+  display: grid;
+  min-height: 58px;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.66);
+  color: #17212b;
+  font-weight: 900;
+  text-align: center;
+}
+
+.sf-section {
+  display: grid;
+  gap: 38px;
+}
+
+.sf-section-head {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sf-section-head.left {
+  margin: 0;
+  text-align: left;
+}
+
+.sf-section-head h2,
+.sf-split h2,
+.sf-final h2 {
+  font-size: clamp(2.35rem, 4.4vw, 4.6rem);
+}
+
+.sf-section-head > p:not(.sf-eyebrow) {
+  max-width: 700px;
+  margin: 20px auto 0;
+}
+
+.sf-section-head.left > p:not(.sf-eyebrow) {
+  margin-left: 0;
+}
+
+.sf-service-grid,
+.sf-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sf-service-card,
+.sf-process-grid article {
+  border-radius: 20px;
+  padding: 26px;
+}
+
+.sf-service-card span,
+.sf-process-grid span {
+  color: #2d7780;
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.sf-service-card h3,
+.sf-process-grid h3,
+.sf-faq-list h3 {
+  margin: 54px 0 0;
+  color: #17212b;
+  font-size: 1.35rem;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.sf-service-card p,
+.sf-process-grid p,
+.sf-faq-list p {
+  margin: 16px 0 0;
+}
+
+.sf-split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.84fr) minmax(360px, 1fr);
+  gap: clamp(34px, 6vw, 76px);
+  align-items: center;
+  border-radius: 28px;
+  background: #17212b;
+  color: #fffaf1;
+  padding: clamp(34px, 6vw, 64px);
+}
+
+.sf-split h2,
+.sf-split .sf-eyebrow {
+  color: #fffaf1;
+}
+
+.sf-split p {
+  color: rgba(255, 250, 241, 0.74);
+  margin: 22px 0 0;
+}
+
+.sf-split a {
+  width: fit-content;
+  margin-top: 28px;
+  background: #f2c46d;
+  color: #17212b;
+  box-shadow: none;
+}
+
+.sf-checklist {
+  display: grid;
+  gap: 12px;
+}
+
+.sf-checklist span {
+  border: 1px solid rgba(255, 250, 241, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fffaf1;
+  padding: 18px 20px;
+  font-weight: 850;
+}
+
+.sf-faq-list {
+  display: grid;
+  gap: 12px;
+}
+
+.sf-faq-list article {
+  border-radius: 18px;
+  padding: 24px 28px;
+}
+
+.sf-faq-list h3 {
+  margin-top: 0;
+}
+
+.sf-final {
+  display: grid;
+  justify-items: center;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(242, 196, 109, 0.32), transparent 20rem),
+    linear-gradient(135deg, #ffffff, #f1eadc);
+  padding: clamp(42px, 7vw, 78px);
+  text-align: center;
+  box-shadow: inset 0 0 0 1px rgba(23, 33, 43, 0.1);
+}
+
+.sf-final h2 {
+  max-width: 820px;
+}
+
+.sf-final a {
+  margin-top: 26px;
+}
+
+.sf-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 34px;
+  border-top: 1px solid rgba(23, 33, 43, 0.1);
+  padding: 38px 0 54px;
+}
+
+.sf-footer p {
+  max-width: 560px;
+  margin: 10px 0 0;
+}
+
+.sf-footer nav {
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  justify-content: flex-end;
+}
+
+.sf-contact-hero {
+  min-height: 58vh;
+}
+
+.sf-contact-card {
+  border-radius: 24px;
+  padding: 30px;
+}
+
+.sf-contact-card p {
+  margin: 0 0 18px;
+  color: #17212b;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.sf-contact-card ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sf-contact-card li {
+  border-radius: 14px;
+  background: #f6f1e8;
+  padding: 16px 18px;
+  color: rgba(23, 33, 43, 0.72);
+  font-weight: 800;
+}
+
+@media (max-width: 1020px) {
+  .sf-header {
+    grid-template-columns: 1fr auto;
+    padding: 16px 0;
+  }
+
+  .sf-nav {
+    order: 3;
+    grid-column: 1 / -1;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .sf-hero,
+  .sf-contact-hero,
+  .sf-split,
+  .sf-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .sf-service-grid,
+  .sf-process-grid,
+  .sf-proof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sf-footer nav {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .sf-header,
+  .sf-content,
+  .sf-footer {
+    width: min(100% - 28px, 1160px);
+  }
+
+  .sf-header-cta {
+    display: none;
+  }
+
+  .sf-nav {
+    gap: 18px;
+  }
+
+  .sf-hero h1,
+  .sf-contact-hero h1 {
+    font-size: clamp(2.6rem, 14vw, 4rem);
+    letter-spacing: -0.065em;
+  }
+
+  .sf-service-grid,
+  .sf-process-grid,
+  .sf-proof,
+  .sf-panel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sf-service-card h3,
+  .sf-process-grid h3 {
+    margin-top: 34px;
+  }
+
+  .sf-actions {
+    display: grid;
+  }
+
+  .sf-actions a {
+    width: 100%;
+  }
+}
+
