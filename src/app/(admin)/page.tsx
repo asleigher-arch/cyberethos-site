@@ -8,62 +8,78 @@ import StatisticsChart from "@/components/ecommerce/StatisticsChart";
 import RecentOrders from "@/components/ecommerce/RecentOrders";
 import DemographicCard from "@/components/ecommerce/DemographicCard";
 
+const reviewHref =
+  "mailto:info@cyberethos.org?subject=Cyber%20Ethos%20Security%20%26%20Ops%20Review&body=What%20feels%20messy%2C%20risky%2C%20understaffed%2C%20or%20stuck%3F%0A%0AWhat%20systems%2C%20accounts%2C%20vendors%2C%20or%20workflows%20are%20involved%3F%0A%0ADo%20you%20need%20security%20cleanup%2C%20a%20virtual%20assistant%2C%20offshore%20engineering%20help%2C%20or%20ops%20leadership%20support%3F%0A%0AWhat%20would%20a%20good%20outcome%20look%20like%3F";
+
 export const metadata: Metadata = {
-  title: "Cyber Ethos | Azad Sleigher",
+  title: "Cyber Ethos | Security & Ops Review",
   description:
-    "The personal story, mission, and services behind Cyber Ethos: cybersecurity cleanup, AI operations, and practical digital resilience.",
+    "Cyber Ethos helps small teams clean up risky access, messy workflows, vendor gaps, and staffing needs through practical security and operations reviews.",
 };
 
 const storyPoints = [
   {
-    label: "Service",
+    label: "Lived security experience",
     text: "Veteran and former interpreter. Built around trust, pressure, and real stakes.",
   },
   {
-    label: "Leadership",
+    label: "Operations leadership",
     text: "Chief of Staff experience leading teams and driving execution.",
   },
   {
-    label: "Mission",
-    text: "Supporting people and teams that need systems that actually work.",
+    label: "Practical cleanup",
+    text: "Helping people and teams replace chaos with systems that actually work.",
   },
   {
-    label: "Cyber + AI",
-    text: "Cybersecurity, AI ops, safer access, hiring, and cleaner workflows.",
+    label: "Cyber, AI, and access risk",
+    text: "Safer access, cleaner workflows, smarter hiring, and better control.",
   },
 ];
 
 const services = [
   {
-    title: "Digital Security Review",
+    title: "Security & Access Cleanup",
     description:
-      "A practical cleanup of accounts, devices, backups, passwords, admin access, MFA, and obvious security gaps before they become expensive problems.",
-    items: ["Access review", "MFA and password cleanup", "Backup and recovery check"],
+      "A practical review of accounts, devices, backups, passwords, admin access, MFA, and obvious security gaps before they become expensive problems.",
+    items: ["Access review", "MFA/password cleanup", "Backup check"],
   },
   {
-    title: "Virtual Assistant Hiring",
+    title: "VA Hiring & Handoff System",
     description:
-      "Help finding and setting up part-time or full-time virtual assistants so business owners can delegate repeatable work without losing control of access, quality, or follow-through.",
-    items: ["Part-time VA support", "Full-time VA support", "Role design and handoffs"],
+      "Find and set up a part-time or full-time virtual assistant with clear roles, secure access, handoffs, and follow-through so delegation does not create more chaos.",
+    items: ["Part-time or full-time VA", "Role design", "Safe handoffs"],
   },
   {
-    title: "Offshore Engineering Hiring",
+    title: "Offshore Engineering Setup",
     description:
-      "Support finding affordable offshore engineering help for product, websites, automation, and technical operations at a much lower cost than local in-person hiring.",
-    items: ["Developer sourcing", "Technical scope review", "Secure access and delivery process"],
+      "Support finding and structuring offshore engineering help for websites, product work, automation, and technical operations with clear scope and accountable delivery.",
+    items: ["Developer sourcing", "Scope review", "Delivery process"],
   },
   {
-    title: "Ops Leadership Support",
+    title: "Chief of Staff Ops Support",
     description:
-      "Chief-of-staff style help for owners and teams that need better structure, accountability, reporting, and execution across people, tools, and vendors.",
-    items: ["Team coordination", "Execution rhythm", "Dashboards and reporting"],
+      "Chief-of-staff style support for owners and teams that need clearer priorities, accountability, reporting, and execution across people, tools, vendors, and workflows.",
+    items: ["Team coordination", "Execution rhythm", "Dashboards/reporting"],
   },
 ];
 
 const proofCards = [
-  "Built from lived experience, not buzzwords.",
+  "Veteran-led, founder-operated, and built for real-world pressure.",
   "Chief of Staff experience leading teams and operations.",
-  "Focused on cleanup, control, and usable systems.",
+  "Clear cleanup plans, not bloated consulting reports.",
+];
+
+const reviewSteps = [
+  "Tell me what feels messy, risky, understaffed, or stuck.",
+  "I review accounts, access, tools, vendors, workflows, and staffing gaps.",
+  "You get a prioritized cleanup plan: urgent, later, delegate, or fix first.",
+  "We handle the highest-risk items before adding more people or tools.",
+];
+
+const trustBullets = [
+  "No passwords needed to start.",
+  "The first review focuses on structure, risk, priorities, and next steps.",
+  "Sensitive access only comes later with a clear scope and safe process.",
 ];
 
 export default function CyberEthosPortfolio() {
@@ -73,26 +89,35 @@ export default function CyberEthosPortfolio() {
         <div className="grid gap-8 p-6 lg:grid-cols-[1.1fr_0.9fr] lg:p-10">
           <div className="flex flex-col justify-center">
             <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:border-brand-500/30 dark:bg-brand-500/10 dark:text-brand-300">
-              Cyber Ethos founder story
+              Security & ops review
             </div>
             <h1 className="max-w-4xl text-title-md font-bold tracking-tight text-gray-900 dark:text-white lg:text-title-lg">
-              Built from service, survival, security, and systems.
+              Practical security and operations cleanup for teams that feel messy, risky, or understaffed.
             </h1>
             <p className="mt-5 max-w-3xl text-theme-xl text-gray-600 dark:text-gray-300">
-              I am Azad Sleigher. Cyber Ethos is where my story meets the work: helping people and organizations clean up digital chaos, hire smarter support, protect trust, and build operations that hold up under pressure.
+              Cyber Ethos helps small business owners and mission-driven teams review risky accounts, messy workflows, vendor access, backup gaps, and staffing needs — then turn it into a clear plan for what to fix first.
+            </p>
+            <p className="mt-4 max-w-3xl text-sm font-medium text-gray-500 dark:text-gray-400">
+              Review areas: accounts, MFA, passwords, backups, vendors, workflows, VA readiness, and offshore engineering needs.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#story"
+              <Link
+                href={reviewHref}
                 className="inline-flex items-center justify-center rounded-lg bg-brand-500 px-5 py-3 text-sm font-medium text-white shadow-theme-xs hover:bg-brand-600"
               >
-                Read the story
-              </a>
+                Request a Security & Ops Review
+              </Link>
               <a
                 href="#services"
                 className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-sm font-medium text-gray-700 shadow-theme-xs hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-white/[0.03]"
               >
-                See services
+                See Services
+              </a>
+              <a
+                href="#story"
+                className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+              >
+                Read Azad&apos;s Story
               </a>
             </div>
           </div>
@@ -140,10 +165,10 @@ export default function CyberEthosPortfolio() {
           <div>
             <p className="text-sm font-semibold text-brand-500">The story</p>
             <h2 className="mt-2 text-title-sm font-bold text-gray-900 dark:text-white">
-              Why Cyber Ethos exists
+              Built for people who need control back.
             </h2>
             <p className="mt-4 text-gray-600 dark:text-gray-400">
-              Cyber Ethos is not just a services page. It is the product of a life shaped by trust, risk, service, leadership, adaptation, and rebuilding teams and systems when the stakes are real.
+              Cyber Ethos exists to help owners, operators, and small teams clean up risky access, unclear roles, overloaded workflows, and staffing gaps. The goal is simple: reduce risk, restore control, and leave you with a plan you can actually use.
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2">
@@ -168,14 +193,20 @@ export default function CyberEthosPortfolio() {
         <div className="col-span-12">
           <div className="mb-2 flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
             <div>
-              <p className="text-sm font-semibold text-brand-500">Operating dashboard</p>
+              <p className="text-sm font-semibold text-brand-500">Example risk dashboard</p>
               <h2 className="mt-1 text-title-sm font-bold text-gray-900 dark:text-white">
-                The dashboard stays, but now it has a purpose.
+                From public risk signals to a practical cleanup plan.
               </h2>
               <p className="mt-2 max-w-3xl text-gray-600 dark:text-gray-400">
-                This visual system shows the kind of public risk signals Cyber Ethos watches: scattered threats, messy access, global cyber flags, and the cleanup moves that bring control back.
+                These are example public risk signals, not client data. They show the kinds of issues Cyber Ethos helps teams understand, prioritize, and clean up.
               </p>
             </div>
+            <Link
+              href={reviewHref}
+              className="inline-flex items-center justify-center rounded-lg border border-brand-200 bg-brand-50 px-4 py-2.5 text-sm font-medium text-brand-700 hover:bg-brand-100 dark:border-brand-500/30 dark:bg-brand-500/10 dark:text-brand-300"
+            >
+              Check my risk areas
+            </Link>
           </div>
         </div>
 
@@ -208,7 +239,7 @@ export default function CyberEthosPortfolio() {
             Practical help for people who need control back.
           </h2>
           <p className="mt-4 text-gray-600 dark:text-gray-400">
-            Start with a focused review. Leave with clear cleanup moves, safer access, better workflows, and a practical hiring/support plan for virtual assistants or offshore engineering help when that is the smarter move.
+            Most business problems are connected: risky access, unclear ownership, overloaded teams, and contractors without structure. Cyber Ethos helps you clean up the system before adding more tools or people.
           </p>
         </div>
 
@@ -239,6 +270,39 @@ export default function CyberEthosPortfolio() {
         </div>
       </section>
 
+      <section className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-theme-xs dark:border-gray-800 dark:bg-white/[0.03] lg:p-8">
+          <p className="text-sm font-semibold text-brand-500">How the review works</p>
+          <h2 className="mt-2 text-title-sm font-bold text-gray-900 dark:text-white">
+            Simple enough to start. Structured enough to matter.
+          </h2>
+          <div className="mt-6 space-y-4">
+            {reviewSteps.map((step, index) => (
+              <div key={step} className="flex gap-3">
+                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-semibold text-brand-600 dark:bg-brand-500/10 dark:text-brand-300">
+                  {index + 1}
+                </span>
+                <p className="text-sm leading-6 text-gray-600 dark:text-gray-400">{step}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-gray-200 bg-gray-50 p-6 shadow-theme-xs dark:border-gray-800 dark:bg-gray-900/50 lg:p-8">
+          <p className="text-sm font-semibold text-brand-500">Trust and confidentiality</p>
+          <h2 className="mt-2 text-title-sm font-bold text-gray-900 dark:text-white">
+            Start without exposing sensitive access.
+          </h2>
+          <div className="mt-6 space-y-3">
+            {trustBullets.map((item) => (
+              <div key={item} className="rounded-2xl border border-gray-200 bg-white p-4 text-sm font-medium text-gray-700 dark:border-gray-800 dark:bg-white/[0.03] dark:text-gray-300">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="rounded-3xl bg-gray-900 p-6 text-white shadow-theme-xs dark:bg-black lg:p-8">
         <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
@@ -251,10 +315,10 @@ export default function CyberEthosPortfolio() {
             </p>
           </div>
           <Link
-            href="mailto:info@cyberethos.org?subject=Cyber%20Ethos%20review&body=What%20feels%20messy%2C%20risky%2C%20understaffed%2C%20or%20stuck%3F%0A%0AWhat%20systems%20or%20accounts%20are%20involved%3F%0A%0ADo%20you%20need%20security%20cleanup%2C%20a%20virtual%20assistant%2C%20offshore%20engineering%20help%2C%20or%20ops%20leadership%20support%3F%0A%0AWhat%20would%20a%20good%20outcome%20look%20like%3F"
+            href={reviewHref}
             className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 text-sm font-semibold text-gray-900 hover:bg-gray-100"
           >
-            Request a review
+            Request a Security & Ops Review
           </Link>
         </div>
       </section>
