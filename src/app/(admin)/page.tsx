@@ -1,61 +1,132 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EcommerceMetrics } from "@/components/ecommerce/EcommerceMetrics";
-import React from "react";
-import MonthlyTarget from "@/components/ecommerce/MonthlyTarget";
-import MonthlySalesChart from "@/components/ecommerce/MonthlySalesChart";
-import StatisticsChart from "@/components/ecommerce/StatisticsChart";
-import RecentOrders from "@/components/ecommerce/RecentOrders";
-import DemographicCard from "@/components/ecommerce/DemographicCard";
 
 export const metadata: Metadata = {
-  title: "Cyber Ethos Security & Ops Review",
+  title: "Cyber Ethos | Security & Ops Review",
   description:
-    "Request a practical Cyber Ethos review of access, tools, vendors, workflows, staffing gaps, and operational risk.",
+    "Cyber Ethos helps owners clean up access, tools, vendors, workflows, handoffs, and operational risk before small messes become expensive.",
 };
 
-function ReviewHero() {
+const riskSignals = [
+  {
+    label: "Access risk",
+    status: "Often hidden",
+    score: "High",
+    copy: "Old admins, shared passwords, weak MFA, unclear ownership, and vendor accounts nobody checks.",
+  },
+  {
+    label: "Website exposure",
+    status: "Outside-in check",
+    score: "Review",
+    copy: "Public-facing issues, outdated web signals, form/contact gaps, tracking clutter, and credibility problems.",
+  },
+  {
+    label: "Vendor & VA handoffs",
+    status: "Control gap",
+    score: "Messy",
+    copy: "People need access to get work done, but the handoff, review, and offboarding process is loose.",
+  },
+  {
+    label: "Backup & recovery",
+    status: "Owner dependent",
+    score: "Unknown",
+    copy: "Files, websites, domains, email, cloud tools, and SOPs may not be recoverable if something breaks.",
+  },
+  {
+    label: "Owner bottleneck",
+    status: "Ops drag",
+    score: "Costly",
+    copy: "The founder is still the password holder, process owner, support desk, project manager, and emergency plan.",
+  },
+];
+
+const services = [
+  {
+    title: "Security & Access Cleanup",
+    copy: "Clean up admin access, MFA, passwords, cloud tools, files, websites, domains, and basic recovery risk.",
+    deliverable: "Access map, priority fixes, cleanup checklist, and execution support if needed.",
+  },
+  {
+    title: "VA Hiring & Handoff",
+    copy: "Turn messy delegation into safer work: roles, SOPs, access boundaries, onboarding, offboarding, and review rhythm.",
+    deliverable: "Role scope, handoff plan, account rules, SOP checklist, and first-week operating rhythm.",
+  },
+  {
+    title: "Offshore Engineering Setup",
+    copy: "Set up technical execution without handing over the keys: scope, GitHub hygiene, access rules, review cycles, and project visibility.",
+    deliverable: "Delivery system, access guardrails, review process, and handoff documentation.",
+  },
+];
+
+const packages = [
+  {
+    name: "Quick Review",
+    bestFor: "You need a baseline",
+    includes: ["Outside-in risk scan", "Access and tool review questions", "Top cleanup priorities"],
+  },
+  {
+    name: "Cleanup Plan",
+    bestFor: "You know things are messy",
+    includes: ["Review call", "Risk and workflow map", "Fix-now / next / later roadmap"],
+  },
+  {
+    name: "Done-With-You Cleanup",
+    bestFor: "You want help executing",
+    includes: ["Cleanup plan", "Weekly execution support", "Handoff and access system setup"],
+  },
+];
+
+const processSteps = [
+  "Send the review request with your company, website, issue, and urgency.",
+  "Cyber Ethos reviews public signals and likely access, tool, vendor, and workflow gaps.",
+  "You get a plain cleanup roadmap: what to fix now, what can wait, and what needs support.",
+  "If it makes sense, Cyber Ethos helps you execute the cleanup and build safer handoffs.",
+];
+
+function Hero() {
   return (
     <section className="col-span-12 overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03] lg:p-8">
-      <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <div className="grid gap-8 xl:grid-cols-[1.15fr_0.85fr] xl:items-center">
         <div>
           <span className="inline-flex rounded-full bg-brand-50 px-3 py-1 text-theme-xs font-semibold text-brand-600 dark:bg-brand-500/15 dark:text-brand-300">
-            Cyber Ethos front-door review
+            Cyber Ethos security and operations cleanup
           </span>
-          <h1 className="mt-4 max-w-3xl text-3xl font-bold tracking-tight text-gray-900 dark:text-white/90 sm:text-4xl">
-            Find the messy, risky, or stuck parts of your business before they become expensive.
+          <h1 className="mt-4 max-w-4xl text-3xl font-bold tracking-tight text-gray-900 dark:text-white/90 sm:text-4xl lg:text-5xl">
+            Clean up the messy access, tools, vendors, and handoffs slowing your business down.
           </h1>
-          <p className="mt-4 max-w-2xl text-theme-md leading-7 text-gray-600 dark:text-gray-400">
-            Cyber Ethos reviews access, tools, vendors, workflows, backups, staffing gaps, and handoff risk. No passwords needed to start. You get a practical cleanup plan and the first few moves to make.
+          <p className="mt-5 max-w-3xl text-theme-md leading-7 text-gray-600 dark:text-gray-400">
+            Most small teams do not need another platform first. They need to know who has access, what can break, where handoffs are weak, and which cleanup moves reduce risk fast.
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/review"
-              className="inline-flex items-center justify-center rounded-lg bg-brand-500 px-5 py-3 text-theme-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600"
-            >
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link href="/review" className="inline-flex items-center justify-center rounded-lg bg-brand-500 px-5 py-3 text-theme-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600">
               Request a Security & Ops Review
             </Link>
-            <Link
-              href="#what-we-review"
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-theme-sm font-semibold text-gray-700 shadow-theme-xs hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
-            >
-              See what we review
+            <Link href="#snapshot" className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-theme-sm font-semibold text-gray-700 shadow-theme-xs hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
+              See what we check
             </Link>
           </div>
         </div>
 
-        <div className="rounded-2xl border border-gray-100 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-900/40">
-          <p className="text-theme-sm font-semibold text-gray-800 dark:text-white/90">
-            What you get
-          </p>
-          <ul className="mt-4 space-y-3 text-theme-sm text-gray-600 dark:text-gray-400">
-            <li>• Top security and access risks</li>
-            <li>• Cleanup priorities for tools, vendors, and workflows</li>
-            <li>• Delegation and VA handoff opportunities</li>
-            <li>• Next-step plan for remediation or operating support</li>
-          </ul>
-          <div className="mt-5 rounded-xl bg-white p-4 text-theme-sm text-gray-600 shadow-theme-xs dark:bg-white/[0.03] dark:text-gray-400">
-            Best for owners and lean teams that know things are messy, but do not know what to fix first.
+        <div id="snapshot" className="rounded-2xl border border-gray-100 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-900/40">
+          <div className="mb-4 flex items-center justify-between">
+            <div>
+              <p className="text-theme-sm font-semibold text-gray-800 dark:text-white/90">Example review snapshot</p>
+              <p className="mt-1 text-theme-xs text-gray-500 dark:text-gray-400">Illustrative signals, not client data.</p>
+            </div>
+            <span className="rounded-full bg-warning-50 px-3 py-1 text-theme-xs font-semibold text-warning-700 dark:bg-warning-500/15 dark:text-warning-400">
+              Baseline needed
+            </span>
+          </div>
+          <div className="space-y-3">
+            {riskSignals.slice(0, 4).map((signal) => (
+              <div key={signal.label} className="rounded-xl bg-white p-4 shadow-theme-xs dark:bg-white/[0.04]">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-theme-sm font-semibold text-gray-800 dark:text-white/90">{signal.label}</p>
+                  <span className="rounded-full bg-gray-100 px-2.5 py-1 text-theme-xs font-semibold text-gray-600 dark:bg-gray-800 dark:text-gray-300">{signal.score}</span>
+                </div>
+                <p className="mt-2 text-theme-xs leading-5 text-gray-500 dark:text-gray-400">{signal.copy}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -63,110 +134,82 @@ function ReviewHero() {
   );
 }
 
-function ReviewFunnel() {
-  const reviewAreas = [
-    "Admin accounts, MFA, passwords, and shared access",
-    "Vendor, VA, contractor, and offshore handoffs",
-    "Backups, files, websites, cloud apps, and recovery gaps",
-    "Workflow bottlenecks, overloaded owners, and unclear ownership",
-    "The first remediation plan: what to fix now, next, and later",
-  ];
+function RiskGrid() {
+  return (
+    <section className="col-span-12 rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
+      <div className="mb-6 max-w-3xl">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white/90">What the review looks for</h2>
+        <p className="mt-2 text-theme-sm leading-6 text-gray-500 dark:text-gray-400">
+          The goal is not a giant report. It is a practical map of what can hurt time, trust, control, and execution.
+        </p>
+      </div>
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        {riskSignals.map((signal) => (
+          <article key={signal.label} className="rounded-2xl border border-gray-100 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-900/40">
+            <span className="rounded-full bg-brand-50 px-2.5 py-1 text-theme-xs font-semibold text-brand-600 dark:bg-brand-500/15 dark:text-brand-300">{signal.status}</span>
+            <h3 className="mt-4 text-theme-md font-semibold text-gray-900 dark:text-white/90">{signal.label}</h3>
+            <p className="mt-3 text-theme-sm leading-6 text-gray-600 dark:text-gray-400">{signal.copy}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
 
-  const servicePaths = [
-    {
-      title: "Security & Access Cleanup",
-      copy: "Tighten admin accounts, MFA, password practices, files, cloud tools, website risk, and basic recovery gaps.",
-    },
-    {
-      title: "VA Hiring & Handoff",
-      copy: "Design safer delegation: roles, SOPs, account boundaries, onboarding, offboarding, and owner check-ins.",
-    },
-    {
-      title: "Offshore Engineering Setup",
-      copy: "Set up technical execution with clearer scope, access rules, review cycles, GitHub/project hygiene, and handoff controls.",
-    },
-  ];
+function Services() {
+  return (
+    <section id="service-paths" className="col-span-12 rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
+      <div className="mb-6 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white/90">Three practical cleanup paths</h2>
+          <p className="mt-2 max-w-3xl text-theme-sm leading-6 text-gray-500 dark:text-gray-400">
+            The review should point to a decision, not confusion. These are the core ways Cyber Ethos helps after the first look.
+          </p>
+        </div>
+        <Link href="/review" className="inline-flex items-center justify-center rounded-lg bg-brand-500 px-4 py-2.5 text-theme-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600">
+          Request Review
+        </Link>
+      </div>
+      <div className="grid gap-4 lg:grid-cols-3">
+        {services.map((service) => (
+          <article key={service.title} className="rounded-2xl border border-gray-100 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-900/40">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white/90">{service.title}</h3>
+            <p className="mt-3 text-theme-sm leading-6 text-gray-600 dark:text-gray-400">{service.copy}</p>
+            <div className="mt-4 rounded-xl bg-white p-4 text-theme-sm text-gray-600 shadow-theme-xs dark:bg-white/[0.04] dark:text-gray-400">
+              <span className="font-semibold text-gray-800 dark:text-white/90">Deliverable: </span>{service.deliverable}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
 
-  const processSteps = [
-    "15-minute intake to understand the mess and urgency",
-    "Outside-in review of public signals and likely control gaps",
-    "Cleanup roadmap: fix now, next, later",
-    "Optional execution support if you want Cyber Ethos to help clean it up",
-  ];
-
+function PackagesAndProcess() {
   return (
     <>
-      <section id="what-we-review" className="col-span-12 grid gap-6 lg:grid-cols-2">
-        <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white/90">
-            What Cyber Ethos reviews
-          </h2>
-          <p className="mt-2 text-theme-sm leading-6 text-gray-500 dark:text-gray-400">
-            This is not an enterprise audit. It is a practical business-control review for small teams that need clarity, cleanup, and safer execution.
-          </p>
-          <ul className="mt-5 space-y-3">
-            {reviewAreas.map((item) => (
-              <li key={item} className="flex gap-3 text-theme-sm text-gray-700 dark:text-gray-300">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-50 text-xs font-bold text-brand-600 dark:bg-brand-500/15 dark:text-brand-300">
-                  ✓
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="rounded-2xl border border-brand-100 bg-brand-50 p-6 dark:border-brand-500/20 dark:bg-brand-500/10">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white/90">
-            Start with a few details
-          </h2>
-          <p className="mt-2 text-theme-sm leading-6 text-gray-600 dark:text-gray-400">
-            The request page collects the basics and opens a prepared email. No login. No private credentials. Just enough context to start the review.
-          </p>
-          <ul className="mt-5 space-y-3">
-            {["Name, company, email, and website", "Biggest operational or security concern", "Urgency: this week, this month, or before hiring", "A clear path to schedule the review"].map((item) => (
-              <li key={item} className="rounded-xl bg-white px-4 py-3 text-theme-sm font-medium text-gray-700 shadow-theme-xs dark:bg-white/[0.05] dark:text-gray-300">
-                {item}
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/review"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-brand-500 px-5 py-3 text-theme-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600"
-          >
-            Open review request form
-          </Link>
-        </div>
-      </section>
-
-      <section id="service-paths" className="col-span-12 rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-        <div className="mb-6 flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
-          <div>
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white/90">Three ways Cyber Ethos helps</h2>
-            <p className="mt-2 max-w-2xl text-theme-sm leading-6 text-gray-500 dark:text-gray-400">
-              The review points to one of these practical cleanup paths instead of dumping a generic report on the owner.
-            </p>
-          </div>
-          <Link href="/review" className="inline-flex items-center justify-center rounded-lg bg-brand-500 px-4 py-2.5 text-theme-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600">
-            Request Review
-          </Link>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3">
-          {servicePaths.map((path) => (
-            <article key={path.title} className="rounded-2xl border border-gray-100 bg-gray-50 p-5 dark:border-gray-800 dark:bg-gray-900/40">
-              <h3 className="text-theme-md font-semibold text-gray-900 dark:text-white/90">{path.title}</h3>
-              <p className="mt-3 text-theme-sm leading-6 text-gray-600 dark:text-gray-400">{path.copy}</p>
+      <section className="col-span-12 xl:col-span-7 rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white/90">Simple package shape</h2>
+        <p className="mt-2 text-theme-sm leading-6 text-gray-500 dark:text-gray-400">Pricing can be finalized later. The buyer should understand the path now.</p>
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          {packages.map((item) => (
+            <article key={item.name} className="rounded-2xl border border-gray-100 bg-white p-4 shadow-theme-xs dark:border-gray-800 dark:bg-white/[0.02]">
+              <h3 className="text-theme-md font-semibold text-gray-900 dark:text-white/90">{item.name}</h3>
+              <p className="mt-1 text-theme-xs font-medium text-brand-600 dark:text-brand-300">{item.bestFor}</p>
+              <ul className="mt-4 space-y-2 text-theme-sm text-gray-600 dark:text-gray-400">
+                {item.includes.map((line) => <li key={line}>• {line}</li>)}
+              </ul>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="process" className="col-span-12 rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white/90">What happens after you request a review</h2>
-        <div className="mt-5 grid gap-4 md:grid-cols-4">
+      <section id="process" className="col-span-12 xl:col-span-5 rounded-2xl border border-brand-100 bg-brand-50 p-6 dark:border-brand-500/20 dark:bg-brand-500/10">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white/90">What happens next</h2>
+        <div className="mt-5 space-y-4">
           {processSteps.map((step, index) => (
-            <div key={step} className="rounded-xl border border-gray-100 bg-white p-4 shadow-theme-xs dark:border-gray-800 dark:bg-white/[0.02]">
-              <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-full bg-brand-50 text-theme-sm font-bold text-brand-600 dark:bg-brand-500/15 dark:text-brand-300">{index + 1}</div>
+            <div key={step} className="flex gap-3 rounded-xl bg-white p-4 shadow-theme-xs dark:bg-white/[0.05]">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-500 text-theme-xs font-bold text-white">{index + 1}</div>
               <p className="text-theme-sm leading-6 text-gray-700 dark:text-gray-300">{step}</p>
             </div>
           ))}
@@ -176,34 +219,38 @@ function ReviewFunnel() {
   );
 }
 
+function FounderCredibility() {
+  return (
+    <section className="col-span-12 rounded-2xl border border-gray-200 bg-gray-950 p-6 text-white dark:border-gray-800 lg:p-8">
+      <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        <div>
+          <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-theme-xs font-semibold text-white/80">Why Cyber Ethos</span>
+          <h2 className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">Built for owners who need control without slowing the business down.</h2>
+        </div>
+        <div className="space-y-4 text-theme-sm leading-7 text-white/70">
+          <p>
+            Cyber Ethos is led from an operations-first perspective: security, delegation, execution, and leadership have to work together. Cleanup is not just technical. It is about knowing what matters, who owns it, and how work gets done safely.
+          </p>
+          <p>
+            The review is designed to give a practical first move before you invest in more software, hand access to another vendor, or hire support without guardrails.
+          </p>
+          <Link href="/review" className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 text-theme-sm font-semibold text-gray-900 shadow-theme-xs hover:bg-gray-100">
+            Start the review
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function SecurityOperations() {
   return (
     <div className="grid grid-cols-12 gap-4 md:gap-6">
-      <ReviewHero />
-
-      <div className="col-span-12 space-y-6 xl:col-span-7">
-        <EcommerceMetrics />
-
-        <MonthlySalesChart />
-      </div>
-
-      <div className="col-span-12 xl:col-span-5">
-        <MonthlyTarget />
-      </div>
-
-      <div className="col-span-12">
-        <StatisticsChart />
-      </div>
-
-      <ReviewFunnel />
-
-      <div className="col-span-12 xl:col-span-5">
-        <DemographicCard />
-      </div>
-
-      <div className="col-span-12 xl:col-span-7">
-        <RecentOrders />
-      </div>
+      <Hero />
+      <RiskGrid />
+      <Services />
+      <PackagesAndProcess />
+      <FounderCredibility />
     </div>
   );
 }
