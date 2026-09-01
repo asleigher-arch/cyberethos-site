@@ -34,46 +34,46 @@ const navItems: NavItem[] = [
   },
   {
     icon: <UserCircleIcon />,
-    name: "Clients",
-    path: "/profile",
+    name: "Request Review",
+    path: "/review",
   },
   {
     icon: <ListIcon />,
-    name: "Findings",
-    path: "/basic-tables",
+    name: "What We Review",
+    path: "/#what-we-review",
   },
   {
     icon: <TableIcon />,
-    name: "Assets",
-    path: "/form-elements",
+    name: "Services",
+    path: "/#service-paths",
   },
   {
     icon: <CalenderIcon />,
-    name: "Remediation Plan",
-    path: "/calendar",
+    name: "Process",
+    path: "/#process",
   },
   {
     icon: <PageIcon />,
-    name: "Reports",
-    path: "/blank",
+    name: "Contact",
+    path: "/review",
   },
 ];
 
 const othersItems: NavItem[] = [
   {
     icon: <PieChartIcon />,
-    name: "Risk Trends",
-    path: "/line-chart",
+    name: "Example Snapshot",
+    path: "/",
   },
   {
     icon: <BoxCubeIcon />,
-    name: "Integrations",
-    path: "/modals",
+    name: "Cleanup Paths",
+    path: "/#service-paths",
   },
   {
     icon: <PlugInIcon />,
-    name: "Access Settings",
-    path: "/signin",
+    name: "Start Review",
+    path: "/review",
   },
 ];
 
