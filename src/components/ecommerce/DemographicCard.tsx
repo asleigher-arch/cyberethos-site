@@ -2,18 +2,56 @@
 import Image from "next/image";
 
 import CountryMap from "./CountryMap";
+import { useState } from "react";
+import { MoreDotIcon } from "@/icons";
+import { Dropdown } from "../ui/dropdown/Dropdown";
+import { DropdownItem } from "../ui/dropdown/DropdownItem";
 
 export default function DemographicCard() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  function toggleDropdown() {
+    setIsOpen(!isOpen);
+  }
+
+  function closeDropdown() {
+    setIsOpen(false);
+  }
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] sm:p-6">
       <div className="flex justify-between">
         <div>
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white/90">
-            Public Security Coverage
+            Client Coverage
           </h3>
           <p className="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
-            Public cyber risk signals tracked across global regions
+              Active review coverage by service level
           </p>
+        </div>
+
+        <div className="relative inline-block">
+          <button onClick={toggleDropdown} className="dropdown-toggle">
+            <MoreDotIcon className="text-gray-400 hover:text-gray-700 dark:hover:text-gray-300" />
+          </button>
+          <Dropdown
+            isOpen={isOpen}
+            onClose={closeDropdown}
+            className="w-40 p-2"
+          >
+            <DropdownItem
+              onItemClick={closeDropdown}
+              className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
+            >
+              View More
+            </DropdownItem>
+            <DropdownItem
+              onItemClick={closeDropdown}
+              className="flex w-full font-normal text-left text-gray-500 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-gray-300"
+            >
+              Delete
+            </DropdownItem>
+          </Dropdown>
         </div>
       </div>
       <div className="px-4 py-6 my-6 overflow-hidden border border-gary-200 rounded-2xl bg-gray-50 dark:border-gray-800 dark:bg-gray-900 sm:px-6">
@@ -39,18 +77,21 @@ export default function DemographicCard() {
             </div>
             <div>
               <p className="font-semibold text-gray-800 text-theme-sm dark:text-white/90">
-                U.S. Small Business Signals
+                Active Reviews
               </p>
               <span className="block text-gray-500 text-theme-xs dark:text-gray-400">
-                Public reports, advisories, and observed trends
+                79% covered
               </span>
             </div>
           </div>
 
-          <div className="flex w-full max-w-[140px] justify-end">
-            <span className="rounded-full bg-warning-50 px-3 py-1 text-xs font-semibold text-warning-700 dark:bg-warning-500/15 dark:text-warning-400">
-              Elevated
-            </span>
+          <div className="flex w-full max-w-[140px] items-center gap-3">
+            <div className="relative block h-2 w-full max-w-[100px] rounded-sm bg-gray-200 dark:bg-gray-800">
+              <div className="absolute left-0 top-0 flex h-full w-[79%] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium text-white"></div>
+            </div>
+            <p className="font-medium text-gray-800 text-theme-sm dark:text-white/90">
+              79%
+            </p>
           </div>
         </div>
 
@@ -67,18 +108,21 @@ export default function DemographicCard() {
             </div>
             <div>
               <p className="font-semibold text-gray-800 text-theme-sm dark:text-white/90">
-                Global Advisory Signals
+                Monitoring Only
               </p>
               <span className="block text-gray-500 text-theme-xs dark:text-gray-400">
-                Malware, phishing, vendor, and access-risk flags
+                23% monitored
               </span>
             </div>
           </div>
 
-          <div className="flex w-full max-w-[140px] justify-end">
-            <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-500/15 dark:text-brand-300">
-              Moderate
-            </span>
+          <div className="flex w-full max-w-[140px] items-center gap-3">
+            <div className="relative block h-2 w-full max-w-[100px] rounded-sm bg-gray-200 dark:bg-gray-800">
+              <div className="absolute left-0 top-0 flex h-full w-[23%] items-center justify-center rounded-sm bg-brand-500 text-xs font-medium text-white"></div>
+            </div>
+            <p className="font-medium text-gray-800 text-theme-sm dark:text-white/90">
+              23%
+            </p>
           </div>
         </div>
       </div>

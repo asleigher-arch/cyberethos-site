@@ -5,11 +5,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSidebar } from "../context/SidebarContext";
 import {
+  BoxCubeIcon,
   CalenderIcon,
   ChevronDownIcon,
   GridIcon,
   HorizontaLDots,
   ListIcon,
+  PageIcon,
+  PieChartIcon,
+  PlugInIcon,
+  TableIcon,
   UserCircleIcon,
 } from "../icons/index";
 import SidebarWidget from "./SidebarWidget";
@@ -24,27 +29,53 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
-    name: "Home",
-    path: "/",
+    name: "Security Ops",
+    subItems: [{ name: "Security Overview", path: "/", pro: false }],
   },
   {
     icon: <UserCircleIcon />,
-    name: "Story",
-    path: "/#story",
+    name: "Clients",
+    path: "/profile",
   },
   {
     icon: <ListIcon />,
-    name: "Services",
-    path: "/#services",
+    name: "Findings",
+    path: "/basic-tables",
+  },
+  {
+    icon: <TableIcon />,
+    name: "Assets",
+    path: "/form-elements",
   },
   {
     icon: <CalenderIcon />,
-    name: "Request Review",
-    path: "mailto:info@cyberethos.org?subject=Cyber%20Ethos%20review",
+    name: "Remediation Plan",
+    path: "/calendar",
+  },
+  {
+    icon: <PageIcon />,
+    name: "Reports",
+    path: "/blank",
   },
 ];
 
-const othersItems: NavItem[] = [];
+const othersItems: NavItem[] = [
+  {
+    icon: <PieChartIcon />,
+    name: "Risk Trends",
+    path: "/line-chart",
+  },
+  {
+    icon: <BoxCubeIcon />,
+    name: "Integrations",
+    path: "/modals",
+  },
+  {
+    icon: <PlugInIcon />,
+    name: "Access Settings",
+    path: "/signin",
+  },
+];
 
 const AppSidebar: React.FC = () => {
   const { isExpanded, isMobileOpen, isHovered, setIsHovered } = useSidebar();
@@ -289,6 +320,23 @@ const AppSidebar: React.FC = () => {
                 )}
               </h2>
               {renderMenuItems(navItems, "main")}
+            </div>
+
+            <div className="">
+              <h2
+                className={`mb-4 text-xs uppercase flex leading-[20px] text-gray-400 ${
+                  !isExpanded && !isHovered
+                    ? "lg:justify-center"
+                    : "justify-start"
+                }`}
+              >
+                {isExpanded || isHovered || isMobileOpen ? (
+                  "Others"
+                ) : (
+                  <HorizontaLDots />
+                )}
+              </h2>
+              {renderMenuItems(othersItems, "others")}
             </div>
           </div>
         </nav>
