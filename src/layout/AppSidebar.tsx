@@ -29,12 +29,12 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
-    name: "Security Ops",
+    name: "Control Review",
     subItems: [{ name: "Security Overview", path: "/", pro: false }],
   },
   {
     icon: <UserCircleIcon />,
-    name: "Request Review",
+    name: "Book Control Check",
     path: "/review",
   },
   {
@@ -72,7 +72,7 @@ const othersItems: NavItem[] = [
   },
   {
     icon: <PlugInIcon />,
-    name: "Start Review",
+    name: "Book Control Check",
     path: "/review",
   },
 ];

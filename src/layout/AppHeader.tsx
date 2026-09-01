@@ -112,7 +112,7 @@ const AppHeader: React.FC = () => {
               href="/review"
               className="hidden rounded-lg bg-brand-500 px-4 py-2.5 text-theme-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600 sm:inline-flex"
             >
-              Request Review
+              Book Control Check
             </Link>
           </div>
         </div>

@@ -26,11 +26,11 @@ export default function ReviewRequestForm() {
   const [form, setForm] = useState<FormState>(initialState);
 
   const mailto = useMemo(() => {
-    const subject = `Security & Ops Review request${form.company ? ` - ${form.company}` : ""}`;
+    const subject = `Business Control Review request${form.company ? ` - ${form.company}` : ""}`;
     const body = [
       "Hi Cyber Ethos,",
       "",
-      "I'd like to request a Security & Ops Review.",
+      "I'd like to book a 20-minute Control Check for a Business Control Review.",
       "",
       `Name: ${form.name}`,
       `Company: ${form.company}`,
@@ -64,7 +64,7 @@ export default function ReviewRequestForm() {
           Start here
         </span>
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white/90 sm:text-4xl">
-          Request a Security & Ops Review
+          Book a Control Check
         </h1>
         <p className="mt-3 max-w-2xl text-theme-md leading-7 text-gray-600 dark:text-gray-400">
           Send the basics. Cyber Ethos will review the business from the outside first, then respond with the cleanest next step. Do not send passwords or private credentials.
