@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Cyber Ethos | Security & Ops Review",
+  title: "Cyber Ethos | Business Control Review",
   description:
-    "Cyber Ethos helps owners clean up access, tools, vendors, workflows, handoffs, and operational risk before small messes become expensive.",
+    "Cyber Ethos helps small businesses regain control of access, vendors, tools, workflows, handoffs, and security before they delegate, automate, or scale.",
 };
 
 const riskSignals = [
@@ -60,27 +60,27 @@ const services = [
 
 const packages = [
   {
-    name: "Quick Review",
-    bestFor: "You need a baseline",
-    includes: ["Outside-in risk scan", "Access and tool review questions", "Top cleanup priorities"],
+    name: "Business Control Review",
+    bestFor: "Fixed-scope first offer",
+    includes: ["Access, vendors, tools, and workflow map", "Top 10 control gaps", "30-day fix plan"],
   },
   {
-    name: "Cleanup Plan",
-    bestFor: "You know things are messy",
-    includes: ["Review call", "Risk and workflow map", "Fix-now / next / later roadmap"],
+    name: "Control Cleanup Sprint",
+    bestFor: "You want help fixing it",
+    includes: ["Review plus implementation support", "Priority access, SOP, vendor, and handoff cleanup", "Two-to-four week execution plan"],
   },
   {
-    name: "Done-With-You Cleanup",
-    bestFor: "You want help executing",
-    includes: ["Cleanup plan", "Weekly execution support", "Handoff and access system setup"],
+    name: "Ongoing Control Advisor",
+    bestFor: "You need monthly support",
+    includes: ["Monthly access, vendor, and workflow review", "Delegation and automation guardrails", "Operator support without hiring full-time"],
   },
 ];
 
 const processSteps = [
-  "Send the review request with your company, website, issue, and urgency.",
-  "Cyber Ethos reviews public signals and likely access, tool, vendor, and workflow gaps.",
-  "You get a plain cleanup roadmap: what to fix now, what can wait, and what needs support.",
-  "If it makes sense, Cyber Ethos helps you execute the cleanup and build safer handoffs.",
+  "Book a 20-minute Control Check with your company, website, current mess, and urgency.",
+  "Cyber Ethos maps the likely access, vendor, tool, workflow, handoff, and security gaps.",
+  "You get a plain 30-day control plan: what to fix now, what can wait, and what needs support.",
+  "If it makes sense, Cyber Ethos helps execute the cleanup and build safer delegation, automation, and handoffs.",
 ];
 
 function Hero() {
@@ -89,20 +89,20 @@ function Hero() {
       <div className="grid gap-8 xl:grid-cols-[1.15fr_0.85fr] xl:items-center">
         <div>
           <span className="inline-flex rounded-full bg-brand-50 px-3 py-1 text-theme-xs font-semibold text-brand-600 dark:bg-brand-500/15 dark:text-brand-300">
-            Cyber Ethos security and operations cleanup
+            Cyber Ethos Business Control Review
           </span>
           <h1 className="mt-4 max-w-4xl text-3xl font-bold tracking-tight text-gray-900 dark:text-white/90 sm:text-4xl lg:text-5xl">
-            Clean up the messy access, tools, vendors, and handoffs slowing your business down.
+            Regain control before you delegate, automate, or scale.
           </h1>
           <p className="mt-5 max-w-3xl text-theme-md leading-7 text-gray-600 dark:text-gray-400">
-            Most small teams do not need another platform first. They need to know who has access, what can break, where handoffs are weak, and which cleanup moves reduce risk fast.
+            Cyber Ethos helps small businesses find hidden access, vendor, workflow, and security gaps before they become expensive problems.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link href="/review" className="inline-flex items-center justify-center rounded-lg bg-brand-500 px-5 py-3 text-theme-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600">
-              Request a Security & Ops Review
+              Book a 20-minute Control Check
             </Link>
             <Link href="#snapshot" className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-theme-sm font-semibold text-gray-700 shadow-theme-xs hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
-              See what we check
+              See the control checklist
             </Link>
           </div>
         </div>
@@ -190,7 +190,7 @@ function PackagesAndProcess() {
     <>
       <section className="col-span-12 xl:col-span-7 rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white/90">Simple package shape</h2>
-        <p className="mt-2 text-theme-sm leading-6 text-gray-500 dark:text-gray-400">Pricing can be finalized later. The buyer should understand the path now.</p>
+        <p className="mt-2 text-theme-sm leading-6 text-gray-500 dark:text-gray-400">Start with a fixed-scope Business Control Review, then decide whether to implement the cleanup yourself or get support.</p>
         <div className="mt-5 grid gap-4 md:grid-cols-3">
           {packages.map((item) => (
             <article key={item.name} className="rounded-2xl border border-gray-100 bg-white p-4 shadow-theme-xs dark:border-gray-800 dark:bg-white/[0.02]">
@@ -235,7 +235,7 @@ function FounderCredibility() {
             The review is designed to give a practical first move before you invest in more software, hand access to another vendor, or hire support without guardrails.
           </p>
           <Link href="/review" className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 text-theme-sm font-semibold text-gray-900 shadow-theme-xs hover:bg-gray-100">
-            Start the review
+            Book a Control Check
           </Link>
         </div>
       </div>

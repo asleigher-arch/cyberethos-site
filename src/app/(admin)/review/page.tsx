@@ -3,9 +3,9 @@ import Link from "next/link";
 import ReviewRequestForm from "@/components/review/ReviewRequestForm";
 
 export const metadata: Metadata = {
-  title: "Request a Security & Ops Review | Cyber Ethos",
+  title: "Book a Control Check | Cyber Ethos",
   description:
-    "Start a practical Cyber Ethos review of access, tools, vendors, workflows, staffing gaps, and operational risk.",
+    "Book a 20-minute Cyber Ethos Control Check for access, tools, vendors, workflows, staffing gaps, and operational risk.",
 };
 
 const steps = [
@@ -19,14 +19,14 @@ const steps = [
   },
   {
     title: "3. Cleanup roadmap",
-    copy: "You get the first fixes to make, what can wait, and where execution support would help.",
+    copy: "You get the first fixes to make, what can wait, and whether a cleanup sprint or ongoing support makes sense.",
   },
 ];
 
 const paths = [
-  "Security & Access Cleanup",
-  "VA Hiring & Handoff",
-  "Offshore Engineering Setup",
+  "Business Control Review",
+  "Secure VA / Contractor Handoff",
+  "Offshore Engineering Control Setup",
 ];
 
 export default function ReviewPage() {
@@ -42,7 +42,7 @@ export default function ReviewPage() {
             Good fit
           </h2>
           <p className="mt-3 text-theme-sm leading-6 text-gray-600 dark:text-gray-400">
-            Owners and lean teams that need cleaner access, safer delegation, better handoffs, and fewer operational blind spots before buying more tools.
+            Owners and lean teams that need control of access, vendors, tools, handoffs, and security before delegating, automating, or scaling.
           </p>
           <div className="mt-5 space-y-3">
             {paths.map((path) => (
