@@ -10,13 +10,13 @@ export default function SidebarWidget() {
         Need a cleanup plan?
       </h3>
       <p className="mb-4 text-gray-500 text-theme-sm dark:text-gray-400">
-        Start with a practical review of access, tools, vendors, workflows, and handoff risk.
+        Start with a practical review of access, hiring support, systems, and handoff risk.
       </p>
       <Link
         href="/review"
         className="flex items-center justify-center p-3 font-medium text-white rounded-lg bg-brand-500 text-theme-sm hover:bg-brand-600"
       >
-        Book Control Check
+        Request Review
       </Link>
     </div>
   );

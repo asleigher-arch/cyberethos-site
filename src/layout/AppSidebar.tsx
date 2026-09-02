@@ -29,28 +29,28 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
-    name: "Control Review",
-    subItems: [{ name: "Security Overview", path: "/", pro: false }],
+    name: "Azad Story",
+    subItems: [{ name: "Founder Portfolio", path: "/", pro: false }],
   },
   {
     icon: <UserCircleIcon />,
-    name: "Book Control Check",
+    name: "Request Review",
     path: "/review",
   },
   {
     icon: <ListIcon />,
-    name: "What We Review",
-    path: "/#what-we-review",
+    name: "My Story",
+    path: "/#story",
   },
   {
     icon: <TableIcon />,
     name: "Services",
-    path: "/#service-paths",
+    path: "/#services",
   },
   {
     icon: <CalenderIcon />,
-    name: "Process",
-    path: "/#process",
+    name: "Why Cyber Ethos",
+    path: "/#story",
   },
   {
     icon: <PageIcon />,
@@ -62,17 +62,17 @@ const navItems: NavItem[] = [
 const othersItems: NavItem[] = [
   {
     icon: <PieChartIcon />,
-    name: "Example Snapshot",
+    name: "Operating View",
     path: "/",
   },
   {
     icon: <BoxCubeIcon />,
-    name: "Cleanup Paths",
-    path: "/#service-paths",
+    name: "Service Paths",
+    path: "/#services",
   },
   {
     icon: <PlugInIcon />,
-    name: "Book Control Check",
+    name: "Request Review",
     path: "/review",
   },
 ];

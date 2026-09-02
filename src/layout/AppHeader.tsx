@@ -94,7 +94,7 @@ const AppHeader: React.FC = () => {
 
           <div className="hidden lg:block">
             <div className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-theme-sm font-medium text-gray-600 dark:border-gray-800 dark:bg-white/[0.03] dark:text-gray-400 xl:w-[430px]">
-              Practical review of access, tools, vendors, workflows, and handoffs.
+              Founder-led security, support hiring, and operations cleanup.
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ const AppHeader: React.FC = () => {
               href="/review"
               className="hidden rounded-lg bg-brand-500 px-4 py-2.5 text-theme-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600 sm:inline-flex"
             >
-              Book Control Check
+              Request Review
             </Link>
           </div>
         </div>
