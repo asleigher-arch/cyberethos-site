@@ -84,11 +84,11 @@ function Hero() {
             src="/images/user/owner.jpg"
             alt="Azad Sleigher, founder of Cyber Ethos"
             width={760}
-            height={760}
+            height={1024}
             priority
-            className="aspect-[4/5] w-full rounded-[1.35rem] object-cover object-center"
+            className="aspect-[3/4] w-full rounded-[1.35rem] object-cover object-center"
           />
-          <div className="absolute inset-x-6 bottom-6 rounded-2xl border border-white/50 bg-white/85 p-4 shadow-theme-lg backdrop-blur dark:border-white/10 dark:bg-gray-950/80">
+          <div className="mt-3 rounded-2xl border border-gray-100 bg-white p-4 shadow-theme-xs dark:border-white/10 dark:bg-gray-950/80">
             <p className="text-theme-xs font-semibold uppercase tracking-[0.24em] text-brand-600 dark:text-brand-300">Cyber Ethos</p>
             <p className="mt-1 text-lg font-semibold tracking-tight text-gray-950 dark:text-white">Azad Sleigher</p>
             <p className="mt-1 text-theme-sm leading-5 text-gray-600 dark:text-gray-300">Service, survival, security, and operations turned into practical business support.</p>
