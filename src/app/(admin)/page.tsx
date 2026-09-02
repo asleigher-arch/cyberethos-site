@@ -5,7 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Azad Sleigher | Cyber Ethos",
   description:
-    "Founder-led Cyber Ethos link hub for cybersecurity audits, penetration testing, and website vulnerability detection.",
+    "Founder-led cybersecurity reviews for teams that need practical security fixes, not fear-based reports.",
 };
 
 const primaryLinks = [
@@ -50,7 +50,7 @@ export default function FounderLinkHub() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-center opacity-70 scale-105 blur-[1px]"
+        className="object-cover object-center opacity-55 scale-105 blur-[2px]"
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(65,105,225,0.22),transparent_35%),linear-gradient(180deg,rgba(0,0,0,0.35),rgba(0,0,0,0.88)_72%,#000)]" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.55),transparent_30%,transparent_70%,rgba(0,0,0,0.55))]" />
@@ -77,11 +77,11 @@ export default function FounderLinkHub() {
         <h1 className="text-5xl font-extrabold tracking-[-0.055em] text-white drop-shadow-2xl sm:text-6xl">
           Azad Sleigher
         </h1>
-        <p className="mt-4 max-w-md text-base leading-7 text-white/78 sm:text-lg">
-          Marine veteran. Former Iraq Special Operations interpreter. Cybersecurity graduate student. AI ops builder.
+        <p className="mt-4 max-w-md text-base leading-7 text-white/82 sm:text-lg">
+          Founder-led cybersecurity reviews for teams that need practical security fixes, not fear-based reports.
         </p>
         <p className="mt-3 max-w-md text-sm leading-6 text-white/58">
-          Founder-led cybersecurity audits, penetration testing, and website vulnerability detection for teams that need evidence and practical fixes.
+          Marine veteran. Former Iraq Special Operations interpreter. Cybersecurity graduate student. AI ops builder.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
@@ -115,7 +115,7 @@ export default function FounderLinkHub() {
         </nav>
 
         <div className="mt-8 rounded-3xl border border-white/12 bg-black/25 px-5 py-4 text-sm leading-6 text-white/62 shadow-2xl backdrop-blur-md">
-          Built from service, survival, and cybersecurity. Send your website, scope, and concern. I’ll respond with the cleanest next step.
+          Send your website, scope, and concern. I’ll respond with the cleanest next step for your audit, pentest, or website vulnerability review.
         </div>
       </section>
     </main>
