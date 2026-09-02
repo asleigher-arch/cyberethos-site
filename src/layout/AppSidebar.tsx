@@ -44,7 +44,7 @@ const navItems: NavItem[] = [
   },
   {
     icon: <TableIcon />,
-    name: "Services",
+    name: "Cyber Services",
     path: "/#services",
   },
   {
@@ -62,12 +62,12 @@ const navItems: NavItem[] = [
 const othersItems: NavItem[] = [
   {
     icon: <PieChartIcon />,
-    name: "Operating View",
+    name: "Security View",
     path: "/",
   },
   {
     icon: <BoxCubeIcon />,
-    name: "Service Paths",
+    name: "Audit Paths",
     path: "/#services",
   },
   {

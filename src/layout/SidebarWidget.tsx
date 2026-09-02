@@ -10,7 +10,7 @@ export default function SidebarWidget() {
         Need a cleanup plan?
       </h3>
       <p className="mb-4 text-gray-500 text-theme-sm dark:text-gray-400">
-        Start with a practical review of access, hiring support, systems, and handoff risk.
+        Start with an AI-assisted cybersecurity audit, penetration test, or website vulnerability review.
       </p>
       <Link
         href="/review"

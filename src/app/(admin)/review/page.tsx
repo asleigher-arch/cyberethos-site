@@ -3,30 +3,30 @@ import Link from "next/link";
 import ReviewRequestForm from "@/components/review/ReviewRequestForm";
 
 export const metadata: Metadata = {
-  title: "Book a Control Check | Cyber Ethos",
+  title: "Request a Cybersecurity Review | Cyber Ethos",
   description:
-    "Book a 20-minute Cyber Ethos Control Check for access, tools, vendors, workflows, staffing gaps, and operational risk.",
+    "Request an AI-assisted cybersecurity audit, penetration test, or website vulnerability detection review from Cyber Ethos.",
 };
 
 const steps = [
   {
-    title: "1. Intake",
-    copy: "You send the basics: website, company, current mess, urgency, and contact info.",
+    title: "1. Scope",
+    copy: "You send the website, target system, concern, urgency, and contact info. Do not send passwords or private credentials.",
   },
   {
-    title: "2. Outside-in review",
-    copy: "Cyber Ethos looks at public-facing risk signals and likely control gaps without needing credentials.",
+    title: "2. Review",
+    copy: "Cyber Ethos performs AI-assisted reconnaissance and manual validation against the agreed scope.",
   },
   {
-    title: "3. Cleanup roadmap",
-    copy: "You get the first fixes to make, what can wait, and whether a cleanup sprint or ongoing support makes sense.",
+    title: "3. Findings",
+    copy: "You get validated findings, severity, evidence, and practical remediation guidance.",
   },
 ];
 
 const paths = [
-  "Business Control Review",
-  "Secure VA / Contractor Handoff",
-  "Offshore Engineering Control Setup",
+  "Cybersecurity Audit",
+  "Penetration Testing",
+  "Website Vulnerability Detection",
 ];
 
 export default function ReviewPage() {
@@ -42,7 +42,7 @@ export default function ReviewPage() {
             Good fit
           </h2>
           <p className="mt-3 text-theme-sm leading-6 text-gray-600 dark:text-gray-400">
-            Owners and lean teams that need control of access, vendors, tools, handoffs, and security before delegating, automating, or scaling.
+            Organizations that need a practical cybersecurity audit, a scoped penetration test, or a clear website vulnerability review.
           </p>
           <div className="mt-5 space-y-3">
             {paths.map((path) => (
@@ -68,7 +68,7 @@ export default function ReviewPage() {
         </div>
 
         <Link href="/" className="inline-flex w-full items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-theme-sm font-semibold text-gray-700 shadow-theme-xs hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
-          Back to review snapshot
+          Back to Cyber Ethos
         </Link>
       </aside>
     </div>

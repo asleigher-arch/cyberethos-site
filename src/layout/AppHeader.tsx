@@ -94,7 +94,7 @@ const AppHeader: React.FC = () => {
 
           <div className="hidden lg:block">
             <div className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-2.5 text-theme-sm font-medium text-gray-600 dark:border-gray-800 dark:bg-white/[0.03] dark:text-gray-400 xl:w-[430px]">
-              Founder-led security, support hiring, and operations cleanup.
+              Founder-led AI cybersecurity, penetration testing, and vulnerability detection.
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ const encode = (value: string) => encodeURIComponent(value.trim());
 
 type FormState = {
   name: string;
-  company: string;
+  organization: string;
   email: string;
   website: string;
   issue: string;
@@ -15,7 +15,7 @@ type FormState = {
 
 const initialState: FormState = {
   name: "",
-  company: "",
+  organization: "",
   email: "",
   website: "",
   issue: "",
@@ -26,18 +26,20 @@ export default function ReviewRequestForm() {
   const [form, setForm] = useState<FormState>(initialState);
 
   const mailto = useMemo(() => {
-    const subject = `Business Control Review request${form.company ? ` - ${form.company}` : ""}`;
+    const subject = `Cybersecurity review request${form.organization ? ` - ${form.organization}` : ""}`;
     const body = [
       "Hi Cyber Ethos,",
       "",
-      "I'd like to book a 20-minute Control Check for a Business Control Review.",
+      "I'd like to request a cybersecurity review.",
       "",
       `Name: ${form.name}`,
-      `Company: ${form.company}`,
+      `Organization: ${form.organization}`,
       `Email: ${form.email}`,
-      `Website: ${form.website}`,
-      `Biggest issue: ${form.issue}`,
+      `Website / target scope: ${form.website}`,
+      `Primary concern: ${form.issue}`,
       `Urgency: ${form.urgency}`,
+      "",
+      "I understand not to send passwords, private credentials, or sensitive data in this first message.",
       "",
       "Thanks.",
     ].join("\n");
@@ -64,10 +66,10 @@ export default function ReviewRequestForm() {
           Start here
         </span>
         <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white/90 sm:text-4xl">
-          Book a Control Check
+          Request a Cybersecurity Review
         </h1>
         <p className="mt-3 max-w-2xl text-theme-md leading-7 text-gray-600 dark:text-gray-400">
-          Send the basics. Cyber Ethos will review the business from the outside first, then respond with the cleanest next step. Do not send passwords or private credentials.
+          Send the basics for a cybersecurity audit, penetration test, or website vulnerability review. Do not send passwords, private credentials, or sensitive data in this first message.
         </p>
       </div>
 
@@ -77,25 +79,25 @@ export default function ReviewRequestForm() {
           <input required className={inputClass} value={form.name} onChange={(event) => updateField("name", event.target.value)} placeholder="Jane Smith" />
         </label>
         <label className="block">
-          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">Company</span>
-          <input required className={inputClass} value={form.company} onChange={(event) => updateField("company", event.target.value)} placeholder="Business name" />
+          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">Organization</span>
+          <input required className={inputClass} value={form.organization} onChange={(event) => updateField("organization", event.target.value)} placeholder="Organization name" />
         </label>
         <label className="block">
           <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">Email</span>
-          <input required type="email" className={inputClass} value={form.email} onChange={(event) => updateField("email", event.target.value)} placeholder="you@company.com" />
+          <input required type="email" className={inputClass} value={form.email} onChange={(event) => updateField("email", event.target.value)} placeholder="you@example.com" />
         </label>
         <label className="block">
-          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">Website</span>
-          <input className={inputClass} value={form.website} onChange={(event) => updateField("website", event.target.value)} placeholder="https://company.com" />
+          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">Website / target scope</span>
+          <input className={inputClass} value={form.website} onChange={(event) => updateField("website", event.target.value)} placeholder="https://example.com or approved target scope" />
         </label>
         <label className="block sm:col-span-2">
-          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">What feels messy, risky, or stuck?</span>
+          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">What do you need checked?</span>
           <textarea
             required
             className="min-h-28 w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-theme-sm text-gray-800 shadow-theme-xs outline-hidden placeholder:text-gray-400 focus:border-brand-300 focus:ring-3 focus:ring-brand-500/10 dark:border-gray-800 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
             value={form.issue}
             onChange={(event) => updateField("issue", event.target.value)}
-            placeholder="Examples: too many people have admin access, VA handoffs are messy, tools are scattered, no backup plan, owner is the bottleneck..."
+            placeholder="Examples: cybersecurity audit, penetration test, website vulnerability detection, exposed login page, weak security headers, suspicious public exposure..."
           />
         </label>
         <label className="block sm:col-span-2">
@@ -103,7 +105,7 @@ export default function ReviewRequestForm() {
           <select className={inputClass} value={form.urgency} onChange={(event) => updateField("urgency", event.target.value)}>
             <option>This week</option>
             <option>This month</option>
-            <option>Before hiring or delegating</option>
+            <option>Before launch</option>
             <option>After an incident or scare</option>
             <option>Just need a baseline</option>
           </select>
