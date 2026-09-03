@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const primaryLinks = [
   {
@@ -40,33 +40,27 @@ const socialLinks = [
 export default function FounderLinkHubClient() {
   const heroRef = useRef<HTMLElement | null>(null);
   const rafRef = useRef<number | null>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const node = heroRef.current;
     if (!node) return;
 
+    const setVars = (x: number, y: number) => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        node.style.setProperty("--mx", `${x}%`);
+        node.style.setProperty("--my", `${y}%`);
+      });
+    };
+
     const onPointerMove = (event: PointerEvent) => {
       const rect = node.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        node.style.setProperty("--mx", String(x));
-        node.style.setProperty("--my", String(y));
-        setTilt({ x, y });
-      });
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+      setVars(x, y);
     };
 
-    const onPointerLeave = () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        node.style.setProperty("--mx", "0");
-        node.style.setProperty("--my", "0");
-        setTilt({ x: 0, y: 0 });
-      });
-    };
+    const onPointerLeave = () => setVars(50, 28);
 
     node.addEventListener("pointermove", onPointerMove);
     node.addEventListener("pointerleave", onPointerLeave);
@@ -78,35 +72,27 @@ export default function FounderLinkHubClient() {
     };
   }, []);
 
-  const shellTransform = `perspective(1100px) rotateX(${tilt.y * -5}deg) rotateY(${tilt.x * 6}deg) translate3d(${tilt.x * 10}px, ${tilt.y * 8}px, 0)`;
-
   return (
     <main
       ref={heroRef}
-      className="relative min-h-screen overflow-hidden bg-black text-white [--mx:0] [--my:0]"
+      className="relative min-h-screen overflow-hidden bg-black text-white [--mx:50%] [--my:28%]"
     >
-      <div className="absolute inset-0 scale-110 transition-transform duration-300 ease-out will-change-transform [transform:translate3d(calc(var(--mx)*-34px),calc(var(--my)*-24px),0)]">
-        <Image
-          src="/images/user/owner.jpg"
-          alt="Azad Sleigher"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-50 blur-[2px]"
-        />
-      </div>
+      <Image
+        src="/images/user/owner.jpg"
+        alt="Azad Sleigher"
+        fill
+        priority
+        sizes="100vw"
+        className="scale-105 object-cover object-center opacity-45 blur-[2px]"
+      />
 
-      <div className="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-[#4169e1]/25 blur-3xl transition-transform duration-300 ease-out [transform:translate3d(calc(var(--mx)*90px),calc(var(--my)*60px),0)]" />
-      <div className="pointer-events-none absolute -right-24 bottom-14 h-80 w-80 rounded-full bg-[#6d5dfc]/25 blur-3xl transition-transform duration-300 ease-out [transform:translate3d(calc(var(--mx)*-80px),calc(var(--my)*-70px),0)]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,.22)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.22)_1px,transparent_1px)] [background-size:46px_46px] transition-transform duration-300 ease-out [transform:translate3d(calc(var(--mx)*18px),calc(var(--my)*18px),0)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_calc(50%+var(--mx)*20%)_calc(18%+var(--my)*12%),rgba(65,105,225,0.34),transparent_35%),linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.88)_72%,#000)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.62),transparent_30%,transparent_70%,rgba(0,0,0,0.62))]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.9)_70%,#000)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.72),transparent_30%,transparent_70%,rgba(0,0,0,0.72))]" />
+      <div className="pointer-events-none absolute inset-0 opacity-50 transition-[background] duration-500 ease-out [background:radial-gradient(circle_at_var(--mx)_var(--my),rgba(74,113,255,0.42),transparent_30%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(109,93,252,0.22),transparent_58%)]" />
 
       <section className="relative z-10 mx-auto flex min-h-screen w-full max-w-xl flex-col items-center justify-center px-5 py-10 text-center sm:px-6">
-        <div
-          className="w-full transition-transform duration-300 ease-out will-change-transform"
-          style={{ transform: shellTransform }}
-        >
+        <div className="w-full rounded-[2rem] border border-white/10 bg-black/18 p-5 shadow-2xl shadow-black/45 backdrop-blur-[2px] sm:p-6">
           <div className="mb-5 inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/75 shadow-2xl backdrop-blur-md">
             Cyber Ethos
           </div>
@@ -149,12 +135,11 @@ export default function FounderLinkHubClient() {
           </div>
 
           <nav aria-label="Cyber Ethos links" className="mt-8 flex w-full flex-col gap-3">
-            {primaryLinks.map((link, index) => (
+            {primaryLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className={`${link.className} group flex w-full items-center justify-between rounded-2xl px-5 py-4 text-left shadow-2xl shadow-black/35 transition duration-200 hover:-translate-y-0.5`}
-                style={{ transform: `translate3d(${tilt.x * (index + 1) * 1.4}px, ${tilt.y * (index + 1) * 1.2}px, 0)` }}
+                className={`${link.className} group flex w-full items-center justify-between rounded-2xl px-5 py-4 text-left shadow-2xl shadow-black/35 transition duration-200 hover:-translate-y-0.5 hover:shadow-black/50`}
               >
                 <span>
                   <span className="block text-base font-bold tracking-tight">{link.label}</span>
