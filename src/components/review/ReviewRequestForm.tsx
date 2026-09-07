@@ -1,125 +1,173 @@
 "use client";
 
-import React, { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useState } from "react";
+import { Arrow } from "@/components/portfolio/PublicFrame";
 
-const encode = (value: string) => encodeURIComponent(value.trim());
-
-type FormState = {
-  name: string;
-  organization: string;
-  email: string;
-  website: string;
-  issue: string;
-  urgency: string;
+export const reviewServices = {
+  "cybersecurity-audit": "Cybersecurity Audit",
+  "penetration-testing": "Penetration Testing",
+  "website-vulnerability-detection": "Website Vulnerability Detection",
 };
 
-const initialState: FormState = {
-  name: "",
-  organization: "",
-  email: "",
-  website: "",
-  issue: "",
-  urgency: "This month",
-};
-
-export default function ReviewRequestForm() {
-  const [form, setForm] = useState<FormState>(initialState);
-
-  const mailto = useMemo(() => {
-    const subject = `Cybersecurity review request${form.organization ? ` - ${form.organization}` : ""}`;
-    const body = [
-      "Hi Cyber Ethos,",
-      "",
-      "I'd like to request a cybersecurity review.",
-      "",
-      `Name: ${form.name}`,
-      `Organization: ${form.organization}`,
-      `Email: ${form.email}`,
-      `Website / target scope: ${form.website}`,
-      `Primary concern: ${form.issue}`,
-      `Urgency: ${form.urgency}`,
-      "",
-      "I understand not to send passwords, private credentials, or sensitive data in this first message.",
-      "",
-      "Thanks.",
-    ].join("\n");
-
-    return `mailto:info@cyberethos.org?subject=${encode(subject)}&body=${encode(body)}`;
-  }, [form]);
-
-  const updateField = (field: keyof FormState, value: string) => {
+export default function ReviewRequestForm({
+  initialService = "",
+}: {
+  initialService?: string;
+}) {
+  const [form, setForm] = useState({
+    name: "",
+    organization: "",
+    email: "",
+    website: "",
+    issue: "",
+    urgency: "This month",
+    service: initialService,
+  });
+  const [status, setStatus] = useState("");
+  const update = (field: keyof typeof form, value: string) =>
     setForm((current) => ({ ...current, [field]: value }));
-  };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const body = [
+    "Hi Cyber Ethos,",
+    "",
+    "I'd like to request a cybersecurity review.",
+    "",
+    `Name: ${form.name}`,
+    `Organization: ${form.organization}`,
+    `Email: ${form.email}`,
+    `Service: ${form.service || "Discuss the right fit"}`,
+    `Website / target scope: ${form.website}`,
+    `Primary concern: ${form.issue}`,
+    `Urgency: ${form.urgency}`,
+    "",
+    "I understand that testing requires explicit authorization and agreed scope.",
+    "No passwords, private credentials, or sensitive data are included in this request.",
+  ].join("\n");
+  const mailto = `mailto:info@cyberethos.org?subject=${encodeURIComponent(`Cyber Ethos review request${form.organization ? ` - ${form.organization}` : ""}`)}&body=${encodeURIComponent(body)}`;
+  function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     window.location.href = mailto;
-  };
-
-  const inputClass =
-    "h-11 w-full rounded-lg border border-gray-200 bg-white px-4 py-2.5 text-theme-sm text-gray-800 shadow-theme-xs outline-hidden placeholder:text-gray-400 focus:border-brand-300 focus:ring-3 focus:ring-brand-500/10 dark:border-gray-800 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30";
-
+    setStatus(
+      "Your email draft is ready to open. Nothing has been sent by this website. Send the draft in your email app, or copy the request below and email info@cyberethos.org.",
+    );
+  }
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(body);
+      setStatus(
+        "Request copied. Paste it into an email to info@cyberethos.org and send it when you’re ready.",
+      );
+    } catch {
+      setStatus(
+        "Clipboard access is unavailable. Email your scope and concern directly to info@cyberethos.org.",
+      );
+    }
+  }
   return (
-    <form onSubmit={handleSubmit} className="rounded-2xl border border-gray-200 bg-white p-6 shadow-theme-sm dark:border-gray-800 dark:bg-white/[0.03] lg:p-8">
-      <div>
-        <span className="inline-flex rounded-full bg-brand-50 px-3 py-1 text-theme-xs font-semibold text-brand-600 dark:bg-brand-500/15 dark:text-brand-300">
-          Start here
-        </span>
-        <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white/90 sm:text-4xl">
-          Request a Cybersecurity Review
-        </h1>
-        <p className="mt-3 max-w-2xl text-theme-md leading-7 text-gray-600 dark:text-gray-400">
-          Send the basics for a cybersecurity audit, penetration test, or website vulnerability review. Do not send passwords, private credentials, or sensitive data in this first message.
-        </p>
-      </div>
-
-      <div className="mt-8 grid gap-5 sm:grid-cols-2">
-        <label className="block">
-          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">Your name</span>
-          <input required className={inputClass} value={form.name} onChange={(event) => updateField("name", event.target.value)} placeholder="Jane Smith" />
-        </label>
-        <label className="block">
-          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">Organization</span>
-          <input required className={inputClass} value={form.organization} onChange={(event) => updateField("organization", event.target.value)} placeholder="Organization name" />
-        </label>
-        <label className="block">
-          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">Email</span>
-          <input required type="email" className={inputClass} value={form.email} onChange={(event) => updateField("email", event.target.value)} placeholder="you@example.com" />
-        </label>
-        <label className="block">
-          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">Website / target scope</span>
-          <input className={inputClass} value={form.website} onChange={(event) => updateField("website", event.target.value)} placeholder="https://example.com or approved target scope" />
-        </label>
-        <label className="block sm:col-span-2">
-          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">What do you need checked?</span>
-          <textarea
+    <form onSubmit={submit} className="review-form">
+      <div className="form-grid">
+        <label>
+          Your name
+          <input
+            name="name"
+            autoComplete="name"
             required
-            className="min-h-28 w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-theme-sm text-gray-800 shadow-theme-xs outline-hidden placeholder:text-gray-400 focus:border-brand-300 focus:ring-3 focus:ring-brand-500/10 dark:border-gray-800 dark:bg-gray-900 dark:text-white/90 dark:placeholder:text-white/30"
-            value={form.issue}
-            onChange={(event) => updateField("issue", event.target.value)}
-            placeholder="Examples: cybersecurity audit, penetration test, website vulnerability detection, exposed login page, weak security headers, suspicious public exposure..."
+            maxLength={120}
+            value={form.name}
+            onChange={(e) => update("name", e.target.value)}
+            placeholder="Your name"
           />
         </label>
-        <label className="block sm:col-span-2">
-          <span className="mb-1.5 block text-theme-sm font-medium text-gray-700 dark:text-gray-300">Urgency</span>
-          <select className={inputClass} value={form.urgency} onChange={(event) => updateField("urgency", event.target.value)}>
+        <label>
+          Organization <span>(optional)</span>
+          <input
+            name="organization"
+            autoComplete="organization"
+            maxLength={160}
+            value={form.organization}
+            onChange={(e) => update("organization", e.target.value)}
+            placeholder="Organization name"
+          />
+        </label>
+        <label>
+          Email
+          <input
+            name="email"
+            autoComplete="email"
+            required
+            type="email"
+            maxLength={200}
+            value={form.email}
+            onChange={(e) => update("email", e.target.value)}
+            placeholder="you@example.com"
+          />
+        </label>
+        <label>
+          Website / target scope
+          <input
+            name="website"
+            maxLength={300}
+            value={form.website}
+            onChange={(e) => update("website", e.target.value)}
+            placeholder="Website or system to discuss"
+          />
+        </label>
+        <label className="form-wide">
+          Service
+          <select
+            name="service"
+            value={form.service}
+            onChange={(e) => update("service", e.target.value)}
+          >
+            <option value="">Help me choose</option>
+            {Object.values(reviewServices).map((service) => (
+              <option key={service}>{service}</option>
+            ))}
+          </select>
+        </label>
+        <label className="form-wide">
+          What needs a closer look?
+          <textarea
+            name="issue"
+            required
+            maxLength={1800}
+            value={form.issue}
+            onChange={(e) => update("issue", e.target.value)}
+            placeholder="Describe your concern and the scope. Do not include passwords, credentials, or private data."
+          />
+        </label>
+        <label className="form-wide">
+          Timing
+          <select
+            name="urgency"
+            value={form.urgency}
+            onChange={(e) => update("urgency", e.target.value)}
+          >
             <option>This week</option>
             <option>This month</option>
             <option>Before launch</option>
-            <option>After an incident or scare</option>
             <option>Just need a baseline</option>
           </select>
         </label>
       </div>
-
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <button type="submit" className="inline-flex items-center justify-center rounded-lg bg-brand-500 px-5 py-3 text-theme-sm font-semibold text-white shadow-theme-xs hover:bg-brand-600">
-          Open email request
+      <div className="form-actions">
+        <button type="submit" className="portfolio-button">
+          Open email request <Arrow diagonal />
         </button>
-        <p className="text-theme-sm text-gray-500 dark:text-gray-400">
-          This opens your email app with a prepared request to info@cyberethos.org.
-        </p>
+        <button type="button" className="form-secondary" onClick={copy}>
+          Copy request instead
+        </button>
       </div>
+      <p className="form-help">
+        Opens your email app with a prepared draft to info@cyberethos.org. This
+        form does not send or store your details on a server.
+      </p>
+      <p
+        role="status"
+        aria-live="polite"
+        className={status ? "form-status" : ""}
+      >
+        {status}
+      </p>
     </form>
   );
 }

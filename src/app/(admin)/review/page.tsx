@@ -1,76 +1,92 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import PublicFrame from "@/components/portfolio/PublicFrame";
 import ReviewRequestForm from "@/components/review/ReviewRequestForm";
 
 export const metadata: Metadata = {
-  title: "Request a Cybersecurity Review | Cyber Ethos",
+  title: "Request a Security Review | Cyber Ethos",
   description:
-    "Request an AI-assisted cybersecurity audit, penetration test, or website vulnerability detection review from Cyber Ethos.",
+    "Start a conversation with Azad about a Cybersecurity Audit, Penetration Testing, or Website Vulnerability Detection. Clear scope comes first.",
 };
-
-const steps = [
-  {
-    title: "1. Scope",
-    copy: "You send the website, target system, concern, urgency, and contact info. Do not send passwords or private credentials.",
-  },
-  {
-    title: "2. Review",
-    copy: "Cyber Ethos performs AI-assisted reconnaissance and manual validation against the agreed scope.",
-  },
-  {
-    title: "3. Findings",
-    copy: "You get validated findings, severity, evidence, and practical remediation guidance.",
-  },
-];
-
-const paths = [
-  "Cybersecurity Audit",
-  "Penetration Testing",
-  "Website Vulnerability Detection",
-];
-
-export default function ReviewPage() {
+const serviceNames: Record<string, string> = {
+  "cybersecurity-audit": "Cybersecurity Audit",
+  "penetration-testing": "Penetration Testing",
+  "website-vulnerability-detection": "Website Vulnerability Detection",
+};
+export default async function ReviewPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string }>;
+}) {
+  const params = await searchParams;
+  const selected =
+    typeof params.service === "string" &&
+    Object.hasOwn(serviceNames, params.service)
+      ? serviceNames[params.service]
+      : "";
   return (
-    <div className="grid grid-cols-12 gap-4 md:gap-6">
-      <section className="col-span-12 xl:col-span-8">
-        <ReviewRequestForm />
-      </section>
-
-      <aside className="col-span-12 space-y-6 xl:col-span-4">
-        <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-white/[0.03]">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white/90">
-            Good fit
-          </h2>
-          <p className="mt-3 text-theme-sm leading-6 text-gray-600 dark:text-gray-400">
-            Organizations that need a practical cybersecurity audit, a scoped penetration test, or a clear website vulnerability review.
-          </p>
-          <div className="mt-5 space-y-3">
-            {paths.map((path) => (
-              <div key={path} className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3 text-theme-sm font-medium text-gray-700 dark:border-gray-800 dark:bg-gray-900/40 dark:text-gray-300">
-                {path}
-              </div>
-            ))}
+    <PublicFrame review>
+      <main id="main" className="review-main">
+        <div className="review-layout">
+          <div>
+            <div className="review-heading">
+              <p className="technical-label">Contact / Define the scope</p>
+              <h1>
+                Let’s take
+                <br />
+                <em>a closer look.</em>
+              </h1>
+              <p>
+                Tell me what you’re working with and what concerns you. We’ll
+                start with scope, authorization, and whether the work is a good
+                fit.
+              </p>
+            </div>
+            <ReviewRequestForm initialService={selected} />
           </div>
+          <aside className="review-aside">
+            <section>
+              <span className="technical-label">A direct conversation</span>
+              <h2>
+                Founder-led.
+                <br />
+                Clearly scoped.
+              </h2>
+              <p>
+                You’re reaching Azad, the founder of Cyber Ethos. Marine
+                veteran, former Special Operations interpreter in Iraq, and
+                cybersecurity student.
+              </p>
+              <p>No automated scan starts when you fill out this form.</p>
+            </section>
+            <section>
+              <span className="technical-label">What happens next</span>
+              <ol>
+                <li>Send your scope and concern by email.</li>
+                <li>We discuss fit, permissions, deliverables, and timing.</li>
+                <li>
+                  Testing begins only after explicit authorization and agreement
+                  on the scope.
+                </li>
+              </ol>
+            </section>
+            <section>
+              <span className="technical-label">
+                Keep the first message simple
+              </span>
+              <p>
+                No passwords, private credentials, customer data, or sensitive
+                evidence. If needed, we’ll agree on a secure way to share those
+                later.
+              </p>
+              <p>
+                Prefer to write directly?
+                <br />
+                <a href="mailto:info@cyberethos.org">info@cyberethos.org</a>
+              </p>
+            </section>
+          </aside>
         </div>
-
-        <div className="rounded-2xl border border-brand-100 bg-brand-50 p-6 dark:border-brand-500/20 dark:bg-brand-500/10">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white/90">
-            What happens next
-          </h2>
-          <div className="mt-5 space-y-4">
-            {steps.map((step) => (
-              <div key={step.title}>
-                <h3 className="text-theme-sm font-semibold text-gray-900 dark:text-white/90">{step.title}</h3>
-                <p className="mt-1 text-theme-sm leading-6 text-gray-600 dark:text-gray-400">{step.copy}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <Link href="/" className="inline-flex w-full items-center justify-center rounded-lg border border-gray-300 bg-white px-5 py-3 text-theme-sm font-semibold text-gray-700 shadow-theme-xs hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300">
-          Back to Cyber Ethos
-        </Link>
-      </aside>
-    </div>
+      </main>
+    </PublicFrame>
   );
 }

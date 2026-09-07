@@ -1,162 +1,225 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import PublicFrame, { Arrow } from "@/components/portfolio/PublicFrame";
 
-const primaryLinks = [
+const services = [
   {
-    label: "Request a Cybersecurity Review",
-    href: "/review",
-    note: "Start here",
-    className: "bg-white text-gray-950 hover:bg-brand-50",
+    id: "cybersecurity-audit",
+    title: "Cybersecurity Audit",
+    label: "Understand the exposure",
+    copy: "A clear look at accounts, access, configurations, and public exposure. Understand the gaps and what deserves attention first.",
   },
   {
-    label: "Cybersecurity Audit",
-    href: "/review?service=cybersecurity-audit",
-    note: "Controls, accounts, exposure",
-    className: "bg-[#4169e1] text-white hover:bg-[#3557c2]",
+    id: "penetration-testing",
+    title: "Penetration Testing",
+    label: "Test the assumptions",
+    copy: "Authorized, carefully scoped testing of real attack paths. Defined boundaries, validated findings, and practical remediation guidance.",
   },
   {
-    label: "Penetration Testing",
-    href: "/review?service=penetration-testing",
-    note: "Scoped attack-path testing",
-    className: "bg-[#20242d] text-white hover:bg-[#2d3440]",
+    id: "website-vulnerability-detection",
+    title: "Website Vulnerability Detection",
+    label: "Inspect the surface",
+    copy: "Review your website’s exposed surfaces, security headers, forms, and login paths. Find weaknesses before they become someone else’s opportunity.",
   },
-  {
-    label: "Website Vulnerability Detection",
-    href: "/review?service=website-vulnerability-detection",
-    note: "Public website risk review",
-    className: "bg-[#6d5dfc] text-white hover:bg-[#5b4be6]",
-  },
-];
-
-const socialLinks = [
-  { label: "Email", href: "mailto:info@cyberethos.org" },
-  { label: "Cyber Ethos", href: "https://www.cyberethos.org/" },
-  { label: "Review", href: "/review" },
 ];
 
 export default function FounderLinkHubClient() {
-  const heroRef = useRef<HTMLElement | null>(null);
-  const rafRef = useRef<number | null>(null);
-
+  const mainRef = useRef<HTMLElement>(null);
   useEffect(() => {
-    const node = heroRef.current;
-    if (!node) return;
-
-    const setVars = (x: number, y: number) => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-      rafRef.current = requestAnimationFrame(() => {
-        node.style.setProperty("--mx", `${x}%`);
-        node.style.setProperty("--my", `${y}%`);
-      });
-    };
-
-    const onPointerMove = (event: PointerEvent) => {
-      const rect = node.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      setVars(x, y);
-    };
-
-    const onPointerLeave = () => setVars(50, 28);
-
-    node.addEventListener("pointermove", onPointerMove);
-    node.addEventListener("pointerleave", onPointerLeave);
-
-    return () => {
-      node.removeEventListener("pointermove", onPointerMove);
-      node.removeEventListener("pointerleave", onPointerLeave);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+    mainRef.current
+      ?.querySelectorAll("[data-reveal]")
+      .forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <main
-      ref={heroRef}
-      className="relative min-h-screen overflow-hidden bg-black text-white [--mx:50%] [--my:28%]"
-    >
-      <Image
-        src="/images/user/owner.jpg"
-        alt="Azad Sleigher"
-        fill
-        priority
-        sizes="100vw"
-        className="scale-105 object-cover object-center opacity-45 blur-[2px]"
-      />
-
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.28),rgba(0,0,0,0.9)_70%,#000)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.72),transparent_30%,transparent_70%,rgba(0,0,0,0.72))]" />
-      <div className="pointer-events-none absolute inset-0 opacity-50 transition-[background] duration-500 ease-out [background:radial-gradient(circle_at_var(--mx)_var(--my),rgba(74,113,255,0.42),transparent_30%)]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(109,93,252,0.22),transparent_58%)]" />
-
-      <section className="relative z-10 mx-auto flex min-h-screen w-full max-w-xl flex-col items-center justify-center px-5 py-10 text-center sm:px-6">
-        <div className="w-full rounded-[2rem] border border-white/10 bg-black/18 p-5 shadow-2xl shadow-black/45 backdrop-blur-[2px] sm:p-6">
-          <div className="mb-5 inline-flex items-center rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white/75 shadow-2xl backdrop-blur-md">
-            Cyber Ethos
+    <PublicFrame>
+      <main id="main" ref={mainRef}>
+        <section className="portfolio-hero" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <p className="technical-label hero-intro">
+              <span /> Veteran. Interpreter. Defender.
+            </p>
+            <h1 id="hero-title">
+              A life of service.
+              <br />A new <em>front line.</em>
+            </h1>
+            <p className="hero-description">
+              I’m Azad. Marine veteran, former Special Operations interpreter in
+              Iraq, and cybersecurity student. This is the next chapter.
+            </p>
+            <Link href="/review" className="portfolio-button">
+              Request a security review <Arrow diagonal />
+            </Link>
           </div>
-
-          <div className="relative mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full border-2 border-white/55 bg-white/10 shadow-2xl shadow-black/50 backdrop-blur sm:h-32 sm:w-32">
-            <Image
-              src="/images/user/owner.jpg"
-              alt="Azad Sleigher, founder of Cyber Ethos"
-              fill
-              priority
-              sizes="128px"
-              className="object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 via-transparent to-white/10" />
+          <div className="hero-bottom">
+            <a href="#story" className="scroll-cue">
+              <span className="scroll-line" /> Explore the story
+            </a>
+            <span className="portrait-credit">
+              AZAD SLEIGHER <span>FOUNDER / CYBER ETHOS</span>
+            </span>
           </div>
+        </section>
 
-          <p className="mb-2 text-sm font-medium tracking-[0.28em] text-white/65">
-            @cyberethos
-          </p>
-          <h1 className="text-5xl font-extrabold tracking-[-0.055em] text-white drop-shadow-2xl sm:text-6xl">
-            Azad Sleigher
-          </h1>
-          <p className="mx-auto mt-4 max-w-md text-base leading-7 text-white/88 sm:text-lg">
-            Founder-led cybersecurity reviews for teams that need practical security fixes, not fear-based reports.
-          </p>
-          <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-white/68">
-            Marine veteran. Former Iraq Special Operations interpreter. Cybersecurity graduate student. AI ops builder.
-          </p>
+        <section id="story" className="story-section chapter-section">
+          <div className="chapter-heading">
+            <span className="technical-label">01 / The foundation</span>
+            <span className="chapter-rule" />
+          </div>
+          <div className="story-copy" data-reveal>
+            <h2>
+              Different terrain.
+              <br />
+              <em>The same responsibility.</em>
+            </h2>
+            <p>
+              Before Cyber Ethos, my work was grounded in service: as a Special
+              Operations interpreter in Iraq, and as a United States Marine.
+            </p>
+            <p>
+              Those chapters shaped how I approach the next one. Listen
+              carefully. Understand the situation. Take responsibility for the
+              details.
+            </p>
+            <p>
+              Today, I’m studying cybersecurity and building Cyber Ethos around
+              that mindset. Not borrowed authority. A commitment to keep
+              learning, ask better questions, and do useful work.
+            </p>
+            <div className="story-signature">
+              <span>Azad Sleigher</span>
+              <span className="technical-label">Founder, Cyber Ethos</span>
+            </div>
+          </div>
+        </section>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-            {socialLinks.map((link) => (
+        <section id="services" className="services-section chapter-section">
+          <div className="chapter-heading">
+            <span className="technical-label">02 / The work</span>
+            <span className="chapter-rule" />
+          </div>
+          <div className="section-introduction" data-reveal>
+            <h2>
+              Know where
+              <br />
+              you <em>stand.</em>
+            </h2>
+            <p>
+              Three focused services. Clear boundaries. Findings you can act on.
+              Every engagement starts with a conversation about scope and fit.
+            </p>
+          </div>
+          <div className="service-list">
+            {services.map((service, index) => (
               <Link
-                key={link.label}
-                href={link.href}
-                className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold text-white/75 backdrop-blur transition hover:border-white/35 hover:bg-white/20"
+                key={service.id}
+                href={`/review?service=${service.id}`}
+                className="service-row"
+                data-reveal
               >
-                {link.label}
+                <span className="service-index">0{index + 1}</span>
+                <div>
+                  <span className="technical-label">{service.label}</span>
+                  <h3>{service.title}</h3>
+                </div>
+                <p>{service.copy}</p>
+                <span className="service-arrow">
+                  <Arrow diagonal />
+                </span>
               </Link>
             ))}
           </div>
+          <p className="scope-note">
+            Testing only with explicit authorization and agreed scope. No
+            credentials or sensitive data in your first message.
+          </p>
+        </section>
 
-          <nav aria-label="Cyber Ethos links" className="mt-8 flex w-full flex-col gap-3">
-            {primaryLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={`${link.className} group flex w-full items-center justify-between rounded-2xl px-5 py-4 text-left shadow-2xl shadow-black/35 transition duration-200 hover:-translate-y-0.5 hover:shadow-black/50`}
-              >
-                <span>
-                  <span className="block text-base font-bold tracking-tight">{link.label}</span>
-                  <span className="mt-1 block text-xs font-medium opacity-65">{link.note}</span>
-                </span>
-                <span className="ml-4 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black/15 text-lg transition group-hover:translate-x-0.5">
-                  →
-                </span>
-              </Link>
-            ))}
-          </nav>
-
-          <div className="mt-8 rounded-3xl border border-white/14 bg-black/35 px-5 py-4 text-sm leading-6 text-white/72 shadow-2xl backdrop-blur-md">
-            Send your website, scope, and concern. I’ll respond with the cleanest next step for your audit, pentest, or website vulnerability review.
+        <section id="approach" className="approach-section chapter-section">
+          <div className="chapter-heading">
+            <span className="technical-label">03 / The approach</span>
+            <span className="chapter-rule" />
           </div>
-        </div>
-      </section>
-    </main>
+          <div className="approach-layout" data-reveal>
+            <h2>
+              Clarity before
+              <br />
+              <em>action.</em>
+            </h2>
+            <ol className="approach-list">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>Define the scope.</h3>
+                  <p>
+                    Agree on the systems, permissions, boundaries, and what a
+                    useful outcome looks like.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>Validate the findings.</h3>
+                  <p>
+                    Investigate within the agreed scope. Separate meaningful
+                    risk from noise.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>03</span>
+                <div>
+                  <h3>Make the next move clear.</h3>
+                  <p>
+                    Explain the evidence, the priority, and practical
+                    remediation steps in plain language.
+                  </p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="contact" className="contact-section chapter-section">
+          <div className="chapter-heading">
+            <span className="technical-label">04 / Start a conversation</span>
+            <span className="chapter-rule" />
+          </div>
+          <div data-reveal>
+            <h2>
+              What needs
+              <br />
+              <em>a closer look?</em>
+            </h2>
+            <p>
+              A website. A system. A concern you can’t quite put your finger on.
+              Tell me where you want to start.
+            </p>
+            <Link href="/review" className="portfolio-button">
+              Request a security review <Arrow diagonal />
+            </Link>
+            <a className="contact-email" href="mailto:info@cyberethos.org">
+              Or email info@cyberethos.org <Arrow />
+            </a>
+          </div>
+        </section>
+      </main>
+    </PublicFrame>
   );
 }
