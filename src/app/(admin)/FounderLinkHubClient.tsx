@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import PublicFrame, { Arrow } from "@/components/portfolio/PublicFrame";
+import ServicesExperience from "@/components/portfolio/services/ServicesExperience";
 
 const newsletterUrl =
   "https://9d400ade.sibforms.com/serve/MUIFAPExZZx-JCjXBLd6WTYMm8vRj63zvNsbCmkq-1mjrjOv9k_JWEyebEiyItVE_L4EyZ5Xfqn7ErmdwXwYD9Y3SSp1AZpfFY-SMJPjZI2kMDyS7fxtSfotCUyqAufENqxrzITGc-4DKo2hnCJzIFoeLQXtiRaVxjRRA8wNfJHFSKzviHtk067OjA1clW2c4zDXUsRvGTg7jYcFpg==";
@@ -127,26 +128,7 @@ export default function FounderLinkHubClient() {
               Every engagement starts with a conversation about scope and fit.
             </p>
           </div>
-          <div className="service-list">
-            {services.map((service, index) => (
-              <Link
-                key={service.id}
-                href={`/review?service=${service.id}`}
-                className="service-row"
-                data-reveal
-              >
-                <span className="service-index">0{index + 1}</span>
-                <div>
-                  <span className="technical-label">{service.label}</span>
-                  <h3>{service.title}</h3>
-                </div>
-                <p>{service.copy}</p>
-                <span className="service-arrow">
-                  <Arrow diagonal />
-                </span>
-              </Link>
-            ))}
-          </div>
+          <ServicesExperience services={services} />
           <p className="scope-note">
             Testing only with explicit authorization and agreed scope. No
             credentials or sensitive data in your first message.
