@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import PublicFrame, { Arrow } from "@/components/portfolio/PublicFrame";
 
+const newsletterUrl =
+  "https://9d400ade.sibforms.com/serve/MUIFAPExZZx-JCjXBLd6WTYMm8vRj63zvNsbCmkq-1mjrjOv9k_JWEyebEiyItVE_L4EyZ5Xfqn7ErmdwXwYD9Y3SSp1AZpfFY-SMJPjZI2kMDyS7fxtSfotCUyqAufENqxrzITGc-4DKo2hnCJzIFoeLQXtiRaVxjRRA8wNfJHFSKzviHtk067OjA1clW2c4zDXUsRvGTg7jYcFpg==";
+
 const services = [
   {
     id: "cybersecurity-audit",
@@ -218,6 +221,33 @@ export default function FounderLinkHubClient() {
               Or email info@cyberethos.org <Arrow />
             </a>
           </div>
+        </section>
+        <section
+          id="newsletter"
+          className="newsletter-section chapter-section"
+          aria-labelledby="newsletter-title"
+        >
+          <div className="chapter-heading">
+            <h2 id="newsletter-title" className="technical-label">
+              05 / The newsletter
+            </h2>
+            <span className="chapter-rule" />
+          </div>
+          {/* Brevo owns the signup copy, consent, and confirmation UI. */}
+          <iframe
+            className="newsletter-frame"
+            src={newsletterUrl}
+            title="Subscribe to the Cyber Ethos security newsletter"
+            loading="lazy"
+            width="640"
+            height="620"
+          />
+          <p className="newsletter-fallback">
+            Form not loading?{" "}
+            <a href={newsletterUrl} target="_blank" rel="noopener noreferrer">
+              Open the signup form in a new tab <Arrow diagonal />
+            </a>
+          </p>
         </section>
       </main>
     </PublicFrame>

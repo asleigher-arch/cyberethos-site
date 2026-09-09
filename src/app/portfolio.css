@@ -425,6 +425,49 @@
   width: fit-content;
   color: var(--muted);
 }
+.newsletter-section {
+  background: #171716;
+}
+.newsletter-section .chapter-heading h2 {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.8;
+  letter-spacing: 0.12em;
+}
+.newsletter-frame {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: 620px;
+  margin: 0 auto;
+  border: 0;
+  color-scheme: normal;
+}
+.newsletter-fallback {
+  margin: 16px auto 0;
+  max-width: 640px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.portfolio .newsletter-fallback a {
+  color: var(--paper);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.newsletter-fallback svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+@media (max-width: 480px) {
+  .newsletter-section.chapter-section {
+    padding-inline: 12px;
+  }
+  .newsletter-frame {
+    height: 700px;
+  }
+}
 .portfolio-footer {
   display: flex;
   justify-content: space-between;
