@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
@@ -17,6 +16,13 @@ export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   );
 }
 
+const navItems = [
+  { href: "/#story", label: "Story" },
+  { href: "/#services", label: "Services" },
+  { href: "/#approach", label: "Approach" },
+  { href: "/#contact", label: "Contact" },
+];
+
 export default function PublicFrame({
   children,
   review = false,
@@ -29,17 +35,6 @@ export default function PublicFrame({
       <a className="portfolio-skip" href="#main">
         Skip to content
       </a>
-      <div className="portrait-stage">
-        <Image
-          src="/images/user/owner.jpg"
-          alt="Azad Sleigher in Marine Corps dress uniform"
-          fill
-          priority
-          sizes="(max-width: 700px) 100vw, 65vw"
-          className="portrait-image"
-        />
-        <div className="portrait-shade" />
-      </div>
       <header className="portfolio-header">
         <Link
           className="portfolio-brand"
@@ -54,10 +49,13 @@ export default function PublicFrame({
           </span>
         </Link>
         <nav aria-label="Primary navigation">
-          <Link href="/#story">Story</Link>
-          <Link href="/#services">Services</Link>
+          {navItems.map((item) => (
+            <Link key={item.href} href={item.href} className="nav-link">
+              {item.label}
+            </Link>
+          ))}
           <Link className="nav-contact" href={review ? "/" : "/review"}>
-            {review ? "Back home" : "Let’s talk"}
+            {review ? "Back home" : "Request a review"}
             <Arrow diagonal />
           </Link>
         </nav>
