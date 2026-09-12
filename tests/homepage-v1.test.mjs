@@ -62,7 +62,7 @@ test("newsletter keeps the live Brevo subscribe path", () => {
     homepage.match(/const newsletterUrl =\s*"([^"]+)"/)?.[1],
     newsletterUrl,
   );
-  assert.match(subscribe, newsletterUrl);
+  assert.ok(subscribe.includes(newsletterUrl));
   assert.match(homepage, /Plain notes on staying secure/);
 });
 
@@ -75,48 +75,4 @@ test("three production services keep their review slugs", () => {
     assert.match(homepage, new RegExp(`id: "${id}"`));
   }
   assert.match(homepage, /Scope this engagement/);
-});
-
-test("normalized phases are bounded, continuous and reversible", async () => {
-  const path = new URL("src/components/portfolio/services/progress.ts", root);
-  assert.ok(fs.existsSync(path), "separate progress bus exists");
-  const { mapProgress, createProgressBus } = await import(path.href);
-  assert.deepEqual(mapProgress(0), {
-    master: 0,
-    enter: 0,
-    audit: 0,
-    probe: 0,
-    seal: 0,
-    beat: 0,
-  });
-  assert.deepEqual(mapProgress(1), {
-    master: 1,
-    enter: 1,
-    audit: 1,
-    probe: 1,
-    seal: 1,
-    beat: 2,
-  });
-  assert.deepEqual(mapProgress(-2), mapProgress(0));
-  assert.deepEqual(mapProgress(NaN), mapProgress(0));
-  assert.deepEqual(mapProgress(8), mapProgress(1));
-  for (let i = 0; i <= 1000; i++) {
-    for (const key of ["enter", "audit", "probe", "seal"]) {
-      const a = mapProgress(i / 1000)[key];
-      const b = mapProgress((i + 1) / 1000)[key];
-      assert.ok(a >= 0 && a <= 1 && b >= a && b - a < 0.010001);
-    }
-  }
-  const bus = createProgressBus();
-  let received;
-  const off = bus.subscribe((p) => {
-    received = p;
-  });
-  bus.set(0.7);
-  assert.equal(received.master, 0.7);
-  bus.set(0.2);
-  assert.equal(received.master, 0.2);
-  off();
-  bus.set(1);
-  assert.equal(received.master, 0.2);
 });

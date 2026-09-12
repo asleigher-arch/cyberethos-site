@@ -86,7 +86,8 @@
 .portfolio-header nav {
   display: flex;
   align-items: center;
-  gap: 34px;
+  flex-shrink: 0;
+  gap: 28px;
   font-size: 13px;
 }
 .portfolio-header nav a {
@@ -103,13 +104,18 @@
   color: var(--accent);
 }
 .nav-contact {
-  display: flex;
-  gap: 12px;
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 10px;
   align-items: center;
+  white-space: nowrap;
   font: 11px/1.7 monospace;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
+}
+.nav-contact svg {
+  flex: 0 0 auto;
 }
 .portfolio-hero {
   display: grid;
@@ -154,7 +160,10 @@
   letter-spacing: -0.04em;
   margin: 0;
 }
-.portfolio em {
+.portfolio em,
+.portfolio h1 em,
+.portfolio h2 em,
+.portfolio h3 em {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 400;
   font-style: italic;
@@ -223,8 +232,10 @@
 }
 .founder-portrait img {
   object-fit: cover;
-  object-position: 50% 18%;
-  filter: saturate(0.82) contrast(1.04);
+  object-position: 50% 12%;
+  transform: scale(2.15);
+  transform-origin: 50% 10%;
+  filter: saturate(0.88) contrast(1.05);
 }
 .founder-portrait figcaption {
   position: absolute;
@@ -626,7 +637,7 @@
   .portfolio-hero {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
     gap: 80px;
-    padding: 88px 0 120px;
+    padding: 56px 0 96px;
   }
   .chapter-split {
     grid-template-columns: minmax(0, 0.32fr) minmax(0, 0.68fr);
@@ -738,6 +749,10 @@
   }
   .founder-portrait {
     min-height: 420px;
+  }
+  .founder-portrait img {
+    transform: scale(2.55);
+    transform-origin: 50% 14%;
   }
   .chapter-section {
     padding: 64px 0;
