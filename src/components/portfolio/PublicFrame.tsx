@@ -49,13 +49,14 @@ export default function PublicFrame({
           </span>
         </Link>
         <nav aria-label="Primary navigation">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="nav-link">
-              {item.label}
-            </Link>
-          ))}
+          {!review &&
+            navItems.map((item) => (
+              <Link key={item.href} href={item.href} className="nav-link">
+                {item.label}
+              </Link>
+            ))}
           <Link className="nav-contact" href={review ? "/" : "/review"}>
-            {review ? "Back home" : "Request a review"}
+            {review ? "Home" : "Request a review"}
             <Arrow diagonal />
           </Link>
         </nav>
