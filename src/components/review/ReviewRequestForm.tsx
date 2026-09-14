@@ -77,14 +77,6 @@ export default function ReviewRequestForm({
   const successRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    setForm((current) =>
-      current.service === initialService
-        ? current
-        : { ...current, service: initialService },
-    );
-  }, [initialService]);
-
-  useEffect(() => {
     if (status === "success") {
       successRef.current?.focus();
     }

@@ -38,7 +38,10 @@ export default async function ReviewPage({
             <h2 className="technical-label review-section-label">
               02 / Your details
             </h2>
-            <ReviewRequestForm initialService={selected} />
+            <ReviewRequestForm
+              key={selected || "not-sure"}
+              initialService={selected}
+            />
           </div>
           <aside className="review-aside" aria-label="What happens next">
             <ReassurancePanel />
