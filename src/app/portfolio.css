@@ -551,6 +551,15 @@
   border-top: 1px solid var(--line);
   align-items: start;
 }
+.review-main h2.technical-label {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  line-height: 1.7;
+  text-transform: uppercase;
+  margin: 0;
+}
 .review-section-label {
   margin: 0 0 28px;
   color: var(--muted);
