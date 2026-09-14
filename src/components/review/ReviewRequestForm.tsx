@@ -2,7 +2,6 @@
 
 import { FormEvent, useEffect, useId, useMemo, useRef, useState } from "react";
 import { Arrow } from "@/components/portfolio/PublicFrame";
-import ReassurancePanel from "@/components/review/ReassurancePanel";
 import { AlertMark, CheckMark } from "@/components/review/ReviewIcons";
 import {
   reviewServiceLabel,
@@ -215,7 +214,7 @@ export default function ReviewRequestForm({
           onChange={(value) => update("email", value)}
           onBlur={() => handleBlur("email")}
           autoComplete="email"
-          hint="Where the reply goes."
+          placeholder="you@company.com"
           maxLength={200}
         />
         <Field
@@ -237,31 +236,27 @@ export default function ReviewRequestForm({
           error={errors.concern}
           onChange={(value) => update("concern", value)}
           onBlur={() => handleBlur("concern")}
-          hint="Main concern and the systems in scope. Plain language is fine."
           placeholder="We run a customer portal on AWS and a WordPress marketing site. Worried about the login flow and an old admin plugin."
+          note="Plain language is fine. Don’t send passwords, credentials, API keys, or customer data in this first message — sensitive detail comes after authorization is agreed."
           maxLength={1800}
         />
         <div className="review-field">
-          <label htmlFor="service">
-            Preferred service <span className="field-flag">Optional</span>
-          </label>
-          <select
-            id="service"
-            name="service"
-            value={form.service}
-            onChange={(event) => update("service", event.target.value)}
-          >
-            {reviewServiceOptions.map((option) => (
-              <option key={option.value || "not-sure"} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+          <FieldHead id="service" label="Preferred service" optional />
+          <div className="field-control">
+            <select
+              id="service"
+              name="service"
+              value={form.service}
+              onChange={(event) => update("service", event.target.value)}
+            >
+              {reviewServiceOptions.map((option) => (
+                <option key={option.value || "not-sure"} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
-      </div>
-
-      <div className="review-reassure-mobile">
-        <ReassurancePanel compact />
       </div>
 
       <div className="form-actions">
@@ -285,6 +280,26 @@ export default function ReviewRequestForm({
   );
 }
 
+function FieldHead({
+  id,
+  label,
+  required = false,
+  optional = false,
+}: {
+  id: string;
+  label: string;
+  required?: boolean;
+  optional?: boolean;
+}) {
+  return (
+    <div className="review-field-head">
+      <label htmlFor={id}>{label}</label>
+      {required && <span className="field-flag required">Required</span>}
+      {optional && <span className="field-flag">Optional</span>}
+    </div>
+  );
+}
+
 function Field({
   id,
   label,
@@ -296,10 +311,10 @@ function Field({
   optional = false,
   multiline = false,
   error,
-  hint,
   placeholder,
   autoComplete,
   maxLength,
+  note,
 }: {
   id: string;
   label: string;
@@ -311,29 +326,25 @@ function Field({
   optional?: boolean;
   multiline?: boolean;
   error?: string;
-  hint?: string;
   placeholder?: string;
   autoComplete?: string;
   maxLength?: number;
+  note?: string;
 }) {
-  const hintUid = useId();
-  const hintId = hint ? `${id}-hint-${hintUid}` : undefined;
+  const noteUid = useId();
+  const noteId = note ? `${id}-note-${noteUid}` : undefined;
   const errorId = error ? `${id}-error` : undefined;
-  const describedBy = [hintId, errorId].filter(Boolean).join(" ") || undefined;
+  const describedBy = [noteId, errorId].filter(Boolean).join(" ") || undefined;
   const Control = multiline ? "textarea" : "input";
 
   return (
     <div className="review-field">
-      <label htmlFor={id}>
-        {label}{" "}
-        {required && <span className="field-flag required">Required</span>}
-        {optional && <span className="field-flag">Optional</span>}
-      </label>
-      {hint && (
-        <p id={hintId} className="field-hint">
-          {hint}
-        </p>
-      )}
+      <FieldHead
+        id={id}
+        label={label}
+        required={required}
+        optional={optional}
+      />
       <div className={`field-control${error ? " has-error" : ""}`}>
         <Control
           id={id}
@@ -359,6 +370,11 @@ function Field({
         <p id={errorId} className="field-error">
           <AlertMark />
           {error}
+        </p>
+      )}
+      {note && (
+        <p id={noteId} className="field-note">
+          {note}
         </p>
       )}
     </div>
