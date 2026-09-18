@@ -1120,10 +1120,10 @@
 }
 .portfolio-editorial .founder-portrait.cinematic img {
   object-fit: cover;
-  object-position: 50% 12%;
-  transform: scale(2.05);
-  transform-origin: 50% 10%;
-  filter: saturate(0.78) contrast(1.08) brightness(0.7);
+  object-position: 50% 28%;
+  transform: scale(2.15);
+  transform-origin: 50% 26%;
+  filter: saturate(0.8) contrast(1.06) brightness(0.72);
 }
 .portfolio-editorial .hero-copy {
   position: relative;
@@ -1398,8 +1398,9 @@
     padding-bottom: 8vh;
   }
   .portfolio-editorial .founder-portrait.cinematic img {
-    transform: scale(2.45);
-    transform-origin: 50% 12%;
+    object-position: 50% 22%;
+    transform: scale(1.7);
+    transform-origin: 50% 20%;
   }
 }
 @media (max-width: 600px) {

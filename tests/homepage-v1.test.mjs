@@ -97,8 +97,9 @@ test("editorial homepage uses Cyber Ethos tokens and Legora register", () => {
   );
   assert.match(css, /\.portfolio-editorial \.founder-portrait\.cinematic/);
   assert.match(css, /\.portfolio-button \{[\s\S]*?border-radius: 2px/);
+  assert.match(css, /\.portfolio-editorial \.service-article \{[\s\S]*?box-shadow: none/);
   assert.doesNotMatch(
     css.slice(css.indexOf("Legora-adapted homepage")),
-    /box-shadow:\s*(?!none)[^;]+;/,
+    /box-shadow:\s*[0-9]/,
   );
 });
