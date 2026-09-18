@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
@@ -30,12 +33,26 @@ export default function PublicFrame({
   children: React.ReactNode;
   review?: boolean;
 }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (review) return;
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [review]);
+
   return (
-    <div className={`portfolio${review ? " portfolio-review" : ""}`}>
+    <div
+      className={`portfolio${review ? " portfolio-review" : " portfolio-editorial"}`}
+    >
       <a className="portfolio-skip" href="#main">
         Skip to content
       </a>
-      <header className="portfolio-header">
+      <header
+        className={`portfolio-header${scrolled ? " is-scrolled" : ""}`}
+      >
         <Link
           className="portfolio-brand"
           href="/"
