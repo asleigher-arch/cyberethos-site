@@ -90,7 +90,8 @@ test("supporting plates are Unsplash work scenes, not a founder substitute", () 
   assert.match(homepage, /\/images\/work\/network-ops\.jpg/);
   assert.match(homepage, /\/images\/work\/briefing\.jpg/);
   assert.match(homepage, /id="familiar"/);
-  assert.match(homepage, /<FounderPortrait \/>/);
+  assert.match(homepage, /variant="plate"/);
+  assert.match(homepage, /advisor-band/);
   assert.ok(
     fs.existsSync(new URL("public/images/work/desk-secure.jpg", root)),
   );
@@ -112,6 +113,8 @@ test("editorial homepage uses Cyber Ethos tokens and Legora register", () => {
     /\.portfolio-editorial h1 \{[\s\S]*?Georgia, "Times New Roman", Times, serif|\.portfolio-editorial \{[\s\S]*?--display: Georgia/,
   );
   assert.match(css, /\.portfolio-editorial \.founder-portrait\.cinematic/);
+  assert.match(css, /\.portfolio-editorial \.advisor-band/);
+  assert.match(css, /\.founder-portrait\.plate \{[\s\S]*?border-radius: 28px/);
   assert.match(css, /\.portfolio-button \{[\s\S]*?border-radius: 2px/);
   assert.match(css, /\.portfolio-editorial \.service-article \{[\s\S]*?box-shadow: none/);
   assert.doesNotMatch(

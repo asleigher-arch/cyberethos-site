@@ -1246,44 +1246,93 @@
   font-size: 17px;
   line-height: 1.6;
 }
+.portfolio-editorial .advisor-band,
+.portfolio-editorial .close-band {
+  width: 100%;
+  max-width: none;
+  padding: 96px max(24px, 7vw);
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 0;
+}
+.portfolio-editorial .advisor-band h2,
+.portfolio-editorial .advisor-band h3,
+.portfolio-editorial .close-band h2 {
+  color: var(--paper);
+}
 .portfolio-editorial .founder-block {
   display: grid;
   gap: 48px;
   align-items: center;
+  width: min(1200px, 100%);
+  margin: 0 auto;
 }
-.portfolio-editorial .founder-portrait:not(.cinematic) {
-  min-height: 520px;
-  border-color: var(--line);
-  background: var(--wash-ink);
+.portfolio-editorial .founder-portrait.plate {
+  min-height: min(72vh, 720px);
+  border: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 88%, var(--paper) 12%);
+  box-shadow: none;
 }
-.portfolio-editorial .founder-portrait:not(.cinematic) img {
-  object-position: 50% 26%;
-  transform: scale(2.15);
-  transform-origin: 50% 24%;
-  filter: saturate(0.88) contrast(1.05);
+.portfolio-editorial .founder-portrait.plate img {
+  object-position: 50% 24%;
+  transform: scale(2.2);
+  transform-origin: 50% 22%;
+  filter: saturate(0.86) contrast(1.06);
 }
-.portfolio-editorial .founder-portrait figcaption {
-  background: color-mix(in srgb, var(--paper) 86%, var(--ink) 14%);
-  color: var(--ink);
-  border-top-color: var(--line);
+.portfolio-editorial .founder-portrait.plate figcaption {
+  background: rgba(16, 17, 16, 0.62);
+  color: var(--paper);
+  border-top: 1px solid rgba(236, 232, 223, 0.16);
 }
-.portfolio-editorial .founder-portrait figcaption span:last-child {
-  color: var(--label);
+.portfolio-editorial .founder-portrait.plate figcaption span:last-child {
+  color: var(--accent);
 }
-.portfolio-editorial .story-copy {
-  max-width: 54ch;
+.portfolio-editorial .advisor-band .story-copy {
+  max-width: 38ch;
 }
-.portfolio-editorial .story-copy p {
+.portfolio-editorial .advisor-band .story-copy h2 {
+  font-size: clamp(40px, 6.2vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 16px 0 28px;
+  max-width: none;
+}
+.portfolio-editorial .advisor-band .story-copy p,
+.portfolio-editorial .close-band p {
   text-align: left;
+  color: color-mix(in srgb, var(--paper) 78%, var(--muted) 22%);
 }
-.portfolio-editorial .story-emphasis {
-  color: var(--ink);
+.portfolio-editorial .advisor-band .story-emphasis {
+  color: var(--paper);
 }
-.portfolio-editorial .story-signature {
+.portfolio-editorial .advisor-band .story-signature {
   margin: 40px 0 0;
   padding-top: 24px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(236, 232, 223, 0.16);
   align-items: flex-start;
+}
+.portfolio-editorial .close-band .editorial-close {
+  max-width: 920px;
+}
+.portfolio-editorial .close-band .editorial-close p {
+  text-align: center;
+}
+.portfolio-editorial .close-band .contact-email {
+  color: var(--accent);
+}
+.portfolio-editorial .close-band .contact-email:hover {
+  color: var(--paper);
+}
+.portfolio-editorial .close-band .portfolio-button.solid {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+.portfolio-editorial .close-band .portfolio-button.solid:hover {
+  background: color-mix(in srgb, var(--paper) 82%, var(--accent) 18%);
+  color: var(--ink);
 }
 .portfolio-editorial .story-signature > span:first-child {
   font: italic 30px var(--display);
@@ -1297,7 +1346,7 @@
 .portfolio-editorial .service-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 24px;
   margin-top: 56px;
   border-top: 0;
 }
@@ -1331,11 +1380,9 @@
 .portfolio-editorial .service-deliverables {
   padding-inline: 24px;
 }
-.portfolio-editorial .service-article:nth-child(2) {
-  background: var(--wash-accent);
-}
+.portfolio-editorial .service-article:nth-child(2),
 .portfolio-editorial .service-article:nth-child(3) {
-  background: color-mix(in srgb, var(--paper) 92%, var(--ink) 8%);
+  background: var(--wash-ink);
 }
 .portfolio-editorial .service-lead h3 {
   margin: 12px 0 10px;
@@ -1441,12 +1488,12 @@
     grid-template-columns: 1fr 1fr;
   }
   .portfolio-editorial .founder-block {
-    grid-template-columns: minmax(0, 0.42fr) minmax(0, 0.58fr);
-    gap: 80px;
+    grid-template-columns: minmax(0, 0.5fr) minmax(0, 0.5fr);
+    gap: 72px;
   }
   .portfolio-editorial .service-list {
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
+    gap: 24px;
   }
   .portfolio-editorial .service-article {
     grid-template-columns: none;
@@ -1483,8 +1530,15 @@
     transform: scale(1.7);
     transform-origin: 50% 20%;
   }
-  .portfolio-editorial .founder-portrait:not(.cinematic) {
-    min-height: 440px;
+  .portfolio-editorial .advisor-band,
+  .portfolio-editorial .close-band {
+    padding: 72px 24px;
+  }
+  .portfolio-editorial .founder-portrait.plate {
+    min-height: 480px;
+  }
+  .portfolio-editorial .advisor-band .story-copy {
+    max-width: none;
   }
   .portfolio-editorial .pain-list li {
     font-size: 15px;

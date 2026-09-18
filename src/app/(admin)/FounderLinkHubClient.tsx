@@ -158,22 +158,21 @@ export default function FounderLinkHubClient() {
           </ul>
         </section>
 
-        <section id="story" className="story-section chapter-section">
+        <section id="story" className="story-section chapter-section advisor-band">
           <div className="founder-block" data-reveal>
-            <FounderPortrait />
+            <FounderPortrait variant="plate" />
             <div className="story-copy">
               <p className="technical-label">02 / The advisor</p>
-              <h2>Different terrain. The same responsibility.</h2>
+              <h2>
+                You do not need another vendor.
+                <br />
+                You need an honest picture.
+              </h2>
               <p>
                 I spent years as a Marine, and before that as a Special
                 Operations interpreter in Iraq. The job was to understand the
                 ground, understand the people on it, and give the team an honest
                 picture, including the parts nobody wanted to hear.
-              </p>
-              <p>
-                You do not need another vendor with a long deck. You need one
-                person who will look at your systems carefully, without
-                flattery, and tell you what to do next.
               </p>
               <p className="story-emphasis">
                 Independent practice. Written scope first. Authorization before
@@ -256,7 +255,7 @@ export default function FounderLinkHubClient() {
           </ol>
         </section>
 
-        <section id="contact" className="contact-section chapter-section">
+        <section id="contact" className="contact-section chapter-section close-band">
           <div className="editorial-close" data-reveal>
             <p className="technical-label">05 / The conversation</p>
             <h2>What needs a closer look?</h2>
