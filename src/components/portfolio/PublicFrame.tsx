@@ -20,9 +20,9 @@ export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 }
 
 const navItems = [
+  { href: "/#familiar", label: "Why" },
   { href: "/#story", label: "Story" },
   { href: "/#services", label: "Services" },
-  { href: "/#approach", label: "Approach" },
   { href: "/#contact", label: "Contact" },
 ];
 

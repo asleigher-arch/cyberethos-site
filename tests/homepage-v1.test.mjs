@@ -82,6 +82,22 @@ test("three production services keep their review slugs", () => {
 test("homepage copy stays blunt with no em dashes", () => {
   assert.doesNotMatch(homepage, /—/);
   assert.match(homepage, /Discipline\. Curiosity\. Purpose\./);
+  assert.doesNotMatch(homepage, /Lee Carsten|Whitecap|Fortune 500|AEC/i);
+});
+
+test("supporting plates are Unsplash work scenes, not a founder substitute", () => {
+  assert.match(homepage, /\/images\/work\/desk-secure\.jpg/);
+  assert.match(homepage, /\/images\/work\/network-ops\.jpg/);
+  assert.match(homepage, /\/images\/work\/briefing\.jpg/);
+  assert.match(homepage, /id="familiar"/);
+  assert.match(homepage, /<FounderPortrait \/>/);
+  assert.ok(
+    fs.existsSync(new URL("public/images/work/desk-secure.jpg", root)),
+  );
+  assert.ok(
+    fs.existsSync(new URL("public/images/work/network-ops.jpg", root)),
+  );
+  assert.ok(fs.existsSync(new URL("public/images/work/briefing.jpg", root)));
 });
 
 test("editorial homepage uses Cyber Ethos tokens and Legora register", () => {

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import FounderPortrait from "@/components/portfolio/FounderPortrait";
@@ -7,6 +8,13 @@ import PublicFrame, { Arrow } from "@/components/portfolio/PublicFrame";
 
 const newsletterUrl =
   "https://9d400ade.sibforms.com/serve/MUIFAPExZZx-JCjXBLd6WTYMm8vRj63zvNsbCmkq-1mjrjOv9k_JWEyebEiyItVE_L4EyZ5Xfqn7ErmdwXwYD9Y3SSp1AZpfFY-SMJPjZI2kMDyS7fxtSfotCUyqAufENqxrzITGc-4DKo2hnCJzIFoeLQXtiRaVxjRRA8wNfJHFSKzviHtk067OjA1clW2c4zDXUsRvGTg7jYcFpg==";
+
+const familiar = [
+  "An account is still open for someone who left, and nobody can say who owns it.",
+  "A plugin or vendor still runs because it has not broken yet.",
+  "A process everybody assumed someone else owned.",
+  "You cannot say, plainly, what is exposed and what is fine.",
+];
 
 const services = [
   {
@@ -21,6 +29,8 @@ const services = [
       "Device and network posture",
       "Written findings, ranked by risk",
     ],
+    plate: "/images/work/desk-secure.jpg",
+    plateAlt: "Laptop and phone on a desk during everyday account work",
   },
   {
     id: "penetration-testing",
@@ -35,6 +45,8 @@ const services = [
       "Reproducible attack paths",
       "Fix guidance your team can action",
     ],
+    plate: "/images/work/network-ops.jpg",
+    plateAlt: "Circuit board layout used as a plate for technical terrain",
   },
   {
     id: "website-vulnerability-detection",
@@ -49,6 +61,8 @@ const services = [
       "Dependency and configuration checks",
       "Prioritized remediation list",
     ],
+    plate: "/images/work/briefing.jpg",
+    plateAlt: "Notes and laptops during a scoped briefing",
   },
 ];
 
@@ -114,44 +128,68 @@ export default function FounderLinkHubClient() {
               <Link href="/review" className="portfolio-button solid">
                 Request a security review
               </Link>
-              <a href="#story" className="portfolio-button ghost">
-                Read the story
+              <a href="#familiar" className="portfolio-button ghost">
+                If this is familiar
               </a>
             </div>
           </div>
         </section>
 
-        <section id="story" className="story-section chapter-section">
+        <section
+          id="familiar"
+          className="pain-section chapter-section"
+          aria-labelledby="familiar-title"
+        >
           <div className="editorial-intro" data-reveal>
-            <p className="technical-label">01 / The foundation</p>
-            <h2>Different terrain. The same responsibility.</h2>
+            <p className="technical-label">01 / The usual gaps</p>
+            <h2 id="familiar-title">Does this sound like your shop?</h2>
             <p>
-              I spent years as a Marine, and before that as a Special Operations
-              interpreter in Iraq. The job was to understand the ground,
-              understand the people on it, and give the team an honest picture,
-              including the parts nobody wanted to hear.
+              Most organizations are not breached by something exotic. They are
+              breached through an account nobody closed, a plugin nobody
+              updated, a process everybody assumed someone else owned.
             </p>
-            <p>
-              Cybersecurity asks for the same thing. Most organizations are not
-              breached by something exotic. They are breached through an account
-              nobody closed, a plugin nobody updated, a process everybody
-              assumed someone else owned.
-            </p>
-            <p className="story-emphasis">
-              My work is to look at your systems the way I looked at terrain:
-              carefully, without flattery, and with a clear recommendation at
-              the end.
-            </p>
-            <div className="story-signature">
-              <span>Azad Sleigher</span>
-              <span className="technical-label">Founder, Cyber Ethos</span>
+          </div>
+          <ul className="pain-list">
+            {familiar.map((item) => (
+              <li key={item} data-reveal>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="story" className="story-section chapter-section">
+          <div className="founder-block" data-reveal>
+            <FounderPortrait />
+            <div className="story-copy">
+              <p className="technical-label">02 / The advisor</p>
+              <h2>Different terrain. The same responsibility.</h2>
+              <p>
+                I spent years as a Marine, and before that as a Special
+                Operations interpreter in Iraq. The job was to understand the
+                ground, understand the people on it, and give the team an honest
+                picture, including the parts nobody wanted to hear.
+              </p>
+              <p>
+                You do not need another vendor with a long deck. You need one
+                person who will look at your systems carefully, without
+                flattery, and tell you what to do next.
+              </p>
+              <p className="story-emphasis">
+                Independent practice. Written scope first. Authorization before
+                any testing.
+              </p>
+              <div className="story-signature">
+                <span>Azad Sleigher</span>
+                <span className="technical-label">Founder, Cyber Ethos</span>
+              </div>
             </div>
           </div>
         </section>
 
         <section id="services" className="services-section chapter-section">
           <div className="section-introduction editorial-intro" data-reveal>
-            <p className="technical-label">02 / The work</p>
+            <p className="technical-label">03 / The work</p>
             <h2>Three ways I can help</h2>
             <p>
               Most engagements start with an audit and go from there. If you
@@ -162,6 +200,14 @@ export default function FounderLinkHubClient() {
           <div className="service-list">
             {services.map((service) => (
               <article className="service-article" key={service.id} data-reveal>
+                <figure className="service-plate">
+                  <Image
+                    src={service.plate}
+                    alt={service.plateAlt}
+                    fill
+                    sizes="(max-width: 900px) 92vw, 33vw"
+                  />
+                </figure>
                 <div className="service-lead">
                   <p className="technical-label">{service.index}</p>
                   <h3>{service.title}</h3>
@@ -188,11 +234,15 @@ export default function FounderLinkHubClient() {
             Testing only with explicit authorization and agreed scope. No
             credentials or sensitive data in your first message.
           </p>
+          <p className="photo-credit">
+            Service plates are Unsplash photographs, used as work scenes, not as
+            a stand-in for the founder.
+          </p>
         </section>
 
         <section id="approach" className="approach-section chapter-section">
           <div className="section-introduction editorial-intro" data-reveal>
-            <p className="technical-label">03 / The method</p>
+            <p className="technical-label">04 / The method</p>
             <h2>How an engagement actually runs</h2>
           </div>
           <ol className="approach-grid">
@@ -208,12 +258,12 @@ export default function FounderLinkHubClient() {
 
         <section id="contact" className="contact-section chapter-section">
           <div className="editorial-close" data-reveal>
-            <p className="technical-label">04 / The conversation</p>
+            <p className="technical-label">05 / The conversation</p>
             <h2>What needs a closer look?</h2>
             <p>
-              Tell me what you run and what keeps you up at night. I will tell
-              you honestly whether you need a review, a test, or nothing at all
-              right now.
+              Start with a conversation. Tell me what you run and what keeps you
+              up at night. I will tell you honestly whether you need a review, a
+              test, or nothing at all right now.
             </p>
             <div className="hero-actions">
               <Link href="/review" className="portfolio-button solid">
@@ -233,7 +283,7 @@ export default function FounderLinkHubClient() {
         >
           <div className="editorial-intro newsletter-intro">
             <p id="newsletter-title" className="technical-label">
-              05 / The newsletter
+              06 / The newsletter
             </p>
             <p className="newsletter-heading">Plain notes on staying secure</p>
             <p className="newsletter-copy">
