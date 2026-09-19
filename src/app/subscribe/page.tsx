@@ -21,6 +21,7 @@ export default function SubscribePage() {
             would fix first.
           </p>
         </div>
+        {/* Same Brevo POST as the homepage band. No dark iframe. */}
         <NewsletterSignup />
         <div className="subscribe-next">
           <p className="technical-label">Need work done?</p>

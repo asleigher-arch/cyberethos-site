@@ -445,27 +445,65 @@
   line-height: 1.75;
 }
 .newsletter-plate {
-  width: min(680px, 100%);
+  width: min(560px, 100%);
   margin: 0 auto;
-  padding: 24px 20px 28px;
+  padding: 28px 24px 24px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--paper) 88%, var(--ink) 12%);
+  border-radius: 2px;
+  background: var(--paper);
   box-shadow: none;
 }
-.newsletter-plate-label {
-  margin: 0 0 16px;
-  text-align: center;
+.newsletter-form {
+  display: grid;
+  gap: 16px;
 }
-.newsletter-frame {
+.newsletter-field label {
   display: block;
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--paper);
+}
+.newsletter-field input {
   width: 100%;
-  max-width: none;
-  height: 620px;
-  margin: 0;
-  border: 0;
+  display: block;
+  min-height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
   background: transparent;
-  color-scheme: light;
+  color: inherit;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 14px 16px;
+  outline: none;
+}
+.newsletter-field input::placeholder {
+  color: var(--muted);
+}
+.newsletter-field input:focus {
+  border-color: var(--accent);
+}
+.newsletter-consent {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.newsletter-form .portfolio-button {
+  justify-content: center;
+  width: 100%;
+}
+.newsletter-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 .newsletter-fallback {
   margin: 20px 0 0;
@@ -985,10 +1023,7 @@
     padding-bottom: 80px;
   }
   .newsletter-plate {
-    padding: 18px 12px 22px;
-  }
-  .newsletter-frame {
-    height: 700px;
+    padding: 22px 16px 20px;
   }
   .portfolio-footer {
     padding: 26px 0;
@@ -1482,10 +1517,24 @@
 }
 .portfolio-editorial .newsletter-plate {
   border-color: var(--line);
-  background: var(--wash-ink);
+  background: var(--paper);
 }
-.portfolio-editorial .newsletter-plate-label {
-  color: var(--accent);
+.portfolio-editorial .newsletter-field label {
+  color: var(--ink);
+}
+.portfolio-editorial .newsletter-field input {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: color-mix(in srgb, var(--ink) 22%, var(--paper) 78%);
+}
+.portfolio-editorial .newsletter-field input:hover {
+  border-color: color-mix(in srgb, var(--ink) 40%, var(--paper) 60%);
+}
+.portfolio-editorial .newsletter-field input:focus {
+  border-color: var(--ink);
+}
+.portfolio-editorial .newsletter-consent {
+  color: var(--label);
 }
 .portfolio-editorial .newsletter-fallback {
   color: var(--label);

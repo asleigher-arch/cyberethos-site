@@ -36,13 +36,20 @@ test("subscribe page uses the editorial paper frame, not the ink review chrome",
   assert.match(css, /\.portfolio-editorial\.portfolio-page[\s\S]*?background: var\(--paper\)/);
 });
 
-test("subscribe and homepage share the live Brevo iframe", () => {
+test("subscribe and homepage share the live Brevo signup path without the dark iframe", () => {
   assert.equal(
     newsletter.match(/export const NEWSLETTER_URL =\s*"([^"]+)"/)?.[1],
     newsletterUrl,
   );
-  assert.match(signup, /src=\{NEWSLETTER_URL\}/);
+  assert.match(signup, /action=\{NEWSLETTER_URL\}/);
+  assert.match(signup, /method="POST"/);
+  assert.match(signup, /name="EMAIL"/);
+  assert.match(signup, /name="email_address_check"/);
+  assert.match(signup, /name="locale"/);
   assert.match(signup, /href=\{NEWSLETTER_URL\}/);
+  assert.doesNotMatch(signup, /<iframe/);
+  assert.doesNotMatch(homepage, /<iframe/);
+  assert.doesNotMatch(page, /<iframe/);
   assert.match(newsletter, /sibforms\.com/);
   assert.match(page, /<NewsletterSignup/);
   assert.match(homepage, /<NewsletterSignup/);
@@ -66,11 +73,14 @@ test("subscribe keeps review as a secondary action, not the page primary", () =>
 test("newsletter plate uses hairline chrome on paper, no drop shadow", () => {
   const plate = css.slice(
     css.indexOf(".newsletter-plate {"),
-    css.indexOf(".newsletter-plate-label"),
+    css.indexOf(".newsletter-form {"),
   );
   assert.match(plate, /border: 1px solid var\(--line\)/);
+  assert.match(plate, /background: var\(--paper\)/);
   assert.match(plate, /box-shadow: none/);
   assert.doesNotMatch(plate, /box-shadow:\s*[0-9]/);
-  assert.match(css, /\.portfolio-editorial \.newsletter-plate \{[\s\S]*?background: var\(--wash-ink\)/);
-  assert.match(css, /\.newsletter-plate-label/);
+  assert.match(css, /\.portfolio-editorial \.newsletter-plate \{[\s\S]*?background: var\(--paper\)/);
+  assert.match(css, /\.portfolio-editorial \.newsletter-field label \{[\s\S]*?color: var\(--ink\)/);
+  assert.doesNotMatch(css, /newsletter-frame/);
+  assert.doesNotMatch(signup, /#171716|rgba\(35,\s*35,\s*33/);
 });

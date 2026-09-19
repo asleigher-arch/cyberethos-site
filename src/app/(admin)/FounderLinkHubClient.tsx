@@ -288,7 +288,7 @@ export default function FounderLinkHubClient() {
               would fix first.
             </p>
           </div>
-          {/* Brevo owns the signup copy, consent, and confirmation UI. */}
+          {/* Posts to the live Brevo list. Confirmation is handled by Brevo. */}
           <NewsletterSignup />
         </section>
       </main>

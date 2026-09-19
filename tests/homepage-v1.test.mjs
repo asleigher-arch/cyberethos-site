@@ -68,12 +68,14 @@ test("real founder portrait is used instead of a placeholder", () => {
 
 test("newsletter keeps the live Brevo subscribe path", () => {
   assert.match(homepage, /<NewsletterSignup/);
-  assert.match(signup, /<iframe/);
+  assert.doesNotMatch(signup, /<iframe/);
+  assert.doesNotMatch(homepage, /<iframe/);
   assert.equal(
     newsletter.match(/export const NEWSLETTER_URL =\s*"([^"]+)"/)?.[1],
     newsletterUrl,
   );
-  assert.match(signup, /NEWSLETTER_URL/);
+  assert.match(signup, /action=\{NEWSLETTER_URL\}/);
+  assert.match(signup, /name="EMAIL"/);
   assert.match(subscribe, /<NewsletterSignup/);
   assert.match(homepage, /Plain notes on staying secure/);
 });
