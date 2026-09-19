@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
@@ -17,9 +20,9 @@ export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 }
 
 const navItems = [
+  { href: "/#familiar", label: "Why" },
   { href: "/#story", label: "Story" },
   { href: "/#services", label: "Services" },
-  { href: "/#approach", label: "Approach" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -30,12 +33,30 @@ export default function PublicFrame({
   children: React.ReactNode;
   review?: boolean;
 }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (review) return;
+    const hero = document.querySelector(".portfolio-hero");
+    if (!hero) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { threshold: 0, rootMargin: "-72px 0px 0px 0px" },
+    );
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, [review]);
+
   return (
-    <div className={`portfolio${review ? " portfolio-review" : ""}`}>
+    <div
+      className={`portfolio${review ? " portfolio-review" : " portfolio-editorial"}`}
+    >
       <a className="portfolio-skip" href="#main">
         Skip to content
       </a>
-      <header className="portfolio-header">
+      <header
+        className={`portfolio-header${scrolled ? " is-scrolled" : ""}`}
+      >
         <Link
           className="portfolio-brand"
           href="/"

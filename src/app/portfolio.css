@@ -194,12 +194,14 @@
   justify-content: space-between;
   gap: 18px;
   border: 1px solid rgba(236, 232, 223, 0.55);
+  border-radius: 2px;
   min-height: 54px;
   padding: 15px 22px;
   font-size: 13px;
   line-height: 1.5;
   color: var(--paper);
   background: rgba(16, 17, 16, 0.35);
+  box-shadow: none;
   transition:
     background 0.25s,
     color 0.25s,
@@ -1002,5 +1004,564 @@
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Legora-adapted homepage: editorial journal on CE paper. Review stays ink. */
+.portfolio-editorial {
+  --shell: min(1200px, calc(100% - 14vw));
+  --line: rgba(16, 17, 16, 0.14);
+  --body: color-mix(in srgb, var(--ink) 78%, var(--muted) 22%);
+  --label: color-mix(in srgb, var(--ink) 58%, var(--muted) 42%);
+  --display: Georgia, "Times New Roman", Times, serif;
+  --wash-ink: color-mix(in srgb, var(--paper) 88%, var(--ink) 12%);
+  --wash-accent: color-mix(in srgb, var(--paper) 84%, var(--accent) 16%);
+  background: var(--paper);
+  color: var(--ink);
+  color-scheme: light;
+}
+.portfolio-editorial h1,
+.portfolio-editorial h2,
+.portfolio-editorial h3 {
+  font-family: var(--display);
+  font-weight: 300;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.portfolio-editorial h1 {
+  font-size: clamp(48px, 8.4vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+.portfolio-editorial h2 {
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: 1.08;
+  margin: 0 0 24px;
+}
+.portfolio-editorial h3 {
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+.portfolio-editorial em,
+.portfolio-editorial h1 em,
+.portfolio-editorial h2 em,
+.portfolio-editorial h3 em {
+  font-family: var(--display);
+  font-weight: 300;
+  color: inherit;
+}
+.portfolio-editorial .technical-label {
+  color: var(--accent);
+}
+.portfolio-editorial .portfolio-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  padding-inline: max(24px, calc((100% - 1200px) / 2), 7vw);
+  min-height: 72px;
+  background: transparent;
+  border-bottom: 1px solid rgba(236, 232, 223, 0.18);
+  color: var(--paper);
+  backdrop-filter: none;
+}
+.portfolio-editorial .portfolio-header.is-scrolled {
+  background: var(--paper);
+  border-bottom-color: var(--line);
+  color: var(--ink);
+}
+.portfolio-editorial .portfolio-brand,
+.portfolio-editorial .portfolio-header .nav-contact {
+  color: inherit;
+}
+.portfolio-editorial .portfolio-header .nav-link {
+  color: color-mix(in srgb, currentColor 72%, transparent);
+}
+.portfolio-editorial .portfolio-header nav a:hover {
+  color: var(--accent);
+}
+.portfolio-editorial .brand-sub {
+  color: color-mix(in srgb, currentColor 58%, transparent);
+}
+.portfolio-editorial .ethos-mark {
+  border-color: color-mix(in srgb, currentColor 28%, transparent);
+}
+.portfolio-editorial .portfolio-hero {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  width: 100%;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+.portfolio-editorial .founder-portrait.cinematic {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  min-height: 100%;
+  aspect-ratio: auto;
+  margin: 0;
+  border: 0;
+  background: var(--ink);
+}
+.portfolio-editorial .founder-portrait.cinematic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(16, 17, 16, 0.36);
+  pointer-events: none;
+}
+.portfolio-editorial .founder-portrait.cinematic img {
+  object-fit: cover;
+  object-position: 50% 28%;
+  transform: scale(2.15);
+  transform-origin: 50% 26%;
+  filter: saturate(0.8) contrast(1.06) brightness(0.72);
+}
+.portfolio-editorial .hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  width: min(920px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 0 11vh;
+  text-align: center;
+  color: var(--paper);
+}
+.portfolio-editorial .portfolio-hero h1 {
+  color: var(--paper);
+  margin: 0;
+}
+.portfolio-editorial .hero-intro {
+  justify-content: center;
+  margin-bottom: 22px;
+  color: var(--accent);
+}
+.portfolio-editorial .hero-intro > span {
+  color: var(--accent);
+}
+.portfolio-editorial .hero-description {
+  max-width: 54ch;
+  margin: 28px auto 0;
+  color: color-mix(in srgb, var(--paper) 86%, var(--muted) 14%);
+  font-size: 17px;
+  line-height: 1.7;
+}
+.portfolio-editorial .hero-actions {
+  justify-content: center;
+  margin-top: 36px;
+}
+.portfolio-editorial .portfolio-button {
+  justify-content: center;
+  border-radius: 2px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: transparent;
+  box-shadow: none;
+}
+.portfolio-editorial .portfolio-button:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.portfolio-editorial .portfolio-button.solid {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.portfolio-editorial .portfolio-button.solid:hover {
+  background: color-mix(in srgb, var(--ink) 88%, var(--paper) 12%);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.portfolio-editorial .portfolio-button.ghost {
+  background: transparent;
+}
+.portfolio-editorial .portfolio-hero .portfolio-button {
+  border-color: var(--paper);
+  color: var(--paper);
+  background: transparent;
+}
+.portfolio-editorial .portfolio-hero .portfolio-button:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+.portfolio-editorial .portfolio-hero .portfolio-button.solid {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+.portfolio-editorial .portfolio-hero .portfolio-button.solid:hover {
+  background: color-mix(in srgb, var(--paper) 82%, var(--accent) 18%);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+.portfolio-editorial .chapter-section {
+  width: var(--shell);
+  padding: 80px 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 88px;
+}
+.portfolio-editorial .editorial-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+.portfolio-editorial .editorial-intro h2 {
+  margin: 18px 0 28px;
+}
+.portfolio-editorial .editorial-intro p,
+.portfolio-editorial .story-copy p {
+  color: var(--body);
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0 0 22px;
+}
+.portfolio-editorial .editorial-intro > .technical-label,
+.portfolio-editorial .editorial-close > .technical-label {
+  margin: 0;
+}
+.portfolio-editorial .pain-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 56px 0 0;
+  padding: 0;
+}
+.portfolio-editorial .pain-list li {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--wash-ink);
+  box-shadow: none;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.6;
+}
+.portfolio-editorial .advisor-band,
+.portfolio-editorial .close-band {
+  width: 100%;
+  max-width: none;
+  padding: 96px max(24px, 7vw);
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 0;
+}
+.portfolio-editorial .advisor-band h2,
+.portfolio-editorial .advisor-band h3,
+.portfolio-editorial .close-band h2 {
+  color: var(--paper);
+}
+.portfolio-editorial .founder-block {
+  display: grid;
+  gap: 48px;
+  align-items: center;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+.portfolio-editorial .founder-portrait.plate {
+  min-height: min(72vh, 720px);
+  border: 0;
+  border-radius: 28px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 88%, var(--paper) 12%);
+  box-shadow: none;
+}
+.portfolio-editorial .founder-portrait.plate img {
+  object-position: 50% 24%;
+  transform: scale(2.2);
+  transform-origin: 50% 22%;
+  filter: saturate(0.86) contrast(1.06);
+}
+.portfolio-editorial .founder-portrait.plate figcaption {
+  background: rgba(16, 17, 16, 0.62);
+  color: var(--paper);
+  border-top: 1px solid rgba(236, 232, 223, 0.16);
+}
+.portfolio-editorial .founder-portrait.plate figcaption span:last-child {
+  color: var(--accent);
+}
+.portfolio-editorial .advisor-band .story-copy {
+  max-width: 38ch;
+}
+.portfolio-editorial .advisor-band .story-copy h2 {
+  font-size: clamp(40px, 6.2vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 16px 0 28px;
+  max-width: none;
+}
+.portfolio-editorial .advisor-band .story-copy p,
+.portfolio-editorial .close-band p {
+  text-align: left;
+  color: color-mix(in srgb, var(--paper) 78%, var(--muted) 22%);
+}
+.portfolio-editorial .advisor-band .story-emphasis {
+  color: var(--paper);
+}
+.portfolio-editorial .advisor-band .story-signature {
+  margin: 40px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(236, 232, 223, 0.16);
+  align-items: flex-start;
+}
+.portfolio-editorial .close-band .editorial-close {
+  max-width: 920px;
+}
+.portfolio-editorial .close-band .editorial-close p {
+  text-align: center;
+}
+.portfolio-editorial .close-band .contact-email {
+  color: var(--accent);
+}
+.portfolio-editorial .close-band .contact-email:hover {
+  color: var(--paper);
+}
+.portfolio-editorial .close-band .portfolio-button.solid {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+}
+.portfolio-editorial .close-band .portfolio-button.solid:hover {
+  background: color-mix(in srgb, var(--paper) 82%, var(--accent) 18%);
+  color: var(--ink);
+}
+.portfolio-editorial .story-signature > span:first-child {
+  font: italic 30px var(--display);
+  color: var(--accent);
+}
+.portfolio-editorial .section-introduction > p {
+  color: var(--body);
+  margin-left: auto;
+  margin-right: auto;
+}
+.portfolio-editorial .service-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 56px;
+  border-top: 0;
+}
+.portfolio-editorial .service-article {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 0;
+  padding: 0 0 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  border-bottom: 1px solid var(--line);
+  background: var(--wash-ink);
+  box-shadow: none;
+}
+.portfolio-editorial .service-plate {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  overflow: hidden;
+  background: var(--ink);
+}
+.portfolio-editorial .service-plate img {
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.72) contrast(1.04);
+}
+.portfolio-editorial .service-lead,
+.portfolio-editorial .service-detail,
+.portfolio-editorial .service-deliverables {
+  padding-inline: 24px;
+}
+.portfolio-editorial .service-article:nth-child(2),
+.portfolio-editorial .service-article:nth-child(3) {
+  background: var(--wash-ink);
+}
+.portfolio-editorial .service-lead h3 {
+  margin: 12px 0 10px;
+  color: var(--ink);
+}
+.portfolio-editorial .service-summary,
+.portfolio-editorial .service-detail p,
+.portfolio-editorial .service-deliverables,
+.portfolio-editorial .scope-note,
+.portfolio-editorial .approach-grid p,
+.portfolio-editorial .contact-section p,
+.portfolio-editorial .newsletter-copy {
+  color: var(--body);
+}
+.portfolio-editorial .service-summary {
+  max-width: none;
+}
+.portfolio-editorial .service-scope {
+  color: var(--ink);
+}
+.portfolio-editorial .service-scope:hover {
+  color: var(--accent);
+}
+.portfolio-editorial .service-deliverables {
+  margin-top: auto;
+  padding-left: 40px;
+  border-left: 1px solid var(--line);
+  margin-inline: 24px 0;
+}
+.portfolio-editorial .photo-credit {
+  margin: 28px 0 0;
+  color: var(--label);
+  font-size: 12px;
+  line-height: 1.7;
+  max-width: 62ch;
+}
+.portfolio-editorial .approach-grid {
+  margin-top: 56px;
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+}
+.portfolio-editorial .approach-grid li {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line);
+}
+.portfolio-editorial .approach-grid h3 {
+  color: var(--ink);
+}
+.portfolio-editorial .editorial-close {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+.portfolio-editorial .editorial-close h2 {
+  font-size: clamp(48px, 8vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 18px 0 28px;
+}
+.portfolio-editorial .editorial-close p {
+  max-width: 54ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.portfolio-editorial .contact-email {
+  color: var(--label);
+}
+.portfolio-editorial .contact-email:hover {
+  color: var(--ink);
+}
+.portfolio-editorial .newsletter-heading {
+  font-family: var(--display);
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 16px 0 12px;
+}
+.portfolio-editorial .newsletter-fallback,
+.portfolio-editorial .newsletter-fallback a {
+  color: var(--body);
+}
+.portfolio-editorial .portfolio .newsletter-fallback a,
+.portfolio-editorial .newsletter-fallback a {
+  color: var(--ink);
+}
+.portfolio-editorial .portfolio-footer {
+  color: var(--label);
+  border-top: 1px solid var(--line);
+}
+.portfolio-editorial .portfolio-footer a {
+  color: inherit;
+}
+.portfolio-editorial .portfolio-footer > span {
+  color: var(--accent);
+}
+.portfolio-editorial .portfolio-skip {
+  background: var(--ink);
+  color: var(--paper);
+}
+@media (min-width: 900px) {
+  .portfolio-editorial .pain-list {
+    grid-template-columns: 1fr 1fr;
+  }
+  .portfolio-editorial .founder-block {
+    grid-template-columns: minmax(0, 0.5fr) minmax(0, 0.5fr);
+    gap: 72px;
+  }
+  .portfolio-editorial .service-list {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .portfolio-editorial .service-article {
+    grid-template-columns: none;
+    min-height: 520px;
+    padding: 0 0 24px;
+  }
+  .portfolio-editorial .approach-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .portfolio-editorial .approach-grid li {
+    padding: 40px 36px 40px 0;
+    border-bottom: 0;
+    border-right: 1px solid var(--line);
+  }
+  .portfolio-editorial .approach-grid li:last-child {
+    border-right: 0;
+    padding-right: 0;
+  }
+}
+@media (max-width: 900px) {
+  .portfolio-editorial {
+    --shell: min(100% - 48px, 1200px);
+  }
+  .portfolio-editorial .portfolio-header {
+    padding-inline: 24px;
+  }
+  .portfolio-editorial .hero-copy {
+    width: min(100% - 32px, 920px);
+    padding-bottom: 8vh;
+  }
+  .portfolio-editorial .founder-portrait.cinematic img {
+    object-position: 50% 22%;
+    transform: scale(1.7);
+    transform-origin: 50% 20%;
+  }
+  .portfolio-editorial .advisor-band,
+  .portfolio-editorial .close-band {
+    padding: 72px 24px;
+  }
+  .portfolio-editorial .founder-portrait.plate {
+    min-height: 480px;
+  }
+  .portfolio-editorial .advisor-band .story-copy {
+    max-width: none;
+  }
+  .portfolio-editorial .pain-list li {
+    font-size: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .portfolio-editorial {
+    --shell: min(100% - 32px, 1200px);
+  }
+  .portfolio-editorial .portfolio-header {
+    padding-inline: 16px;
+  }
+  .portfolio-editorial h1,
+  .portfolio-editorial .editorial-close h2 {
+    font-size: 44px;
+    line-height: 1.02;
+  }
+  .portfolio-editorial .chapter-section {
+    padding: 64px 0;
+  }
+  .portfolio-editorial .hero-description,
+  .portfolio-editorial .editorial-intro p,
+  .portfolio-editorial .contact-section p {
+    font-size: 15px;
   }
 }

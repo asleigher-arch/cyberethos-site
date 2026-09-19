@@ -19,6 +19,7 @@ const subscribe = fs.readFileSync(
   new URL("src/app/subscribe/route.ts", root),
   "utf8",
 );
+const css = fs.readFileSync(new URL("src/app/portfolio.css", root), "utf8");
 
 const newsletterUrl =
   "https://9d400ade.sibforms.com/serve/MUIFAPExZZx-JCjXBLd6WTYMm8vRj63zvNsbCmkq-1mjrjOv9k_JWEyebEiyItVE_L4EyZ5Xfqn7ErmdwXwYD9Y3SSp1AZpfFY-SMJPjZI2kMDyS7fxtSfotCUyqAufENqxrzITGc-4DKo2hnCJzIFoeLQXtiRaVxjRRA8wNfJHFSKzviHtk067OjA1clW2c4zDXUsRvGTg7jYcFpg==";
@@ -54,6 +55,7 @@ test("real founder portrait is used instead of a placeholder", () => {
   assert.match(portrait, /Marine Corps dress uniform/);
   assert.doesNotMatch(portrait, /placeholder|silhouette/i);
   assert.match(homepage, /<FounderPortrait/);
+  assert.match(homepage, /variant="cinematic"/);
 });
 
 test("newsletter keeps the live Brevo subscribe path", () => {
@@ -75,4 +77,48 @@ test("three production services keep their review slugs", () => {
     assert.match(homepage, new RegExp(`id: "${id}"`));
   }
   assert.match(homepage, /Scope this engagement/);
+});
+
+test("homepage copy stays blunt with no em dashes", () => {
+  assert.doesNotMatch(homepage, /—/);
+  assert.match(homepage, /Discipline\. Curiosity\. Purpose\./);
+  assert.doesNotMatch(homepage, /Lee Carsten|Whitecap|Fortune 500|AEC/i);
+});
+
+test("supporting plates are Unsplash work scenes, not a founder substitute", () => {
+  assert.match(homepage, /\/images\/work\/desk-secure\.jpg/);
+  assert.match(homepage, /\/images\/work\/network-ops\.jpg/);
+  assert.match(homepage, /\/images\/work\/briefing\.jpg/);
+  assert.match(homepage, /id="familiar"/);
+  assert.match(homepage, /variant="plate"/);
+  assert.match(homepage, /advisor-band/);
+  assert.ok(
+    fs.existsSync(new URL("public/images/work/desk-secure.jpg", root)),
+  );
+  assert.ok(
+    fs.existsSync(new URL("public/images/work/network-ops.jpg", root)),
+  );
+  assert.ok(fs.existsSync(new URL("public/images/work/briefing.jpg", root)));
+});
+
+test("editorial homepage uses Cyber Ethos tokens and Legora register", () => {
+  assert.match(frame, /portfolio-editorial/);
+  assert.match(css, /--paper: #ece8df/);
+  assert.match(css, /--ink: #101110/);
+  assert.match(css, /--muted: #b8b5ac/);
+  assert.match(css, /--accent: #c0ab8e/);
+  assert.match(css, /\.portfolio-editorial \{[\s\S]*?background: var\(--paper\)/);
+  assert.match(
+    css,
+    /\.portfolio-editorial h1 \{[\s\S]*?Georgia, "Times New Roman", Times, serif|\.portfolio-editorial \{[\s\S]*?--display: Georgia/,
+  );
+  assert.match(css, /\.portfolio-editorial \.founder-portrait\.cinematic/);
+  assert.match(css, /\.portfolio-editorial \.advisor-band/);
+  assert.match(css, /\.founder-portrait\.plate \{[\s\S]*?border-radius: 28px/);
+  assert.match(css, /\.portfolio-button \{[\s\S]*?border-radius: 2px/);
+  assert.match(css, /\.portfolio-editorial \.service-article \{[\s\S]*?box-shadow: none/);
+  assert.doesNotMatch(
+    css.slice(css.indexOf("Legora-adapted homepage")),
+    /box-shadow:\s*[0-9]/,
+  );
 });
