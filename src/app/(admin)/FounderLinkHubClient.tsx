@@ -4,10 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import FounderPortrait from "@/components/portfolio/FounderPortrait";
+import NewsletterSignup from "@/components/portfolio/NewsletterSignup";
 import PublicFrame, { Arrow } from "@/components/portfolio/PublicFrame";
-
-const newsletterUrl =
-  "https://9d400ade.sibforms.com/serve/MUIFAPExZZx-JCjXBLd6WTYMm8vRj63zvNsbCmkq-1mjrjOv9k_JWEyebEiyItVE_L4EyZ5Xfqn7ErmdwXwYD9Y3SSp1AZpfFY-SMJPjZI2kMDyS7fxtSfotCUyqAufENqxrzITGc-4DKo2hnCJzIFoeLQXtiRaVxjRRA8wNfJHFSKzviHtk067OjA1clW2c4zDXUsRvGTg7jYcFpg==";
 
 const familiar = [
   "An account is still open for someone who left, and nobody can say who owns it.",
@@ -281,30 +279,17 @@ export default function FounderLinkHubClient() {
           aria-labelledby="newsletter-title"
         >
           <div className="editorial-intro newsletter-intro">
-            <p id="newsletter-title" className="technical-label">
-              06 / The newsletter
-            </p>
-            <p className="newsletter-heading">Plain notes on staying secure</p>
+            <p className="technical-label">06 / The newsletter</p>
+            <h2 id="newsletter-title" className="newsletter-heading">
+              Plain notes on staying secure
+            </h2>
             <p className="newsletter-copy">
               Occasional, short, no product pitches. What I am seeing and what I
               would fix first.
             </p>
           </div>
-          {/* Brevo owns the signup copy, consent, and confirmation UI. */}
-          <iframe
-            className="newsletter-frame"
-            src={newsletterUrl}
-            title="Subscribe to the Cyber Ethos security newsletter"
-            loading="lazy"
-            width="640"
-            height="620"
-          />
-          <p className="newsletter-fallback">
-            Form not loading?{" "}
-            <a href={newsletterUrl} target="_blank" rel="noopener noreferrer">
-              Open the signup form in a new tab <Arrow diagonal />
-            </a>
-          </p>
+          {/* Posts to the live Brevo list. Confirmation is handled by Brevo. */}
+          <NewsletterSignup />
         </section>
       </main>
     </PublicFrame>

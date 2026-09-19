@@ -29,14 +29,16 @@ const navItems = [
 export default function PublicFrame({
   children,
   review = false,
+  page = false,
 }: {
   children: React.ReactNode;
   review?: boolean;
+  page?: boolean;
 }) {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(page);
 
   useEffect(() => {
-    if (review) return;
+    if (review || page) return;
     const hero = document.querySelector(".portfolio-hero");
     if (!hero) return;
     const observer = new IntersectionObserver(
@@ -45,11 +47,11 @@ export default function PublicFrame({
     );
     observer.observe(hero);
     return () => observer.disconnect();
-  }, [review]);
+  }, [review, page]);
 
   return (
     <div
-      className={`portfolio${review ? " portfolio-review" : " portfolio-editorial"}`}
+      className={`portfolio${review ? " portfolio-review" : " portfolio-editorial"}${page ? " portfolio-page" : ""}`}
     >
       <a className="portfolio-skip" href="#main">
         Skip to content

@@ -16,7 +16,15 @@ const portrait = fs.readFileSync(
   "utf8",
 );
 const subscribe = fs.readFileSync(
-  new URL("src/app/subscribe/route.ts", root),
+  new URL("src/app/subscribe/page.tsx", root),
+  "utf8",
+);
+const newsletter = fs.readFileSync(
+  new URL("src/components/portfolio/newsletter.ts", root),
+  "utf8",
+);
+const signup = fs.readFileSync(
+  new URL("src/components/portfolio/NewsletterSignup.tsx", root),
   "utf8",
 );
 const css = fs.readFileSync(new URL("src/app/portfolio.css", root), "utf8");
@@ -59,12 +67,16 @@ test("real founder portrait is used instead of a placeholder", () => {
 });
 
 test("newsletter keeps the live Brevo subscribe path", () => {
-  assert.match(homepage, /<iframe/);
+  assert.match(homepage, /<NewsletterSignup/);
+  assert.doesNotMatch(signup, /<iframe/);
+  assert.doesNotMatch(homepage, /<iframe/);
   assert.equal(
-    homepage.match(/const newsletterUrl =\s*"([^"]+)"/)?.[1],
+    newsletter.match(/export const NEWSLETTER_URL =\s*"([^"]+)"/)?.[1],
     newsletterUrl,
   );
-  assert.ok(subscribe.includes(newsletterUrl));
+  assert.match(signup, /action=\{NEWSLETTER_URL\}/);
+  assert.match(signup, /name="EMAIL"/);
+  assert.match(subscribe, /<NewsletterSignup/);
   assert.match(homepage, /Plain notes on staying secure/);
 });
 
