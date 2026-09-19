@@ -444,21 +444,34 @@
   font-size: 14px;
   line-height: 1.75;
 }
+.newsletter-plate {
+  width: min(680px, 100%);
+  margin: 0 auto;
+  padding: 24px 20px 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--paper) 88%, var(--ink) 12%);
+  box-shadow: none;
+}
+.newsletter-plate-label {
+  margin: 0 0 16px;
+  text-align: center;
+}
 .newsletter-frame {
   display: block;
   width: 100%;
-  max-width: 640px;
+  max-width: none;
   height: 620px;
-  margin: 0 auto;
+  margin: 0;
   border: 0;
-  color-scheme: normal;
+  background: transparent;
+  color-scheme: light;
 }
 .newsletter-fallback {
-  margin: 16px auto 0;
-  max-width: 640px;
+  margin: 20px 0 0;
   text-align: center;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.8;
 }
 .portfolio .newsletter-fallback a {
@@ -971,8 +984,8 @@
   .contact-section {
     padding-bottom: 80px;
   }
-  .newsletter-section.chapter-section {
-    padding-inline: 0;
+  .newsletter-plate {
+    padding: 18px 12px 22px;
   }
   .newsletter-frame {
     height: 700px;
@@ -1455,19 +1468,77 @@
 }
 .portfolio-editorial .newsletter-heading {
   font-family: var(--display);
-  font-size: clamp(28px, 3.4vw, 40px);
+  font-size: clamp(32px, 4.4vw, 56px);
   font-weight: 300;
   letter-spacing: -0.02em;
   color: var(--ink);
   margin: 16px 0 12px;
 }
-.portfolio-editorial .newsletter-fallback,
-.portfolio-editorial .newsletter-fallback a {
-  color: var(--body);
+.portfolio-editorial .newsletter-intro .newsletter-copy {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 46ch;
+  font-size: 17px;
 }
-.portfolio-editorial .portfolio .newsletter-fallback a,
-.portfolio-editorial .newsletter-fallback a {
+.portfolio-editorial .newsletter-plate {
+  border-color: var(--line);
+  background: var(--wash-ink);
+}
+.portfolio-editorial .newsletter-plate-label {
+  color: var(--accent);
+}
+.portfolio-editorial .newsletter-fallback {
+  color: var(--label);
+}
+.portfolio-editorial .newsletter-fallback a,
+.portfolio-editorial .portfolio .newsletter-fallback a {
   color: var(--ink);
+}
+.portfolio-editorial.portfolio-page .portfolio-header,
+.portfolio-editorial.portfolio-page .portfolio-header.is-scrolled {
+  position: sticky;
+  background: var(--paper);
+  border-bottom-color: var(--line);
+  color: var(--ink);
+  backdrop-filter: none;
+}
+.subscribe-main {
+  width: var(--shell);
+  margin: 0 auto;
+  padding: 72px 0 96px;
+  min-height: calc(100svh - 160px);
+}
+.subscribe-intro {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.subscribe-intro h1 {
+  margin: 18px 0 24px;
+}
+.subscribe-lede,
+.subscribe-next p:not(.technical-label) {
+  max-width: 46ch;
+  margin: 0 auto;
+  color: var(--body);
+  font-size: 17px;
+  line-height: 1.8;
+}
+.subscribe-next {
+  max-width: 520px;
+  margin: 72px auto 0;
+  padding-top: 48px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.subscribe-next .technical-label {
+  margin: 0 0 16px;
+}
+.subscribe-next p:not(.technical-label) {
+  margin-bottom: 28px;
+}
+.subscribe-next .portfolio-button {
+  margin: 0 auto;
 }
 .portfolio-editorial .portfolio-footer {
   color: var(--label);
@@ -1561,7 +1632,23 @@
   }
   .portfolio-editorial .hero-description,
   .portfolio-editorial .editorial-intro p,
-  .portfolio-editorial .contact-section p {
+  .portfolio-editorial .contact-section p,
+  .subscribe-lede,
+  .subscribe-next p:not(.technical-label) {
     font-size: 15px;
+  }
+  .subscribe-main {
+    padding: 48px 0 72px;
+  }
+  .subscribe-intro {
+    margin-bottom: 36px;
+  }
+  .subscribe-intro h1 {
+    font-size: 40px;
+    line-height: 1.05;
+  }
+  .subscribe-next {
+    margin-top: 56px;
+    padding-top: 36px;
   }
 }
