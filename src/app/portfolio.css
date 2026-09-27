@@ -2306,3 +2306,40 @@
     padding: 56px 0 64px;
   }
 }
+
+/* Post-checkout confirmation. Same type, color, and frame as founding members. */
+.welcome-founding {
+  min-height: calc(100svh - 168px);
+  padding: 72px 0 96px;
+}
+.portfolio-editorial .welcome-founding .b-top {
+  padding: 0;
+  max-width: 720px;
+}
+.welcome-founding .m-lede {
+  max-width: 36ch;
+}
+.welcome-founding .m-bottom {
+  border-top: 0;
+  padding: 8px 0 0;
+  max-width: 34rem;
+}
+.welcome-founding .m-bottom p.b-free {
+  margin-top: 22px;
+  font-size: 14px;
+}
+.welcome-founding .m-bottom p.b-free a {
+  color: var(--label);
+}
+.welcome-founding .m-bottom p.b-free a:hover {
+  color: var(--ink);
+}
+.meta-pixel-fallback {
+  display: none;
+}
+@media (max-width: 600px) {
+  .welcome-founding {
+    min-height: calc(100svh - 150px);
+    padding: 40px 0 72px;
+  }
+}

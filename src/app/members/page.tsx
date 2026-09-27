@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import MetaPixelSlot from "@/components/analytics/MetaPixelSlot";
 import PublicFrame, { Arrow } from "@/components/portfolio/PublicFrame";
 
 export const metadata: Metadata = {
@@ -204,6 +205,7 @@ function YearlySeatLink() {
 export default function MembersPage() {
   return (
     <PublicFrame page>
+      <MetaPixelSlot page="members" />
       <main id="main" className="members-main">
         <section className="b-top">
           <p className="technical-label">Cyber Ethos · Founding members</p>
