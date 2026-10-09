@@ -200,6 +200,12 @@ A major update focused on Next.js 16 implementation and comprehensive redesign.
 * Enhanced multiselect functionality
 * Added default layout component
 
+## Environment
+
+Copy `.env.example` to `.env.local` if you need local variables.
+
+* `NEXT_PUBLIC_META_PIXEL_ID`: numeric Meta Pixel ID. It is read at build time and used only on `/members` and `/welcome-founding`. Leave it empty and no pixel code is loaded.
+
 ## License
 
 TailAdmin Next.js Free Version is released under the MIT License.
