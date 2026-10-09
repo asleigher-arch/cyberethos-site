@@ -62,11 +62,6 @@ const comparison: { feature: string; free: string; member: string }[] = [
     member: "Yes",
   },
   {
-    feature: "Monthly 30-minute live owner Q&A",
-    free: "No",
-    member: "Yes",
-  },
-  {
     feature: "Ask Azad by reply, answer within 48 hours",
     free: "Reply anytime, answered when I can",
     member: "Yes, within 48 hours",
@@ -327,12 +322,10 @@ export default function MembersPage() {
               </ul>
             </article>
             <article className="b-item">
-              <p className="technical-label">03 / Monthly, and by reply</p>
+              <p className="technical-label">03 / By reply</p>
               <h3>Ask me directly</h3>
               <p>
-                A 30-minute live Q&amp;A for owners, once a month. And between
-                those, reply to any email with a question. I answer within 48
-                hours.
+                Reply to any email with a question. I answer within 48 hours.
               </p>
             </article>
             <article className="b-item">
