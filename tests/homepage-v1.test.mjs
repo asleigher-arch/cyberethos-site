@@ -15,22 +15,7 @@ const portrait = fs.readFileSync(
   new URL("src/components/portfolio/FounderPortrait.tsx", root),
   "utf8",
 );
-const subscribe = fs.readFileSync(
-  new URL("src/app/subscribe/page.tsx", root),
-  "utf8",
-);
-const newsletter = fs.readFileSync(
-  new URL("src/components/portfolio/newsletter.ts", root),
-  "utf8",
-);
-const signup = fs.readFileSync(
-  new URL("src/components/portfolio/NewsletterSignup.tsx", root),
-  "utf8",
-);
 const css = fs.readFileSync(new URL("src/app/portfolio.css", root), "utf8");
-
-const newsletterUrl =
-  "https://9d400ade.sibforms.com/serve/MUIFAPExZZx-JCjXBLd6WTYMm8vRj63zvNsbCmkq-1mjrjOv9k_JWEyebEiyItVE_L4EyZ5Xfqn7ErmdwXwYD9Y3SSp1AZpfFY-SMJPjZI2kMDyS7fxtSfotCUyqAufENqxrzITGc-4DKo2hnCJzIFoeLQXtiRaVxjRRA8wNfJHFSKzviHtk067OjA1clW2c4zDXUsRvGTg7jYcFpg==";
 
 test("homepage keeps the approved v1 section order", () => {
   const order = [
@@ -39,7 +24,6 @@ test("homepage keeps the approved v1 section order", () => {
     'id="services"',
     'id="approach"',
     'id="contact"',
-    'id="newsletter"',
   ];
   let cursor = 0;
   for (const marker of order) {
@@ -66,18 +50,9 @@ test("real founder portrait is used instead of a placeholder", () => {
   assert.match(homepage, /variant="cinematic"/);
 });
 
-test("newsletter keeps the live Brevo subscribe path", () => {
-  assert.match(homepage, /<NewsletterSignup/);
-  assert.doesNotMatch(signup, /<iframe/);
+test("homepage no longer carries a newsletter signup", () => {
+  assert.doesNotMatch(homepage, /NewsletterSignup|sibforms|newsletter/i);
   assert.doesNotMatch(homepage, /<iframe/);
-  assert.equal(
-    newsletter.match(/export const NEWSLETTER_URL =\s*"([^"]+)"/)?.[1],
-    newsletterUrl,
-  );
-  assert.match(signup, /action=\{NEWSLETTER_URL\}/);
-  assert.match(signup, /name="EMAIL"/);
-  assert.match(subscribe, /<NewsletterSignup/);
-  assert.match(homepage, /Plain notes on staying secure/);
 });
 
 test("three production services keep their review slugs", () => {

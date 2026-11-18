@@ -534,15 +534,6 @@ html.lenis, html.lenis body { height: auto; }
 .tst__card:hover { background: var(--ink-3); }
 .tst__card:hover .tst__go { gap: 12px; color: var(--signal); }
 .press__list { border-top: 1px solid var(--ink); }
-
-/* ---------- Newsletter ---------- */
-.news { background: var(--olive); padding: var(--sec) var(--g); border-top: 1px solid var(--line); }
-.news__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--g); row-gap: 36px; align-items: end; margin-top: 36px; }
-.news__title { grid-column: 1 / span 8; font-size: clamp(60px, 10.4vw, 190px); }
-.news__title .stencil { color: var(--signal); }
-.news__side { grid-column: 9 / span 4; display: grid; gap: 22px; justify-items: start; }
-.news__side p { font-size: clamp(18px, 1.5vw, 22px); line-height: 1.45; max-width: 34ch; }
-.news__side .news__note { font-size: 12px; color: var(--bone-3); }
 .press__list a {
   display: grid; grid-template-columns: 96px minmax(0, 220px) minmax(0, 1fr) 90px 16px; column-gap: 24px; row-gap: 6px; align-items: baseline;
   padding: 24px 0; border-bottom: 1px solid var(--line-dark); position: relative; isolation: isolate;
@@ -611,7 +602,7 @@ html.lenis, html.lenis body { height: auto; }
   .nav__menu { display: inline-flex; }
   .sec-head h2 { grid-column: 1 / -1; }
   .sec-intro { grid-column: 1 / -1; }
-  .tx__lede, .tx__aside, .nolb__copy, .nolb__quote, .cyber__lede, .cyber__body, .roe, .term, .news__title, .news__side { grid-column: 1 / -1; }
+  .tx__lede, .tx__aside, .nolb__copy, .nolb__quote, .cyber__lede, .cyber__body, .roe, .term { grid-column: 1 / -1; }
   .tx__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat:nth-child(2) { border-right: 0; }
   .stat:nth-child(3) { padding-left: 0; }

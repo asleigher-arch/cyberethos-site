@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import FounderPortrait from "@/components/portfolio/FounderPortrait";
-import NewsletterSignup from "@/components/portfolio/NewsletterSignup";
 import PublicFrame, { Arrow } from "@/components/portfolio/PublicFrame";
 
 const familiar = [
@@ -271,25 +270,6 @@ export default function FounderLinkHubClient() {
               </a>
             </div>
           </div>
-        </section>
-
-        <section
-          id="newsletter"
-          className="newsletter-section chapter-section"
-          aria-labelledby="newsletter-title"
-        >
-          <div className="editorial-intro newsletter-intro">
-            <p className="technical-label">06 / The newsletter</p>
-            <h2 id="newsletter-title" className="newsletter-heading">
-              Plain notes on staying secure
-            </h2>
-            <p className="newsletter-copy">
-              Occasional, short, no product pitches. What I am seeing and what I
-              would fix first.
-            </p>
-          </div>
-          {/* Posts to the live Brevo list. Confirmation is handled by Brevo. */}
-          <NewsletterSignup />
         </section>
       </main>
     </PublicFrame>
