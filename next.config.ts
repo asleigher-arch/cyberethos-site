@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 // Friend's static homepage security policy. Scoped to the document at /
-// only. Do not copy this onto other routes: it would block Brevo, Stripe,
-// analytics, and a future Meta Pixel on /subscribe, /members, and /review.
+// only. Do not copy this onto other routes: it would block analytics
+// and a future Meta Pixel on /review.
 const homepageDocumentHeaders = [
   {
     key: "Content-Security-Policy",
@@ -56,6 +56,12 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: false,
       },
+      // These pages are gone. Permanent so old links and ads open /.
+      { source: "/subscribe", destination: "/", permanent: true },
+      { source: "/members", destination: "/", permanent: true },
+      { source: "/welcome-founding", destination: "/", permanent: true },
+      { source: "/welcome", destination: "/", permanent: true },
+      { source: "/thanks", destination: "/", permanent: true },
     ];
   },
   async rewrites() {

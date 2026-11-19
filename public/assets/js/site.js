@@ -467,7 +467,7 @@
     });
 
     /* Gentle rise for content blocks */
-    var riseSel = '.tx__grid > *, .tx__stats .stat, .hat, .nolb__grid > *, .cyber__intro > *, .svc__row, .roe, .term, .tst__grid > li, .news__side, .press__list li, .foot__grid > *';
+    var riseSel = '.tx__grid > *, .tx__stats .stat, .hat, .nolb__grid > *, .cyber__intro > *, .svc__row, .roe, .term, .tst__grid > li, .press__list li, .foot__grid > *';
     var rise = $$(riseSel);
     gsap.set(rise, { opacity: 0, y: 30 });
     ScrollTrigger.batch(rise, {
@@ -484,7 +484,7 @@
         scrollTrigger: { trigger: '.nolb__title', start: 'top 82%', once: true }
       });
     });
-    $$('.sec-head h2, .cyber__title, .news__title, .foot__big').forEach(function (h) {
+    $$('.sec-head h2, .cyber__title, .foot__big').forEach(function (h) {
       gsap.from(h, {
         y: 60, opacity: 0, duration: 1.2, ease: 'expo.out',
         scrollTrigger: { trigger: h, start: 'top 88%', once: true }
