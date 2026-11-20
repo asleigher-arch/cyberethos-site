@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Outfit } from 'next/font/google';
 import './globals.css';
 import './portfolio.css';
@@ -8,6 +9,13 @@ import { ThemeProvider } from '@/context/ThemeContext';
 const outfit = Outfit({
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
+};
 
 export default function RootLayout({
   children,
